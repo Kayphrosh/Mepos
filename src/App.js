@@ -1,9 +1,11 @@
+import { Routes, Route } from "react-router-dom";
+import Signup from "./features/authentication/signup/Signup";
 
 function App() {
   return (
-    <div className="App">
-      HELLO WORLD
-    </div>
+    <Routes>
+      <Route path="/register-store" element={<Signup />} />
+    </Routes>
   );
 }
 

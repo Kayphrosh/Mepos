@@ -1,0 +1,71 @@
+@import "../../../variables";
+
+* {
+  outline: none;
+}
+
+.form_input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  label {
+    color: $label;
+    font-size: 1rem;
+    line-height: 28.8px;
+    font-weight: 600;
+
+    span {
+      color: $primarycolor-400;
+    }
+  }
+
+  div {
+    position: relative;
+
+    input {
+      border: 1px solid $stroke;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 400;
+      color: $label;
+      width: 100%;
+
+      &:hover {
+        border: 2px solid #767676;
+      }
+
+      &:focus {
+        border: 2px solid $primarycolor-100;
+      }
+
+      &::placeholder {
+        color: $placeholder;
+      }
+
+      &.error {
+        border: 2px solid red;
+
+        :focus {
+          border: 2px solid red;
+        }
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 14.5px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  p {
+    color: red;
+    margin-top: 2px;
+    font-size: 11px;
+  }
+}
