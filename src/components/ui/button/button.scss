@@ -1,0 +1,12 @@
+@import "../../../variables";
+
+button {
+  background-color: $primarycolor-100;
+  color: $white-200;
+  font-size: 1rem;
+  line-height: 28.8px;
+  font-weight: bold;
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 5px;
+}

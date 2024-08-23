@@ -1,0 +1,34 @@
+$black: #000000;
+$white-100: #ffffff;
+$white-200: #fafafa;
+$primarycolor-100: #010066;
+$primarycolor-200: #023e8a;
+$primarycolor-400: #00b4d8;
+$primarycolor-600: #caf0f8;
+$paragraph-100: #afadb5;
+$paragraph-400: #d7d6da;
+$text-100: #151411;
+$text-200: #3c3b39;
+$text-300: #636260;
+$text-400: #8a8988;
+$text-500: #b1b1b0;
+$state-100: #dd1104;
+$stroke: #dadada;
+$placeholder: #b1b1b0;
+$label: #3c3b39;
+$background: #fbfbfd;
+$black: #000000;
+
+$font: Inter, sans-serif;
+
+body {
+  background-color: $white-100;
+  font-family: $font;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
