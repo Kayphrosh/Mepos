@@ -8,9 +8,6 @@ import Button from "../../components/ui/button/Button";
 import { useForm } from "react-hook-form";
 
 const ForgotPassword = () => {
-  const [step, setStep] = useState(1);
-  const [showCreatePassword, setShowCreatePassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
