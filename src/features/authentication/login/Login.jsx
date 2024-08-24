@@ -1,6 +1,6 @@
 import {React, useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Input from "../../../components/ui/input/Input";
 import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
 import "./login.scss";
@@ -93,7 +93,7 @@ const Login = () => {
                 />
               </div>
               <div className='forgot' >
-                <p >Forgot your password?</p>
+                <Link to="/forgot-password"><p>Forgot your password?</p></Link>
               </div>
               <Button type="submit">Login</Button>
             </div>
