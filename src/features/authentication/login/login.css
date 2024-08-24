@@ -1,1 +1,60 @@
-/*# sourceMappingURL=login.css.map */
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+.container {
+  margin-top: 6.125rem;
+  margin-left: 7%;
+  margin-right: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .container {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+}
+.container .home-image {
+  width: 60%;
+}
+@media (max-width: 1024px) {
+  .container .home-image {
+    display: none;
+  }
+}
+.container .register-store .heading {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .register-store .heading h3 {
+  Line-height: 31.2px;
+  margin-bottom: 10px;
+}
+.container .register-store .heading h4 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25.2px;
+  text-align: center;
+  margin: 0 30%;
+}
+.container .register-store form .forgot p {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 25.2px;
+  text-align: right;
+  text-decoration: underline;
+}/*# sourceMappingURL=login.css.map */
