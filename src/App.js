@@ -4,7 +4,7 @@ import Signup from "./features/authentication/signup/Signup";
 function App() {
   return (
     <Routes>
-      <Route path="/register-store" element={<Signup />} />
+      <Route path="/" element={<Signup />} />
     </Routes>
   );
 }
