@@ -10,10 +10,15 @@ h3 {
   font-weight: bold;
 }
 
+* {
+  outline: none;
+}
+
 .form_input {
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 }
 .form_input label {
   color: #3c3b39;
@@ -24,16 +29,45 @@ h3 {
 .form_input label span {
   color: #00b4d8;
 }
-.form_input input {
+.form_input div {
+  position: relative;
+}
+.form_input div input {
   border: 1px solid #dadada;
   padding: 10px 15px;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 400;
   color: #3c3b39;
+  width: 100%;
 }
-.form_input input::placeholder {
+.form_input div input:hover {
+  border: 2px solid #767676;
+}
+.form_input div input:focus {
+  border: 2px solid #010066;
+}
+.form_input div input::-moz-placeholder {
   color: #b1b1b0;
 }
-
-/*# sourceMappingURL=input.css.map */
+.form_input div input::placeholder {
+  color: #b1b1b0;
+}
+.form_input div input.error {
+  border: 2px solid red;
+}
+.form_input div input.error :focus {
+  border: 2px solid red;
+}
+.form_input div img {
+  position: absolute;
+  right: 14.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.form_input p {
+  color: red;
+  margin-top: 2px;
+  font-size: 11px;
+}/*# sourceMappingURL=input.css.map */

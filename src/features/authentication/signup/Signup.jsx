@@ -206,7 +206,6 @@ const Signup = () => {
             )}
           </form>
         </div>
-        <div className="home-image"></div>
       </div>
     </div>
   );

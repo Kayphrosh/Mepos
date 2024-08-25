@@ -15,7 +15,7 @@
   }
 
   .home-image {
-    width: 60%;
+    // width: 60%;
 
     @media (max-width: 1024px) {
       display: none;
@@ -26,16 +26,14 @@
     // }
     
     .heading {
-      text-align: center;
-      flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-      .text{
-        // width: 50%;
-        
-      }
-
+        img{
+            width: 65px;
+        }
       h3 {
         Line-height: 31.2px;
         margin-bottom: 10px;

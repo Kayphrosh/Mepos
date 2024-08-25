@@ -25,9 +25,6 @@ h3 {
     margin-left: 5%;
   }
 }
-.container .home-image {
-  width: 60%;
-}
 @media (max-width: 1024px) {
   .container .home-image {
     display: none;
@@ -38,6 +35,9 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.container .register-store .heading img {
+  width: 65px;
 }
 .container .register-store .heading h3 {
   Line-height: 31.2px;
@@ -57,4 +57,4 @@ h3 {
   line-height: 25.2px;
   text-align: right;
   text-decoration: underline;
-}/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=checkMail.css.map */
