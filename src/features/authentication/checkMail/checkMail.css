@@ -10,6 +10,11 @@ h3 {
   font-weight: bold;
 }
 
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
 .container {
   margin-top: 6.125rem;
   margin-left: 7%;

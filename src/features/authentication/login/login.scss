@@ -14,53 +14,52 @@
     margin-left: 5%;
   }
 
-  .home-image {
-    width: 60%;
+  .login {
+    width: 40%;
 
     @media (max-width: 1024px) {
-      display: none;
+      width: 60%;
     }
-  }
 
-  .register-store {
-    // }
-    
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
     .heading {
       text-align: center;
       flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-      .text{
-        // width: 50%;
-        
-      }
+      justify-content: center;
+      align-items: center;
 
       h3 {
-        Line-height: 31.2px;
+        line-height: 31.2px;
         margin-bottom: 10px;
       }
 
-      h4{
+      h4 {
         font-size: 14px;
         font-weight: 400;
         line-height: 25.2px;
         text-align: center;
-        margin: 0 30%;
+        border: 1px solid re;
       }
-
     }
 
     form {
-      .forgot{
-        
-        p{
-            font-family: Inter;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 25.2px;
-            text-align: right;
-            text-decoration: underline;
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .forgot {
+        p {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 25.2px;
+          text-align: right;
+          text-decoration: underline;
+          color: $text-100;
         }
       }
     }

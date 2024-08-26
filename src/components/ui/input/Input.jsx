@@ -15,6 +15,10 @@ const Input = ({
   setShowCreatePassword,
   showConfirmPassword,
   setShowConfirmPassword,
+  showNewPassword,
+  setShowNewPassword,
+  showConfirmNewPassword,
+  setShowConfirmNewPassword,
 }) => {
   return (
     <div className="form_input">
@@ -45,6 +49,24 @@ const Input = ({
             height={20}
             alt="See password"
             onClick={() => !setShowConfirmPassword(!showConfirmPassword)}
+          />
+        )}
+        {name === "newPassword" && (
+          <img
+            src={showNewPassword ? EyeClosed : Eye}
+            width={20}
+            height={20}
+            alt="See password"
+            onClick={() => !setShowNewPassword(!showNewPassword)}
+          />
+        )}
+        {name === "confirmNewPassword" && (
+          <img
+            src={showConfirmNewPassword ? EyeClosed : Eye}
+            width={20}
+            height={20}
+            alt="See password"
+            onClick={() => !setShowConfirmNewPassword(!showConfirmNewPassword)}
           />
         )}
       </div>

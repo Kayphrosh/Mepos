@@ -40,7 +40,7 @@ const RegisterStore = () => {
                   className={`${
                     step === 1 ? "circle active" : "circle complete"
                   }  `}
-                  onClick={() => setStep(1)}
+                  // onClick={() => setStep(1)}
                 >
                   {step === 1 ? 1 : <img src={Check} alt="Check" />}
                 </div>

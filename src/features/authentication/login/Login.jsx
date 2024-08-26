@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useNavigate, Link } from "react-router-dom";
 import Input from "../../../components/ui/input/Input";
 import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
@@ -8,15 +7,12 @@ import Button from "../../../components/ui/button/Button";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const [step, setStep] = useState(1);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
   } = useForm({ mode: "onTouched" });
 
   const navigate = useNavigate();
@@ -43,7 +39,7 @@ const Login = () => {
   return (
     <div className="App">
       <div className="container">
-        <div className="register-store">
+        <div className="login">
           <div className="heading">
             <img src={MEPOSLogo} alt="MEPOS logo" />
             <div className="text">
