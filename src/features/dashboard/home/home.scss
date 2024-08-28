@@ -1,0 +1,145 @@
+@import '../../../variables';
+
+.home-container {
+  padding: 32px 32px;
+
+  .metrics-container {
+    display: flex;
+    gap: 24px;
+
+    .card {
+      flex-basis: 50%;
+      border-radius: 5px;
+      background: var(--Background-Body-light, #fbfbfd);
+      padding: 14px;
+
+      .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+          border: 0.5px solid var(--Stroke-color, #dadada);
+
+          img {
+            width: 18px;
+          }
+        }
+
+        .select-date {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          color: $text-600;
+          font-size: 12px;
+        }
+      }
+
+      .title {
+        margin-top: 0.5rem;
+        color: $text-400;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 180%; /* 25.2px */
+        text-transform: capitalize;
+      }
+
+      .value-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #negative {
+          color: $state-100;
+        }
+        #positive {
+          color: #34c759;
+        }
+
+        .value {
+          margin-top: 0.5rem;
+          color: $text-200;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .financial-overview-container {
+    position: relative;
+    margin-top: 24px;
+    padding: 14px 24px;
+    background: $background;
+    border-radius: 5px;
+    width: 100%;
+    overflow: hidden;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      h4 {
+        color: #3c3b39;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 26px */
+      }
+
+      .cta-filter {
+        display: flex;
+        gap: 1rem;
+
+        select {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 6px 16px;
+          height: 36px;
+          border-radius: 5px;
+          border: 0.5px solid $stroke;
+          background: $background;
+          color: $label;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .graph-container {
+      min-width: 100%;
+      height: 400px;
+      overflow: hidden !important;
+    }
+  }
+
+  .today-sales-container {
+    .cta-filter {
+      button {
+        padding: 6px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-radius: 5px;
+        border: 0.5px solid $stroke;
+        background: $background;
+        color: $text-200;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+
+
+  }
+}

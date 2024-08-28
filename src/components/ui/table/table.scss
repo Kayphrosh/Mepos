@@ -1,0 +1,62 @@
+@import '../../../variables';
+table {
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 0.5px solid $stroke;
+  border-bottom: none;
+
+  thead {
+    border-bottom: 1px solid $stroke;
+    padding: 0.5rem 1.5rem;
+
+    tr {
+      font-size: 14px;
+      .name {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+  }
+
+  th {
+    text-align: left;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid $stroke;
+    font-size: 14px;
+    font-weight: 500;
+    // .actions {
+    //   display: flex;
+    //   justify-content: flex-end;
+    // }
+  }
+
+  td {
+    text-align: left;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid $stroke;
+    height: 84px;
+    color: $text-100;
+    font-weight: 400;
+
+    select {
+      border-radius: 4px;
+      border: 0.5px solid $stroke;
+      background: #f8feff;
+      padding: 16px;
+    }
+
+    .actions {
+      display: flex;
+    //   justify-content: flex-end;
+      gap: 1.5rem;
+    }
+  }
+}

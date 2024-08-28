@@ -1,0 +1,51 @@
+export const usersData = [
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+  {
+    id: 1,
+    userName: 'Segunade@retail',
+    name: 'segun',
+    role: 'Cashier',
+    email: 'Segunade@retail.com',
+  },
+];

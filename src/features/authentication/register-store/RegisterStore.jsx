@@ -8,7 +8,7 @@ import Button from "../../../components/ui/button/Button";
 import { useForm } from "react-hook-form";
 
 const RegisterStore = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 

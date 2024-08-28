@@ -1,0 +1,12 @@
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 270px);
+    position: relative;
+  }
+}

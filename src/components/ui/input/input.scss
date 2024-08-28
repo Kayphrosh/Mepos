@@ -1,4 +1,4 @@
-@import "../../../variables";
+@import '../../../variables';
 
 * {
   outline: none;
@@ -12,7 +12,7 @@
 
   label {
     color: $label;
-    font-size: 1rem;
+    font-size: 14px;
     line-height: 28.8px;
     font-weight: 600;
 
@@ -26,7 +26,7 @@
 
     input {
       border: 1px solid $stroke;
-      padding: 10px 15px;
+      padding: 10px 1rem;
       border-radius: 4px;
       font-size: 1rem;
       font-weight: 400;
@@ -34,15 +34,16 @@
       width: 100%;
 
       &:hover {
-        border: 2px solid #767676;
+        border: 1px solid #767676;
       }
 
       &:focus {
-        border: 2px solid $primarycolor-100;
+        border: 1px solid $primarycolor-100;
       }
 
       &::placeholder {
         color: $placeholder;
+        font-weight: 400;
       }
 
       &.error {
