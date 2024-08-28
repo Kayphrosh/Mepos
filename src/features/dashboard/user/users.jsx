@@ -1,8 +1,8 @@
 import React from 'react';
-import './users.scss'
+import './users.scss';
 import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
 import UsersTable from './users-table';
-
+import { Link } from 'react-router-dom';
 const Users = () => {
   return (
     <div className="role-container users-container">
@@ -14,10 +14,12 @@ const Users = () => {
             <img src={ExportIcon} alt="" />
             Export as .csv
           </button>
-          <button>
-            <img src={plusIcon} alt="" />
-            Add new user
-          </button>
+          <Link to="/users/add-new-user">
+            <button>
+              <img src={plusIcon} alt="" />
+              Add new user
+            </button>
+          </Link>
         </div>
       </div>
 
