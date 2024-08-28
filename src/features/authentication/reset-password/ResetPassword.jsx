@@ -22,7 +22,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <div>
+    <div className="reset-password">
       <div className="container">
         <div className="reset-password">
           <div className="heading">
