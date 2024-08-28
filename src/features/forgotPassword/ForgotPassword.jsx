@@ -33,7 +33,7 @@ const ForgotPassword = () => {
     }
   };
   return (
-    <div className="App">
+    <div className="forget-password">
       <div className="container">
         <div className="login">
           <div className="heading">

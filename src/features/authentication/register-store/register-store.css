@@ -15,38 +15,54 @@ p {
   font-weight: normal;
 }
 
-.container {
+.super-admin .container {
   margin-top: 6.125rem;
   margin-left: 7%;
-  margin-right: 7%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
 }
 @media (max-width: 1024px) {
-  .container {
+  .super-admin .container {
     margin-right: 5%;
     margin-left: 5%;
+    justify-content: center;
   }
 }
-.container .home-image {
+.super-admin .container .home-image {
   width: 60%;
+  text-align: right;
+  position: relative;
 }
 @media (max-width: 1024px) {
-  .container .home-image {
+  .super-admin .container .home-image {
     display: none;
   }
 }
-.container .register-store {
+.super-admin .container .register-store {
   width: 40%;
 }
-.container .register-store .heading {
-  text-align: center;
+@media (max-width: 1024px) {
+  .super-admin .container .register-store {
+    width: 60%;
+  }
 }
-.container .register-store .heading h3 {
+@media (max-width: 768px) {
+  .super-admin .container .register-store {
+    width: 100%;
+  }
+}
+.super-admin .container .register-store .heading {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.super-admin .container .register-store .heading h3 {
   margin-top: 2rem;
 }
-.container .register-store .heading .progress_container {
+.super-admin .container .register-store .heading .progress_container {
   position: relative;
   margin-top: 1.5rem;
   display: flex;
@@ -54,7 +70,7 @@ p {
   justify-content: center;
   align-items: center;
 }
-.container .register-store .heading .progress_container .circle {
+.super-admin .container .register-store .heading .progress_container .circle {
   width: 24px;
   height: 24px;
   font-size: 0.75rem;
@@ -65,16 +81,16 @@ p {
   color: #dadada;
   border: 2px solid #dadada;
 }
-.container .register-store .heading .progress_container .circle.active {
+.super-admin .container .register-store .heading .progress_container .circle.active {
   color: #010066;
   border: 2px solid #010066;
 }
-.container .register-store .heading .progress_container .circle.complete {
+.super-admin .container .register-store .heading .progress_container .circle.complete {
   background-color: #010066;
   border: none;
   padding: 4px;
 }
-.container .register-store .heading .progress_container .progress {
+.super-admin .container .register-store .heading .progress_container .progress {
   height: 2px;
   background-color: #dadada;
   width: 200px;
@@ -83,32 +99,32 @@ p {
   z-index: -1;
   transform: translateY(-50%);
 }
-.container .register-store .heading .progress_container .progress.active {
+.super-admin .container .register-store .heading .progress_container .progress.active {
   background-color: #010066;
 }
-.container .register-store .heading .progress_desc {
+.super-admin .container .register-store .heading .progress_desc {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 0.75rem;
 }
-.container .register-store .heading .progress_desc span {
+.super-admin .container .register-store .heading .progress_desc span {
   font-size: 0.875rem;
   color: #dadada;
 }
-.container .register-store .heading .progress_desc span.active {
+.super-admin .container .register-store .heading .progress_desc span.active {
   color: #010066;
 }
-.container .register-store .heading .progress_desc div {
+.super-admin .container .register-store .heading .progress_desc div {
   width: 150px;
 }
-.container .register-store form > div {
+.super-admin .container .register-store form > div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 2.5rem;
   margin-bottom: 1.875rem;
 }
-.container .register-store form button {
+.super-admin .container .register-store form button {
   margin-top: 1.5rem;
 }/*# sourceMappingURL=register-store.css.map */

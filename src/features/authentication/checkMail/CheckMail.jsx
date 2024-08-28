@@ -5,7 +5,7 @@ import Button from "../../../components/ui/button/Button";
 
 const CheckMail = () => {
   return (
-    <div className="App">
+    <div className="check-mail">
       <div className="container">
         <div className="login">
           <div className="heading">
