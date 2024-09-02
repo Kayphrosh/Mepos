@@ -112,7 +112,16 @@ const Sidebar = () => {
               { to: '/add-sale', label: 'Add Sale' },
               { to: '/sales-summary', label: 'Sales Summary' },
             ])}
-            {renderNavLink('/items', product, productActive, 'Products')}
+            {renderDropdownMenu('products', product, productActive, 'Products', [
+              { to: '/product-list', label: 'Product List' },
+              { to: '/add-product', label: 'Add Product' },
+              { to: '/print-product-labels', label: 'Print Product Labels' },
+              { to: '/variations', label: 'Variations' },
+              { to: '/units', label: 'Units' },
+              { to: '/categories', label: 'Categories' },
+              { to: '/import-products', label: 'Import Products' },
+              { to: '/import-opening-stock', label: 'Import Opening Stock' },
+            ])} 
             {renderNavLink('/invoices', purchases, purchases, 'Purchases')}
             {renderNavLink('/transactions', expenses, expenses, 'Expenses')}
             {renderNavLink('/invoices', payment, payment, 'Payment Accounts')}
