@@ -7,6 +7,7 @@ import Home from '../home/home';
 import Users from '../user/users';
 import AddNewUser from '../add-new-user/add-new-user';
 import Roles from '../roles/roles';
+import ProductList from '../product-list/ProductList';
 
 import './layout.scss';
 
@@ -22,6 +23,7 @@ const DashboardLayout = () => {
             <Route path="/users" element={<Users />} />
             <Route path="/users/add-new-user" element={<AddNewUser />} />
             <Route path="/roles" element={<Roles />} />
+            <Route path="/product-list" element={<ProductList />} />
           </Routes>
         </div>
       </div>
