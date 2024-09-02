@@ -108,16 +108,18 @@ const Sidebar = () => {
               ],
             )}
             {renderDropdownMenu('sales', sales, salesActive, 'Sales', [
-              { to: '/sales-report', label: 'Sales Report' },
-              { to: '/add-sale', label: 'Add Sale' },
-              { to: '/sales-summary', label: 'Sales Summary' },
+              { to: '/transactions', label: 'Transactions' },
+              { to: '/suspended-sales', label: 'Suspended Sales' },
+              { to: '/discounts', label: 'Discounts' },
+              { to: '/pos', label: 'POS' },
+              { to: '/import-sales', label: 'Import Sales' },
             ])}
-            {renderNavLink('/items', product, productActive, 'Products')}
-            {renderNavLink('/invoices', purchases, purchases, 'Purchases')}
-            {renderNavLink('/transactions', expenses, expenses, 'Expenses')}
-            {renderNavLink('/invoices', payment, payment, 'Payment Accounts')}
-            {renderNavLink('/transactions', contact, contact, 'Contacts')}
-            {renderNavLink('/transactions', report, report, 'Reports')}
+            {renderNavLink('/products', product, productActive, 'Products')}
+            {renderNavLink('/purchases', purchases, purchases, 'Purchases')}
+            {renderNavLink('/expenses', expenses, expenses, 'Expenses')}
+            {renderNavLink('/payments', payment, payment, 'Payment Accounts')}
+            {renderNavLink('/contacts', contact, contact, 'Contacts')}
+            {renderNavLink('/reports', report, report, 'Reports')}
           </ul>
         </div>
 

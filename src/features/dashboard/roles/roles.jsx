@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../user/users.scss';
 import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
 import RolesTable from './roles-table';
@@ -14,10 +15,13 @@ const Roles = () => {
             <img src={ExportIcon} alt="" />
             Export as .csv
           </button>
-          <button>
-            <img src={plusIcon} alt="" />
-            Add new role
-          </button>
+
+          <Link to="/roles/add-new-role">
+            <button>
+              <img src={plusIcon} alt="" />
+              Add new role
+            </button>
+          </Link>
         </div>
       </div>
 
