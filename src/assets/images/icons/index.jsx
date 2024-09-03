@@ -32,3 +32,4 @@ export { default as searchIcon } from './search.svg';
 export { default as editIcon } from './edit.svg';
 export { default as deleteIcon } from './delete.svg';
 export { default as eyeIcon } from './eye.svg';
+export { default as actionIcon } from './action.svg';

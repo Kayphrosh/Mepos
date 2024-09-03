@@ -114,12 +114,21 @@ const Sidebar = () => {
               { to: '/pos', label: 'POS' },
               { to: '/import-sales', label: 'Import Sales' },
             ])}
-            {renderNavLink('/products', product, productActive, 'Products')}
-            {renderNavLink('/purchases', purchases, purchases, 'Purchases')}
+            {renderDropdownMenu('products', product, productActive, 'Products', [
+              { to: '/product-list', label: 'Product List' },
+              { to: '/add-product', label: 'Add Product' },
+              { to: '/print-product-labels', label: 'Print Product Labels' },
+              { to: '/variations', label: 'Variations' },
+              { to: '/units', label: 'Units' },
+              { to: '/categories', label: 'Categories' },
+              { to: '/import-products', label: 'Import Products' },
+              { to: '/import-opening-stock', label: 'Import Opening Stock' },
+            ])} 
+            {renderNavLink('/invoices', purchases, purchases, 'Purchases')}
             {renderNavLink('/expenses', expenses, expenses, 'Expenses')}
-            {renderNavLink('/payments', payment, payment, 'Payment Accounts')}
-            {renderNavLink('/contacts', contact, contact, 'Contacts')}
-            {renderNavLink('/reports', report, report, 'Reports')}
+            {renderNavLink('/payment-account', payment, payment, 'Payment Accounts')}
+            {renderNavLink('/contact', contact, contact, 'Contacts')}
+            {renderNavLink('/report', report, report, 'Reports')}
           </ul>
         </div>
 

@@ -8,6 +8,8 @@ import Users from '../user/users';
 import AddNewUser from '../add-new-user/add-new-user';
 import Roles from '../roles/roles';
 import AddNewRole from '../add-new-role/add-new-role';
+import Customers from '../customers/customers';
+import ProductList from '../product-list/ProductList';
 
 import './layout.scss';
 
@@ -24,6 +26,8 @@ const DashboardLayout = () => {
             <Route path="/users/add-new-user" element={<AddNewUser />} />
             <Route path="/roles" element={<Roles />} />
             <Route path="/roles/add-new-role" element={<AddNewRole />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/product-list" element={<ProductList />} />
           </Routes>
         </div>
       </div>

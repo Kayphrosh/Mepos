@@ -3,7 +3,13 @@ import '../../../components/ui/table/table.scss';
 import { usersData } from './users-data';
 import { eyeIcon, editIcon, deleteIcon } from '../../../assets/images/icons';
 
-const UsersTable = () => {
+const UsersTable = ({ searchQuery }) => {
+  const filteredUsers = usersData.filter((userData) =>
+    [userData.userName, userData.name, userData.email, userData.role].some(
+      (field) => field.toLowerCase().includes(searchQuery.toLowerCase()),
+    ),
+  );
+
   return (
     <table>
       <thead>
@@ -11,13 +17,13 @@ const UsersTable = () => {
           <th>User Name</th>
           <th>Name</th>
           <th>Role</th>
-          <th>email</th>
+          <th>Email</th>
           <th>Action</th>
         </tr>
       </thead>
 
       <tbody>
-        {usersData.map((userData) => (
+        {filteredUsers.map((userData) => (
           <tr key={userData.id}>
             <td>{userData.userName}</td>
             <td>{userData.name}</td>
@@ -26,13 +32,13 @@ const UsersTable = () => {
             <td>
               <div className="actions">
                 <div>
-                  <img src={eyeIcon} alt="" />
+                  <img src={eyeIcon} alt="View" />
                 </div>
                 <div>
-                  <img src={editIcon} alt="" />
+                  <img src={editIcon} alt="Edit" />
                 </div>
                 <div>
-                  <img src={deleteIcon} alt="" />
+                  <img src={deleteIcon} alt="Delete" />
                 </div>
               </div>
             </td>
