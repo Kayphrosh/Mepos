@@ -16,12 +16,13 @@ p {
 }
 
 .super-admin .container {
-  margin-top: 6.125rem;
+  padding-top: 6.125rem;
   margin-left: 7%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
+  gap: 5rem;
 }
 @media (max-width: 1024px) {
   .super-admin .container {
@@ -33,7 +34,7 @@ p {
 .super-admin .container .home-image {
   width: 60%;
   text-align: right;
-  position: relative;
+  overflow-x: hidden;
 }
 @media (max-width: 1024px) {
   .super-admin .container .home-image {

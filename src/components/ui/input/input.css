@@ -27,7 +27,7 @@ p {
 }
 .form_input label {
   color: #3c3b39;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 28.8px;
   font-weight: 600;
 }
@@ -39,7 +39,7 @@ p {
 }
 .form_input div input {
   border: 1px solid #dadada;
-  padding: 10px 15px;
+  padding: 10px 1rem;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 400;
@@ -47,16 +47,18 @@ p {
   width: 100%;
 }
 .form_input div input:hover {
-  border: 2px solid #767676;
+  border: 1px solid #767676;
 }
 .form_input div input:focus {
-  border: 2px solid #010066;
+  border: 1px solid #010066;
 }
 .form_input div input::-moz-placeholder {
   color: #b1b1b0;
+  font-weight: 400;
 }
 .form_input div input::placeholder {
   color: #b1b1b0;
+  font-weight: 400;
 }
 .form_input div input.error {
   border: 2px solid red;

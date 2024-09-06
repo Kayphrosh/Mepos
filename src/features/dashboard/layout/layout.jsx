@@ -1,17 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Sidebar from '../../../components/sidebar/Sidebar';
-import Topbar from '../../../components/topbar/Topbar';
-import Home from '../home/home';
-import Users from '../user/users';
-import AddNewUser from '../add-new-user/add-new-user';
-import Roles from '../roles/roles';
-import AddNewRole from '../add-new-role/add-new-role';
-import Customers from '../customers/customers';
-import ProductList from '../product-list/ProductList';
+import Sidebar from "../../../components/sidebar/Sidebar";
+import Topbar from "../../../components/topbar/Topbar";
+import Home from "../home/home";
+import Users from "../user/users";
+import AddNewUser from "../add-new-user/add-new-user";
+import Roles from "../roles/roles";
+import AddNewRole from "../add-new-role/add-new-role";
+import Customers from "../customers/customers";
+import ProductList from "../product-list/ProductList";
+import Transactions from "../sales/transactions/transaction";
 
-import './layout.scss';
+import "./layout.scss";
+import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 
 const DashboardLayout = () => {
   return (
@@ -27,6 +29,8 @@ const DashboardLayout = () => {
             <Route path="/roles" element={<Roles />} />
             <Route path="/roles/add-new-role" element={<AddNewRole />} />
             <Route path="/customers" element={<Customers />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/suspended-sales" element={<SuspendedSales />} />
             <Route path="/product-list" element={<ProductList />} />
           </Routes>
         </div>
