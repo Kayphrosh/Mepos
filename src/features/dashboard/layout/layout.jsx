@@ -11,6 +11,7 @@ import AddNewRole from "../add-new-role/add-new-role";
 import Customers from "../customers/customers";
 import ProductList from "../product-list/ProductList";
 import Transactions from "../sales/transactions/transaction";
+import ImportSales from "../sales/import-sales/import-sales";
 
 import "./layout.scss";
 import SuspendedSales from "../sales/suspended-sales/suspended-sales";
@@ -31,6 +32,7 @@ const DashboardLayout = () => {
             <Route path="/customers" element={<Customers />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/suspended-sales" element={<SuspendedSales />} />
+            <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
           </Routes>
         </div>
