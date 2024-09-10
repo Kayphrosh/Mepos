@@ -29,12 +29,11 @@ table {
   border-bottom: none;
 }
 table thead {
-  border-bottom: 10px solid #dadada;
+  border-bottom: 1px solid #dadada;
   padding: 0.5rem 1.5rem;
 }
 table thead tr {
   font-size: 14px;
-  border-bottom: 10px solid #dadada;
 }
 table thead tr .name {
   display: flex;

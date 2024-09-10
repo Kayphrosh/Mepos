@@ -11,6 +11,8 @@ import AddNewRole from '../add-new-role/add-new-role';
 import Customers from '../customers/customers';
 import ProductList from '../product-list/ProductList';
 import Discounts from '../discounts/discounts';
+import Transactions from "../sales/transactions/transaction";
+import ImportSales from "../sales/import-sales/import-sales";
 
 import './layout.scss';
 
