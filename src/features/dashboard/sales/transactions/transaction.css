@@ -1,0 +1,124 @@
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.transaction-container {
+  padding: 40px 24px 20px 31px;
+}
+.transaction-container .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.transaction-container .title button {
+  background-color: #ffffff;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #010066;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #010066;
+  border-radius: 5px;
+}
+.transaction-container .filters {
+  margin-top: 32px;
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: #fbfbfd;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.transaction-container .filters .main {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.transaction-container .filters .main .search-trans {
+  position: relative;
+  width: 350px;
+  height: 50px;
+}
+.transaction-container .filters .main .search-trans input {
+  border: 0.5px solid #dadada;
+  border-radius: 8px;
+  padding: 12px 0px 12px 12px;
+  color: #636260;
+  height: 48px;
+  width: 100%;
+  font-size: 14px;
+}
+.transaction-container .filters .main .search-trans button {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #010066;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.transaction-container .filters .main .search-trans button svg {
+  color: #ffffff;
+}
+.transaction-container .filters .filter-trans {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.transaction-container .filters .filter-trans label {
+  color: #3c3b39;
+  font-weight: 500;
+}
+.transaction-container .filters .filter-trans select {
+  width: 300px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  border: 0.5px solid #dadada;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-weight: 400;
+}
+.transaction-container .filters .filter-trans svg {
+  position: absolute;
+  right: 16px;
+}
+.transaction-container .filters .more-filter {
+  width: -moz-fit-content;
+  width: fit-content;
+  background: none;
+  border: none;
+  color: #010066;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.transaction-container .filters .more-filter p {
+  text-decoration: underline;
+}/*# sourceMappingURL=transaction.css.map */

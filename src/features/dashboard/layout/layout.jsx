@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Sidebar from '../../../components/sidebar/Sidebar';
 import Topbar from '../../../components/topbar/Topbar';
@@ -15,7 +15,8 @@ import ImportSales from "../sales/import-sales/import-sales";
 import Discounts from '../discounts/discounts';
 
 
-import './layout.scss';
+import "./layout.scss";
+import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 
 const DashboardLayout = () => {
   return (
@@ -31,6 +32,9 @@ const DashboardLayout = () => {
             <Route path="/roles" element={<Roles />} />
             <Route path="/roles/add-new-role" element={<AddNewRole />} />
             <Route path="/customers" element={<Customers />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/suspended-sales" element={<SuspendedSales />} />
+            <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
             <Route path="/discounts" element={<Discounts/>} />
           </Routes>
