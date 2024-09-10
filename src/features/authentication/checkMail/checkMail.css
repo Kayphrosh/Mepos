@@ -18,10 +18,8 @@ p {
 .container {
   margin-top: 6.125rem;
   margin-left: 7%;
-  margin-right: 7%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 @media (max-width: 1024px) {
@@ -45,7 +43,7 @@ p {
   width: 65px;
 }
 .container .register-store .heading h3 {
-  Line-height: 31.2px;
+  line-height: 31.2px;
   margin-bottom: 10px;
 }
 .container .register-store .heading h4 {

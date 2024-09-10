@@ -10,6 +10,7 @@ import Roles from '../roles/roles';
 import AddNewRole from '../add-new-role/add-new-role';
 import Customers from '../customers/customers';
 import ProductList from '../product-list/ProductList';
+import Discounts from '../discounts/discounts';
 
 import './layout.scss';
 
@@ -28,6 +29,7 @@ const DashboardLayout = () => {
             <Route path="/roles/add-new-role" element={<AddNewRole />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/product-list" element={<ProductList />} />
+            <Route path="/discounts" element={<Discounts/>} />
           </Routes>
         </div>
       </div>

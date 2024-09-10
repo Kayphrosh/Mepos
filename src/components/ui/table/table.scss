@@ -13,11 +13,12 @@ table {
   border-bottom: none;
 
   thead {
-    border-bottom: 1px solid $stroke;
+    border-bottom: 10px solid $stroke;
     padding: 0.5rem 1.5rem;
 
     tr {
       font-size: 14px;
+      border-bottom: 10px solid $stroke;
       .name {
         display: flex;
         align-items: center;

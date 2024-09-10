@@ -34,7 +34,7 @@ const Roles = () => {
         </div>
 
         <div className="filter">
-          <div className="label">filter by:</div>
+          <div className="label">Filter by:</div>
           <select placeholder="Actions">
             <option>All roles</option>
             <option>View</option>

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import './users.scss';
+import './discounts.scss';
 import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
-import UsersTable from './users-table';
+import DiscountsTable from './discounts-table';
 import { Link } from 'react-router-dom';
 
-const Users = () => {
+const Discounts = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <div className="role-container users-container">
+    <div className="role-container discounts-container">
       <div className="title">
-        <h3>Users</h3>
+        <h3>Discounts</h3>
 
         <div className="cta">
           <button id="export-csv">
@@ -20,7 +20,7 @@ const Users = () => {
           <Link to="/users/add-new-user">
             <button>
               <img src={plusIcon} alt="Add new user" />
-              Add new user
+              Add new
             </button>
           </Link>
         </div>
@@ -42,7 +42,7 @@ const Users = () => {
         <div className="filter">
           <div className="label">Filter by:</div>
           <select placeholder="Actions">
-            <option>All Users</option>
+            <option>All Discounts</option>
             <option>View</option>
             <option>Edit</option>
             <option>Delete</option>
@@ -50,9 +50,9 @@ const Users = () => {
         </div>
       </div>
 
-      <UsersTable searchQuery={searchQuery} />
+      <DiscountsTable searchQuery={searchQuery} />
     </div>
   );
 };
 
-export default Users;
+export default Discounts;

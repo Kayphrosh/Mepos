@@ -62,7 +62,7 @@ const Customers = () => {
         </div>
 
         <div className="filter">
-          <div className="label">filter by:</div>
+          <div className="label">Filter by:</div>
           <select placeholder="Actions">
             <option>All Customers</option>
             <option>View</option>
