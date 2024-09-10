@@ -1,17 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Sidebar from "../../../components/sidebar/Sidebar";
-import Topbar from "../../../components/topbar/Topbar";
-import Home from "../home/home";
-import Users from "../user/users";
-import AddNewUser from "../add-new-user/add-new-user";
-import Roles from "../roles/roles";
-import AddNewRole from "../add-new-role/add-new-role";
-import Customers from "../customers/customers";
-import ProductList from "../product-list/ProductList";
+import Sidebar from '../../../components/sidebar/Sidebar';
+import Topbar from '../../../components/topbar/Topbar';
+import Home from '../home/home';
+import Users from '../user/users';
+import AddNewUser from '../add-new-user/add-new-user';
+import Roles from '../roles/roles';
+import AddNewRole from '../add-new-role/add-new-role';
+import Customers from '../customers/customers';
+import ProductList from '../product-list/ProductList';
 import Transactions from "../sales/transactions/transaction";
 import ImportSales from "../sales/import-sales/import-sales";
+import Discounts from '../discounts/discounts';
+
 
 import "./layout.scss";
 import SuspendedSales from "../sales/suspended-sales/suspended-sales";
@@ -34,6 +36,7 @@ const DashboardLayout = () => {
             <Route path="/suspended-sales" element={<SuspendedSales />} />
             <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
+            <Route path="/discounts" element={<Discounts/>} />
           </Routes>
         </div>
       </div>

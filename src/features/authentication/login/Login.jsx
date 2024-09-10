@@ -98,7 +98,7 @@ const Login = () => {
                   <p>Forgot your password?</p>
                 </Link>
               </div>
-              <Button type="submit">Login</Button>
+              <Link to='/*'><Button type="submit">Login</Button></Link>
             </div>
           </form>
         </div>
