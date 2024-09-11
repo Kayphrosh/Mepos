@@ -11,7 +11,7 @@ import AdminInfoForm from "./AdminInfoForm";
 import StoreInfoForm from "./StoreInfoForm";
 
 const RegisterStore = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
