@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useParams } from 'react-router-dom';
 import Input from '../../../components/ui/input/Input';
 import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
 import './login.scss';
@@ -11,7 +11,7 @@ const Login = () => {
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
-
+const {storeId} = useParams() 
   const {
     register,
     handleSubmit,
@@ -21,7 +21,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    if (errors.username || errors.passwordCreated) {
+    if (errors.email || errors.passwordCreated) {
       return; // Handle validation errors
     }
 
@@ -30,9 +30,9 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        '/users/login',
+        `${storeId}/users/login`,
         {
-          username: data.username,
+          email: data.email,
           password: data.passwordCreated,
         },
       );
@@ -72,19 +72,19 @@ const Login = () => {
             <div>
               <div>
                 <Input
-                  label="Username"
+                  label="Email"
                   type="text"
-                  name="username"
+                  name="Email"
                   placeholder="Enter Username"
                   required={true}
-                  register={register('username', {
-                    required: 'Username is required',
+                  register={register('email', {
+                    required: 'Email is required',
                     minLength: {
                       value: 3,
                       message: 'Username should be at least 3 characters',
                     },
                   })}
-                  error={errors.username}
+                  error={errors.email}
                 />
               </div>
               <div>

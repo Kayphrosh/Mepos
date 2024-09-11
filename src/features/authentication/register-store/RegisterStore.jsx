@@ -24,7 +24,7 @@ const RegisterStore = () => {
     getValues,
   } = useForm({ mode: 'onTouched' });
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = async (formData) => {
     const requestData = {
@@ -49,9 +49,11 @@ const RegisterStore = () => {
     try {
       const response = await axios.post('/stores', requestData);
       if (response.status === 201) {
+        console.log('response data', response.data.data);
+        const storeId = response.data.data.store._id;
         console.log('Store created successfully');
         setSuccess('Store created successfully');
-        navigate('/');
+        navigate(`/${storeId}/auth`);
       } else {
         console.log('Unexpected response:', response);
         setError('An unexpected error occurred');

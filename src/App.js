@@ -15,7 +15,7 @@ function App() {
     <ToastContainer />
 
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/:storeId/auth" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/register-store" element={<RegisterStore />} />
       <Route path="/check-mail" element={<CheckMail />} />
