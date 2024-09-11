@@ -1,35 +1,69 @@
-//Super Admin Registration Container
-import { useState } from "react";
-import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
-import Check from "../../../assets/images/icons/checkmark.svg";
-import RegisterScreenImage from "../../../assets/images/resiter-screen-image.png";
-import Ellipse1 from "../../../assets/images/Ellipse1.svg";
-import Ellipse2 from "../../../assets/images/Ellipse2.png";
-import "./register-store.scss";
-import { useForm } from "react-hook-form";
-import AdminInfoForm from "./AdminInfoForm";
-import StoreInfoForm from "./StoreInfoForm";
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
+import Check from '../../../assets/images/icons/checkmark.svg';
+import RegisterScreenImage from '../../../assets/images/resiter-screen-image.png';
+import './register-store.scss';
+import { useForm } from 'react-hook-form';
+import AdminInfoForm from './AdminInfoForm';
+import StoreInfoForm from './StoreInfoForm';
+import axios from '../../../utils/axios';
 
 const RegisterStore = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm({ mode: "onTouched" });
+  } = useForm({ mode: 'onTouched' });
 
-  const onSubmit = (data) => {
-    if (step === 1) {
-      setStep(step + 1);
-    } else {
-      // handle register store logic here
-      console.log(data);
+    const navigate = useNavigate();
+
+  const onSubmit = async (formData) => {
+    const requestData = {
+      location: formData.location,
+      name: formData.storeName,
+      owner: {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        username: formData.username,
+        password: formData.passwordCreated,
+        phoneNumber: formData.mobileNumber,
+        dateOfBirth: formData.dateOfBirth,
+        ninNumber: formData.ninNumber,
+        gender: formData.gender,
+        relationshipStatus: formData.relationshipStatus,
+      },
+    };
+
+    console.log(requestData);
+    setLoading(true);
+    try {
+      const response = await axios.post('/stores', requestData);
+      if (response.status === 201) {
+        console.log('Store created successfully');
+        setSuccess('Store created successfully');
+        navigate('/');
+      } else {
+        console.log('Unexpected response:', response);
+        setError('An unexpected error occurred');
+      }
+    } catch (error) {
+      console.error('Error creating store:', error);
+      setError('An error occurred while creating the store');
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <div className="super-admin">
       <div className="container">
@@ -40,27 +74,22 @@ const RegisterStore = () => {
             <div className="progress_container">
               <div className="step">
                 <div
-                  className={`${
-                    step === 1 ? "circle active" : "circle complete"
-                  }  `}
-                  // onClick={() => setStep(1)}
+                  className={step === 1 ? 'circle active' : 'circle complete'}
                 >
                   {step === 1 ? 1 : <img src={Check} alt="Check" />}
                 </div>
               </div>
               <div
-                className={`${step === 1 ? "progress" : "progress active"} `}
+                className={step === 1 ? 'progress' : 'progress active'}
               ></div>
               <div className="step">
-                <div className={`${step === 1 ? "circle" : "circle active"}`}>
-                  2
-                </div>
+                <div className={step === 1 ? 'circle' : 'circle active'}>2</div>
               </div>
             </div>
             <div className="progress_desc">
               <span className="active">Admin Info</span>
               <div></div>
-              <span className={`${step === 2 && "active"}`}>Store Info</span>
+              <span className={step === 2 ? 'active' : ''}>Store Info</span>
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,12 +102,16 @@ const RegisterStore = () => {
                 register={register}
                 errors={errors}
                 getValues={getValues}
+                setStep={setStep}
               />
             )}
             {step === 2 && (
               <StoreInfoForm register={register} errors={errors} />
             )}
           </form>
+          {loading && <p>Loading...</p>}
+          {error && <p className="error">{error}</p>}
+          {success && <p className="success">{success}</p>}
         </div>
         <div className="home-image">
           <img src={RegisterScreenImage} alt="" />

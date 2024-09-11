@@ -1,38 +1,57 @@
-import { React, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import Input from "../../../components/ui/input/Input";
-import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
-import "./login.scss";
-import Button from "../../../components/ui/button/Button";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import Input from '../../../components/ui/input/Input';
+import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
+import './login.scss';
+import Button from '../../../components/ui/button/Button';
+import { useForm } from 'react-hook-form';
+import axios from '../../../utils/axios';
 
 const Login = () => {
   const [showCreatePassword, setShowCreatePassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onTouched" });
+  } = useForm({ mode: 'onTouched' });
 
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    // Validate the form data
+  const onSubmit = async (data) => {
     if (errors.username || errors.passwordCreated) {
       return; // Handle validation errors
     }
 
-    // Simulate backend validation and authentication
-    if (
-      data.username === "validUser" &&
-      data.passwordCreated === "validPassword"
-    ) {
-      // Handle successful login
-      navigate("/home"); // Navigate to the "Home" page
-    } else {
-      // Handle failed login
-      alert("Invalid username or password");
+    setIsLoading(true);
+    setApiError(null);
+
+    try {
+      const response = await axios.post(
+        '/users/login',
+        {
+          username: data.username,
+          password: data.passwordCreated,
+        },
+      );
+
+
+      const { token, user } = response.data;
+
+      localStorage.setItem('token', token);
+
+      localStorage.setItem('user', JSON.stringify(user));
+      navigate('/home');
+    } catch (error) {
+      console.error('Error during login:', error);
+      setApiError(
+        error.response?.data?.message ||
+          'An error occurred. Please try again later.',
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -58,11 +77,11 @@ const Login = () => {
                   name="username"
                   placeholder="Enter Username"
                   required={true}
-                  register={register("username", {
-                    required: "Username is required",
+                  register={register('username', {
+                    required: 'Username is required',
                     minLength: {
                       value: 3,
-                      message: "Username should be at least 3 characters",
+                      message: 'Username should be at least 3 characters',
                     },
                   })}
                   error={errors.username}
@@ -70,22 +89,22 @@ const Login = () => {
               </div>
               <div>
                 <Input
-                  label="Create Password"
-                  type={showCreatePassword ? "text" : "password"}
+                  label="Password"
+                  type={showCreatePassword ? 'text' : 'password'}
                   name="createPassword"
                   placeholder="************"
                   required={true}
-                  register={register("passwordCreated", {
-                    required: "Enter your password",
+                  register={register('passwordCreated', {
+                    required: 'Enter your password',
                     minLength: {
                       value: 8,
-                      message: "Password should be more than 8 characters",
+                      message: 'Password should be more than 8 characters',
                     },
                     pattern: {
                       value:
                         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z\d#?!@$%^&*-]{8,}$/,
                       message:
-                        "Password should contain at least one uppercase letter, one lowercase letter, one number and one special character",
+                        'Password should contain at least one uppercase letter, one lowercase letter, one number and one special character',
                     },
                   })}
                   showCreatePassword={showCreatePassword}
@@ -98,7 +117,10 @@ const Login = () => {
                   <p>Forgot your password?</p>
                 </Link>
               </div>
-              <Button type="submit">Login</Button>
+              {apiError && <div className="error-message">{apiError}</div>}
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? 'Logging in...' : 'Login'}
+              </Button>
             </div>
           </form>
         </div>

@@ -12,12 +12,8 @@ const StoreInfoForm = ({ register, errors }) => {
           name="storeName"
           placeholder="Enter store name"
           required={true}
-          register={register("storeName", {
-            required: "Store Name is required",
-            minLength: {
-              value: 3,
-              message: "Store name should be at least 3 characters.",
-            },
+          register={register('storeName', {
+            required: 'Store Name is required',
           })}
           error={errors.storeName}
         />
@@ -27,14 +23,13 @@ const StoreInfoForm = ({ register, errors }) => {
           label="Location"
           type="text"
           name="location"
-          placeholder="City, Country"
+          placeholder="Enter store location (City, Country)"
           required={true}
-          register={register("location", {
-            required: "Location is required",
-          })}
+          register={register('location', { required: 'Location is required' })}
           error={errors.location}
         />
       </div>
+
       <Button type="submit">Register Store</Button>
     </div>
   );
