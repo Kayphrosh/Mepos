@@ -5,12 +5,15 @@ import { useForm } from 'react-hook-form';
 
 const RolesAndPermission = ({ handleNext }) => {
   const [allowLogin, setAllowLogin] = useState(false);
+  const [showCreatePassword, setShowCreatePassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
+    getValues,
   } = useForm({ mode: 'onTouched' });
 
   return (
@@ -32,6 +35,14 @@ const RolesAndPermission = ({ handleNext }) => {
             label="User Name"
             placeholder="User Name"
             required={true}
+            register={register("username", {
+              required: "Username is required",
+              minLength: {
+                value: 3,
+                message: "Username should be at least 3 characters",
+              },
+            })}
+            error={errors.username}
           />
 
           <Input
@@ -53,6 +64,7 @@ const RolesAndPermission = ({ handleNext }) => {
                   'Password should contain at least one uppercase letter, one lowercase letter, one number and one special character',
               },
             })}
+            error={errors.passwordCreated}
           />
 
           <Input
@@ -61,11 +73,14 @@ const RolesAndPermission = ({ handleNext }) => {
             name="confirmPassword"
             placeholder="************"
             required={true}
-            register={register('confirmPassword', {
-              required: 'Confirm your password',
+            register={register("confirmPassword", {
+              required: "Confirm your password",
               validate: (value) =>
-                value === watch('passwordCreated') || 'Passwords do not match',
+                value === getValues("passwordCreated") || "Passwords don't match",
             })}
+            error={errors.confirmPassword}
+            showConfirmPassword={showConfirmPassword}
+            setShowConfirmPassword={setShowConfirmPassword}
           />
         </>
       )}
