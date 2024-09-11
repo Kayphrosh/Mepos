@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 import Input from '../../../components/ui/input/Input';
 import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
 import './login.scss';
 import Button from '../../../components/ui/button/Button';
 import { useForm } from 'react-hook-form';
+import POS from '../../../assets/images/POS.svg';
 import axios from '../../../utils/axios';
 
 const Login = () => {
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
-const {storeId} = useParams() 
+  const { storeId } = useParams();
   const {
     register,
     handleSubmit,
@@ -29,18 +30,17 @@ const {storeId} = useParams()
     setApiError(null);
 
     try {
-      const response = await axios.post(
-        `${storeId}/users/login`,
-        {
-          email: data.email,
-          password: data.passwordCreated,
-        },
-      );
+      const response = await axios.post(`${storeId}/users/login`, {
+        email: data.email,
+        password: data.enterPassword,
+      });
 
+      console.log('data', response.data);
 
-      const { token, user } = response.data;
+      const { token, user } = response.data.data;
 
       localStorage.setItem('token', token);
+            // localStorage.setItem('storeId', user.store);
 
       localStorage.setItem('user', JSON.stringify(user));
       navigate('/home');
@@ -56,7 +56,7 @@ const {storeId} = useParams()
   };
 
   return (
-    <div className="login">
+    <div className="login-auth">
       <div className="container">
         <div className="login">
           <div className="heading">
@@ -89,33 +89,23 @@ const {storeId} = useParams()
               </div>
               <div>
                 <Input
-                  label="Password"
+                  label="Create Password"
                   type={showCreatePassword ? 'text' : 'password'}
-                  name="createPassword"
+                  name="enterPassword"
                   placeholder="************"
                   required={true}
-                  register={register('passwordCreated', {
+                  register={register('enterPassword', {
                     required: 'Enter your password',
-                    minLength: {
-                      value: 8,
-                      message: 'Password should be more than 8 characters',
-                    },
-                    pattern: {
-                      value:
-                        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z\d#?!@$%^&*-]{8,}$/,
-                      message:
-                        'Password should contain at least one uppercase letter, one lowercase letter, one number and one special character',
-                    },
                   })}
                   showCreatePassword={showCreatePassword}
                   setShowCreatePassword={setShowCreatePassword}
-                  error={errors.passwordCreated}
+                  error={errors.enterPassword}
                 />
               </div>
               <div className="forgot">
-                <Link to="/forgot-password">
-                  <p>Forgot your password?</p>
-                </Link>
+                <p>
+                  <Link to="/forgot-password">Forgot your password?</Link>
+                </p>
               </div>
               {apiError && <div className="error-message">{apiError}</div>}
               <Button type="submit" disabled={isLoading}>
@@ -123,6 +113,9 @@ const {storeId} = useParams()
               </Button>
             </div>
           </form>
+        </div>
+        <div className="home-image">
+          <img src={POS} alt="" />
         </div>
       </div>
     </div>

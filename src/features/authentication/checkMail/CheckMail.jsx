@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MEPOSLogo from "../../../assets/images/icons/email.png";
 import "./checkMail.scss";
 import Button from "../../../components/ui/button/Button";
+import POS from "../../../assets/images/POS.svg";
 
 const CheckMail = () => {
+  const navigate = useNavigate();
   return (
     <div className="check-mail">
       <div className="container">
@@ -15,13 +17,12 @@ const CheckMail = () => {
               <h4>We’ve sent you a link to reset your password</h4>
             </div>
           </div>
-          <form>
-            <div>
-              <Link to="/">
-                <Button type="submit">Back to Login</Button>
-              </Link>
-            </div>
-          </form>
+          <Button type="submit" onClick={() => navigate("/reset-password")}>
+            Back to Login
+          </Button>
+        </div>
+        <div className="home-image">
+          <img src={POS} alt="" />
         </div>
       </div>
     </div>

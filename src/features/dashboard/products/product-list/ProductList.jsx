@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import './product-list.scss';
-import { ExportIcon, searchIcon } from '../../../assets/images/icons';
-import ProductTable from './product-table';
+import React, { useState } from "react";
+import "./product-list.scss";
+import { ExportIcon } from "../../../../assets/images/icons";
+import ProductTable from "./product-table";
+import { Icon } from "@iconify/react";
 
 const ProductList = () => {
-  const [filter, setFilter] = useState('All Transactions');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [filter, setFilter] = useState("All Transactions");
+  const [searchTerm, setSearchTerm] = useState("");
   const [entriesPerPage, setEntriesPerPage] = useState(300);
 
   const handleFilterChange = (e) => {
@@ -31,28 +32,34 @@ const ProductList = () => {
           </button>
         </div>
       </div>
-      <div className="filter-container">
-        <div className="search">
-          <input 
-            type="search" 
-            placeholder="Search" 
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <button>
-            <img src={searchIcon} alt="Search" />
-          </button>
+      <div className="filters">
+        <div className="main">
+          <div className="search-trans">
+            <input
+              type="search"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <button>
+              <Icon icon="ic:outline-search" width={24} height={24} />
+            </button>
+          </div>
+          <div className="filter-trans">
+            <label>Filter by:</label>
+            <select onCHange={handleFilterChange} value={filter}>
+              <option>All Transactions</option>
+              <option>View</option>
+              <option>Edit</option>
+              <option>Delete</option>
+            </select>
+            <Icon icon="mdi:chevron-down" width={20} height={20} />
+          </div>
         </div>
-        <div className="filter">
-          <div className="label">Filter by:</div>
-          <select value={filter} onChange={handleFilterChange}>
-            <option value="All Transactions">All Transactions</option>
-            <option value="Category">Category</option>
-            <option value="Brand">Brand</option>
-            <option value="Location">Location</option>
-          </select>
-        </div>
-        <button className="more-filter">More filter</button>
+        <button className="more-filter">
+          <Icon icon="mdi:chevron-down" width={20} height={20} />
+          <p>More filter</p>
+        </button>
       </div>
       <ProductTable />
       <div className="pagination">

@@ -1,0 +1,110 @@
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.import-sales-container {
+  padding: 40px 24px 20px 31px;
+}
+.import-sales-container .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.import-sales-container .title button {
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid #010066;
+  background: #ffffff;
+  color: #010066;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+}
+.import-sales-container table {
+  margin-top: 24px;
+}
+.import-sales-container table th div {
+  color: #3c3b39;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.import-sales-container .instructions {
+  display: flex;
+  align-items: start;
+  margin-top: 20px;
+  padding-bottom: 85px;
+}
+.import-sales-container .instructions .instruction {
+  width: 50%;
+  padding-right: 41px;
+}
+.import-sales-container .instructions .instruction h4 {
+  font-weight: 600;
+  font-size: 18px;
+}
+.import-sales-container .instructions .instruction ul {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.import-sales-container .instructions .instruction ul li {
+  color: #151411;
+  position: relative;
+  list-style-type: disc;
+  text-indent: -20px;
+  padding-left: 20px;
+}
+.import-sales-container .instructions .file-container {
+  border-left: 1px solid #dadada;
+  width: 50%;
+}
+.import-sales-container .instructions .file-container .file {
+  margin-left: 76px;
+  margin-top: 85px;
+  margin-bottom: 85px;
+  border: 1px dotted #8a8988;
+  border-radius: 10px;
+  height: 286px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+.import-sales-container .instructions .file-container .file label svg {
+  color: #010066;
+}
+.import-sales-container .instructions .file-container .file label p {
+  font-size: 14px;
+  font-weight: normal;
+  color: #636260;
+}
+.import-sales-container .instructions .file-container .file label p label {
+  color: #010066;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+.import-sales-container .instructions .file-container .file input[type=file] {
+  display: none;
+}/*# sourceMappingURL=import-sales.css.map */

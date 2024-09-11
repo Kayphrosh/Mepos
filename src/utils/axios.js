@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // Define your base URLs
 const BASE_URLS = {
-  live: 'https://d11f-197-211-52-80.ngrok-free.app/',
-  dev: 'https://d11f-197-211-52-80.ngrok-free.app/',
+  live: 'https://mepos-be-e981d77b768e.herokuapp.com/',
+  dev: 'https://mepos-be-e981d77b768e.herokuapp.com/',
   test: '',
 };
 

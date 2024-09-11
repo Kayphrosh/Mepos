@@ -11,23 +11,46 @@ import {
 import userPic from '../../assets/images/icons/profile-pic.svg';
 
 const Topbar = () => {
-  const stores = ['OAU Pharmacy', 'OAU Bakery', 'OAU Bookshop'];
-  const [selectedStore, setSelectedStore] = useState(stores[0]);
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const [user, setUser] = useState({
+    firstName: localUser.firstName,
+    lastName: localUser.lastName,
+    email: localUser.email,
+    store: localUser.store.name,
+  });
+  // const stores = ['OAU Pharmacy', 'OAU Bakery', 'OAU Bookshop'];
+  // const [selectedStore, setSelectedStore] = useState(stores[0]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
 
   const dropdownRef = useRef(null);
-  const userName = 'Segun Rotimi';
-  const userEmail = 'segun@admin.com';
+  const userName = `${user.firstName} ${user.lastName}`;
+  const userEmail = user.email;
+  const storeName = user.store;
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`/stores/${storeId}`, )
+  //     .then((res) => {
+  //       if (res.status === 200) {
+  //         setUser(res.data.manager_data);
+  //       } else {
+  //         // Do something on error, error message in res.data.message
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       // Do something on error
+  //     });
+  // }, []);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleStoreSelect = (store) => {
-    setSelectedStore(store);
-    setIsDropdownOpen(false);
-  };
+  // const handleStoreSelect = (store) => {
+  //   setSelectedStore(store);
+  //   setIsDropdownOpen(false);
+  // };
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -55,9 +78,7 @@ const Topbar = () => {
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       }).format(now);
 
-      const dateAndTime = formattedTime
-        .replace(/\//g, '-') 
-        .replace(',', ' |');
+      const dateAndTime = formattedTime.replace(/\//g, '-').replace(',', ' |');
 
       setCurrentTime(dateAndTime);
     };
@@ -76,9 +97,9 @@ const Topbar = () => {
         ref={dropdownRef}
       >
         <img src={storeIcon} alt="" />
-        <div className="store-name">{selectedStore}</div>
+        <div className="store-name">{storeName}</div>
         <img src={dropdownIcon} alt="" />
-        {isDropdownOpen && (
+        {/* {isDropdownOpen && (
           <div className="dropdown-menu">
             {stores.map((store, index) => (
               <div
@@ -90,7 +111,7 @@ const Topbar = () => {
               </div>
             ))}
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="right-wrapper">

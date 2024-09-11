@@ -1,0 +1,106 @@
+@import "../../../../variables";
+
+.add-product-container {
+  padding: 40px 24px 20px 31px;
+
+  .tab_heading {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid $paragraph-500;
+
+    .tab {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 24px;
+      color: $text-400;
+      cursor: pointer;
+
+      &.active {
+        border-bottom: 2px solid $primarycolor-100;
+        color: $primarycolor-100;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .basic-info {
+      max-width: 634px;
+      width: 100%;
+      background: $background;
+      border: 1px transparent;
+      border-radius: 5px;
+      padding: 28.5px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .rack_number {
+        margin-top: 6px;
+        color: $text-400;
+        font-size: 14px;
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          color: $text-400;
+          font-weight: 500;
+          background-color: $white-600;
+          text-decoration: underline;
+        }
+
+        .submit-basic-info {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .supplier-info {
+      max-width: 634px;
+      width: 100%;
+      background: $background;
+      border: 1px transparent;
+      border-radius: 5px;
+      padding: 28.5px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          color: $text-400;
+          font-weight: 500;
+          background-color: $white-600;
+          text-decoration: underline;
+        }
+
+        .submit-supplier-info {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

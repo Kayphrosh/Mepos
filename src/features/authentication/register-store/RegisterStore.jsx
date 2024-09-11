@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
 import Check from '../../../assets/images/icons/checkmark.svg';
-import RegisterScreenImage from '../../../assets/images/resiter-screen-image.png';
+import RegisterScreenImage from '../../../assets/images/register-store.svg';
 import './register-store.scss';
 import { useForm } from 'react-hook-form';
 import AdminInfoForm from './AdminInfoForm';

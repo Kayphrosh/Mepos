@@ -4,8 +4,11 @@ import Input from "../../../components/ui/input/Input";
 import Button from "../../../components/ui/button/Button";
 import "./ResetPassword.scss";
 import { useForm } from "react-hook-form";
+import POS from "../../../assets/images/POS.svg";
+import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
+  const navigate = useNavigate();
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmNewPassword, setShowConfirmNewPassword] = useState(false);
 
@@ -19,6 +22,7 @@ const ResetPassword = () => {
   const onSubmit = (data) => {
     // handle reset password logic
     console.log(data);
+    navigate("/");
   };
 
   return (
@@ -76,6 +80,9 @@ const ResetPassword = () => {
             </div>
             <Button type="submit">Reset Password</Button>
           </form>
+        </div>
+        <div className="home-image">
+          <img src={POS} alt="" />
         </div>
       </div>
     </div>

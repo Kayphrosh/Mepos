@@ -1,65 +1,86 @@
 @import "../../../variables";
 
-.container {
-  margin-top: 6.125rem;
-  margin-left: 7%;
-  // margin-right: 7%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 1024px) {
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
-  .login {
-    width: 40%;
+.login-auth {
+  .container {
+    margin-top: 6.125rem;
+    margin-left: 7%;
+    // margin-right: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
     @media (max-width: 1024px) {
-      width: 60%;
+      margin-right: 5%;
+      margin-left: 5%;
     }
 
-    @media (max-width: 768px) {
-      width: 100%;
+    .home-image {
+      max-width: 100%;
+      text-align: right;
+      overflow-x: hidden;
+
+      img {
+        height: 90vh;
+        object-fit: contain;
+      }
     }
+    .login {
+      width: 40%;
 
-    .heading {
-      text-align: center;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      h3 {
-        line-height: 31.2px;
-        margin-bottom: 10px;
+      @media (max-width: 1024px) {
+        width: 60%;
       }
 
-      h4 {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 25.2px;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      .heading {
         text-align: center;
-        border: 1px solid re;
-      }
-    }
-
-    form {
-      > div {
-        display: flex;
         flex-direction: column;
-        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          line-height: 31.2px;
+          margin-bottom: 10px;
+        }
+
+        h4 {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 25.2px;
+          text-align: center;
+          border: 1px solid re;
+        }
       }
 
-      .forgot {
-        p {
-          font-size: 14px;
-          font-weight: 500;
-          line-height: 25.2px;
-          text-align: right;
-          text-decoration: underline;
-          color: $text-100;
+      form {
+        margin-top: 46px;
+        > div {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .forgot-password {
+          margin-top: 40px;
+        }
+
+        .forgot {
+          p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 25.2px;
+            text-align: right;
+            text-decoration: underline;
+            color: $text-100;
+
+            a {
+              color: $text-100;
+            }
+          }
         }
       }
     }
