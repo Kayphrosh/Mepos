@@ -13,6 +13,8 @@ import ProductList from "../products/product-list/ProductList";
 import Transactions from "../sales/transactions/transaction";
 import ImportSales from "../sales/import-sales/import-sales";
 
+import Discounts from "../sales/discounts/discounts";
+import Pos from "../sales/pos/pos";
 import "./layout.scss";
 import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 import AddNewProduct from "../products/add-new-product/add-new-product";
@@ -36,6 +38,8 @@ const DashboardLayout = () => {
             <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
             <Route path="/add-new-product" element={<AddNewProduct />} />
+            <Route path="/discounts" element={<Discounts />} />
+            <Route path="/pos" element={<Pos />} />
           </Routes>
         </div>
       </div>
