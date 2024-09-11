@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../../components/ui/table/table.scss';
-import { discountsData } from './discounts-data';
-import { eyeIcon, editIcon, deleteIcon } from '../../../assets/images/icons';
+import '../../../../components/ui/table/table.scss';
+import { discountsData } from '../discounts/discounts-data';
+import { eyeIcon, editIcon, deleteIcon } from '../../../../assets/images/icons';
 
 const DiscountsTable = ({ searchQuery }) => {
   const filteredDiscounts = discountsData.filter((discountData) =>

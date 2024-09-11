@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './discounts.scss';
-import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
+import { ExportIcon, plusIcon, searchIcon } from '../../../../assets/images/icons';
 import DiscountsTable from './discounts-table';
 import { Link } from 'react-router-dom';
 
