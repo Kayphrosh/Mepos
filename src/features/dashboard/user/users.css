@@ -1,0 +1,114 @@
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.users-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.users-container .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.users-container .title h3 {
+  font-size: 24px;
+  color: #000000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+.users-container .title .cta {
+  display: flex;
+  gap: 0.5rem;
+}
+.users-container .title .cta button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: -moz-max-content;
+  width: max-content;
+  height: 42px;
+  padding: 0 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 180%;
+}
+.users-container .title .cta button#export-csv {
+  background: none;
+  color: #010066;
+  border: 1px solid #010066;
+}
+.users-container .filter-container {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  border-radius: 5px;
+  background: var(--Background-Body-light, #fbfbfd);
+}
+.users-container .filter-container .search {
+  display: flex;
+}
+.users-container .filter-container .search input {
+  padding: 0 1.5rem;
+  height: 48px;
+  background: transparent;
+  border: 1px solid #dadada;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 100%;
+  min-width: 310px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.users-container .filter-container .search button {
+  border-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.users-container .filter-container .filter {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: 100%;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+.users-container .filter-container .filter .label {
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.users-container .filter-container .filter select {
+  margin-left: 0.5rem;
+  background: transparent;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  height: 48px;
+  width: 100%;
+  min-width: 320px;
+  padding: 0 1.5rem;
+  font-size: 14px;
+  font-weight: 400;
+}/*# sourceMappingURL=users.css.map */

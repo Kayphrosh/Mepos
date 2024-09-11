@@ -1,0 +1,209 @@
+@import "../../../../variables";
+
+.suspended-sales-container {
+  padding: 40px 24px 20px 31px;
+
+  .warning {
+    margin-top: 16px;
+    border: 0.5px solid $secondarycolor-100;
+    border-radius: 5px;
+    background-color: #fffcf4;
+    padding: 7px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .information {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      p {
+        color: $text-200;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    button {
+      width: fit-content;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      color: $primarycolor-100;
+
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: underline;
+        line-height: 25.2px;
+      }
+    }
+  }
+
+  .filters {
+    margin-top: 32px;
+    border: 1px transparent;
+    border-radius: 5px;
+    background-color: $background;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .main {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .search-trans {
+        position: relative;
+        width: 350px;
+        height: 50px;
+
+        input {
+          border: 0.5px solid $stroke;
+          border-radius: 8px;
+          padding: 12px 0px 12px 12px;
+          color: $text-300;
+          height: 48px;
+          width: 100%;
+          font-size: 14px;
+        }
+
+        button {
+          width: fit-content;
+          // padding: 8px;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: $primarycolor-100;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            color: $white-100;
+          }
+        }
+      }
+    }
+
+    .filter-trans {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+
+      label {
+        color: $text-200;
+        font-weight: 500;
+      }
+
+      select {
+        width: 300px;
+        appearance: none;
+        font-size: 14px;
+        cursor: pointer;
+        background: transparent;
+        border: 0.5px solid $stroke;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-weight: 400;
+      }
+
+      svg {
+        position: absolute;
+        right: 16px;
+      }
+    }
+
+    .more-filter {
+      width: fit-content;
+      background: none;
+      border: none;
+      color: $primarycolor-100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      p {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  table {
+    margin-top: 24px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+
+    th {
+      div {
+        color: $text-200;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+
+    td {
+      font-size: 14px;
+      color: $text-100;
+
+      &.items-list {
+        width: 200px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .action {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+    }
+  }
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      color: $text-300;
+      font-size: 14px;
+
+      span {
+        color: $black;
+        font-weight: 500;
+      }
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      button {
+        padding: 10px 10px;
+        margin: 0 1px;
+        background: none;
+        color: $text-400;
+
+        &.active {
+          background-color: $primarycolor-100;
+          color: $white-100;
+        }
+      }
+    }
+  }
+}

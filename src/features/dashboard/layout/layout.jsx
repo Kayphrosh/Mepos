@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Sidebar from '../../../components/sidebar/Sidebar';
 import Topbar from '../../../components/topbar/Topbar';
@@ -10,8 +10,12 @@ import Roles from '../roles/roles';
 import AddNewRole from '../add-new-role/add-new-role';
 import Customers from '../customers/customers';
 import ProductList from '../product-list/ProductList';
-
-import './layout.scss';
+import Transactions from "../sales/transactions/transaction";
+import ImportSales from "../sales/import-sales/import-sales";
+import Discounts from "../sales/discounts/discounts";
+import Pos from "../sales/pos/pos";
+import "./layout.scss";
+import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 
 const DashboardLayout = () => {
   return (
@@ -27,7 +31,12 @@ const DashboardLayout = () => {
             <Route path="/roles" element={<Roles />} />
             <Route path="/roles/add-new-role" element={<AddNewRole />} />
             <Route path="/customers" element={<Customers />} />
+            <Route path="/transactions" element={<Transactions />} />
+            <Route path="/suspended-sales" element={<SuspendedSales />} />
+            <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
+            <Route path="/discounts" element={<Discounts/>} />
+            <Route path="/pos" element={<Pos/>} />
           </Routes>
         </div>
       </div>
