@@ -1,0 +1,108 @@
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.add-product-container {
+  padding: 40px 24px 20px 31px;
+}
+.add-product-container .tab_heading {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #e4e4e6;
+}
+.add-product-container .tab_heading .tab {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 24px;
+  color: #8a8988;
+  cursor: pointer;
+}
+.add-product-container .tab_heading .tab.active {
+  border-bottom: 2px solid #010066;
+  color: #010066;
+}
+.add-product-container .content {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-product-container .content .basic-info {
+  max-width: 634px;
+  width: 100%;
+  background: #fbfbfd;
+  border: 1px transparent;
+  border-radius: 5px;
+  padding: 28.5px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.add-product-container .content .basic-info .rack_number {
+  margin-top: 6px;
+  color: #8a8988;
+  font-size: 14px;
+}
+.add-product-container .content .basic-info .cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-product-container .content .basic-info .cta button {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.add-product-container .content .basic-info .cta .cancel {
+  color: #8a8988;
+  font-weight: 500;
+  background-color: #fefefe;
+  text-decoration: underline;
+}
+.add-product-container .content .basic-info .cta .submit-basic-info {
+  font-weight: 500;
+  font-size: 14px;
+}
+.add-product-container .content .supplier-info {
+  max-width: 634px;
+  width: 100%;
+  background: #fbfbfd;
+  border: 1px transparent;
+  border-radius: 5px;
+  padding: 28.5px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.add-product-container .content .supplier-info .cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-product-container .content .supplier-info .cta button {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.add-product-container .content .supplier-info .cta .cancel {
+  color: #8a8988;
+  font-weight: 500;
+  background-color: #fefefe;
+  text-decoration: underline;
+}
+.add-product-container .content .supplier-info .cta .submit-supplier-info {
+  font-weight: 500;
+  font-size: 14px;
+}/*# sourceMappingURL=add-new-product.css.map */

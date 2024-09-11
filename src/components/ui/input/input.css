@@ -55,10 +55,12 @@ p {
 .form_input div input::-moz-placeholder {
   color: #b1b1b0;
   font-weight: 400;
+  font-size: 14px;
 }
 .form_input div input::placeholder {
   color: #b1b1b0;
   font-weight: 400;
+  font-size: 14px;
 }
 .form_input div input.error {
   border: 2px solid red;

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
 import Check from "../../../assets/images/icons/checkmark.svg";
-import RegisterScreenImage from "../../../assets/images/resiter-screen-image.png";
+import RegisterScreenImage from "../../../assets/images/register-store.svg";
 // import Ellipse1 from "../../../assets/images/Ellipse1.svg";
 // import Ellipse2 from "../../../assets/images/Ellipse2.png";
 import "./register-store.scss";
@@ -11,7 +11,7 @@ import AdminInfoForm from "./AdminInfoForm";
 import StoreInfoForm from "./StoreInfoForm";
 
 const RegisterStore = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 

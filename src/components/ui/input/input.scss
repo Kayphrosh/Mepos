@@ -1,4 +1,4 @@
-@import '../../../variables';
+@import "../../../variables";
 
 * {
   outline: none;
@@ -44,6 +44,7 @@
       &::placeholder {
         color: $placeholder;
         font-weight: 400;
+        font-size: 14px;
       }
 
       &.error {

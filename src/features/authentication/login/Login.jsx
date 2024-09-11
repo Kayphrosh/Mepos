@@ -5,6 +5,7 @@ import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
 import "./login.scss";
 import Button from "../../../components/ui/button/Button";
 import { useForm } from "react-hook-form";
+import POS from "../../../assets/images/POS.svg";
 
 const Login = () => {
   const [showCreatePassword, setShowCreatePassword] = useState(false);
@@ -19,25 +20,27 @@ const Login = () => {
 
   const onSubmit = (data) => {
     // Validate the form data
-    if (errors.username || errors.passwordCreated) {
-      return; // Handle validation errors
-    }
+    // if (errors.username || errors.passwordCreated) {
+    //   return; // Handle validation errors
+    // }
+    console.log(data);
+    navigate("/home");
 
     // Simulate backend validation and authentication
-    if (
-      data.username === "validUser" &&
-      data.passwordCreated === "validPassword"
-    ) {
-      // Handle successful login
-      navigate("/home"); // Navigate to the "Home" page
-    } else {
-      // Handle failed login
-      alert("Invalid username or password");
-    }
+    // if (
+    //   data.username === "validUser" &&
+    //   data.passwordCreated === "validPassword"
+    // ) {
+    //   // Handle successful login
+    //   navigate("/home"); // Navigate to the "Home" page
+    // } else {
+    //   // Handle failed login
+    //   alert("Invalid username or password");
+    // }
   };
 
   return (
-    <div className="login">
+    <div className="login-auth">
       <div className="container">
         <div className="login">
           <div className="heading">
@@ -55,52 +58,41 @@ const Login = () => {
                 <Input
                   label="Username"
                   type="text"
-                  name="username"
+                  name="usernameLogin"
                   placeholder="Enter Username"
                   required={true}
-                  register={register("username", {
-                    required: "Username is required",
-                    minLength: {
-                      value: 3,
-                      message: "Username should be at least 3 characters",
-                    },
+                  register={register("usernameLogin", {
+                    required: "Enter your username",
                   })}
-                  error={errors.username}
+                  error={errors.usernameLogin}
                 />
               </div>
               <div>
                 <Input
                   label="Create Password"
                   type={showCreatePassword ? "text" : "password"}
-                  name="createPassword"
+                  name="enterPassword"
                   placeholder="************"
                   required={true}
-                  register={register("passwordCreated", {
+                  register={register("enterPassword", {
                     required: "Enter your password",
-                    minLength: {
-                      value: 8,
-                      message: "Password should be more than 8 characters",
-                    },
-                    pattern: {
-                      value:
-                        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z\d#?!@$%^&*-]{8,}$/,
-                      message:
-                        "Password should contain at least one uppercase letter, one lowercase letter, one number and one special character",
-                    },
                   })}
                   showCreatePassword={showCreatePassword}
                   setShowCreatePassword={setShowCreatePassword}
-                  error={errors.passwordCreated}
+                  error={errors.enterPassword}
                 />
               </div>
               <div className="forgot">
-                <Link to="/forgot-password">
-                  <p>Forgot your password?</p>
-                </Link>
+                <p>
+                  <Link to="/forgot-password">Forgot your password?</Link>
+                </p>
               </div>
-              <Link to='/*'><Button type="submit">Login</Button></Link>
+              <Button type="submit">Login</Button>
             </div>
           </form>
+        </div>
+        <div className="home-image">
+          <img src={POS} alt="" />
         </div>
       </div>
     </div>

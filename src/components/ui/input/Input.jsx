@@ -71,6 +71,11 @@ const Input = ({
         )}
       </div>
       {error && <p>{error.message}</p>}
+      {name === "rackNumber" && (
+        <span className="rack_number">
+          Products of the same category have the same rack number
+        </span>
+      )}
     </div>
   );
 };

@@ -15,49 +15,71 @@ p {
   font-weight: normal;
 }
 
-.container {
+.check-mail {
+  min-height: 100vh;
+}
+.check-mail .container {
   margin-top: 6.125rem;
   margin-left: 7%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 @media (max-width: 1024px) {
-  .container {
+  .check-mail .container {
     margin-right: 5%;
     margin-left: 5%;
   }
 }
+.check-mail .container .home-image {
+  width: 100%;
+  text-align: right;
+  overflow-x: hidden;
+}
+.check-mail .container .home-image img {
+  height: 90vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 @media (max-width: 1024px) {
-  .container .home-image {
+  .check-mail .container .home-image {
     display: none;
   }
 }
-.container .register-store .heading {
+.check-mail .container .login {
+  width: 40%;
+}
+@media (max-width: 1024px) {
+  .check-mail .container .login {
+    width: 60%;
+  }
+}
+@media (max-width: 768px) {
+  .check-mail .container .login {
+    width: 100%;
+  }
+}
+.check-mail .container .login .heading {
   text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.container .register-store .heading img {
-  width: 65px;
+.check-mail .container .login .heading .text {
+  margin-top: 32px;
 }
-.container .register-store .heading h3 {
+.check-mail .container .login .heading h3 {
   line-height: 31.2px;
   margin-bottom: 10px;
 }
-.container .register-store .heading h4 {
+.check-mail .container .login .heading h4 {
   font-size: 14px;
   font-weight: 400;
   line-height: 25.2px;
   text-align: center;
-  margin: 0 30%;
+  margin-top: 4px;
 }
-.container .register-store form .forgot p {
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 25.2px;
-  text-align: right;
-  text-decoration: underline;
+.check-mail .container .login button {
+  margin-top: 80px;
 }/*# sourceMappingURL=checkMail.css.map */
