@@ -8,9 +8,9 @@ const BasicInformation = ({ handleNext }) => {
       <div className="form-input">
         <label htmlFor="Gender">Gender</label>
         <select placeholder="Actions">
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
+          <option>male</option>
+          <option>female</option>
+          <option>other</option>
         </select>
       </div>
 
