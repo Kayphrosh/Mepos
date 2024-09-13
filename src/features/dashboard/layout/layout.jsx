@@ -12,7 +12,7 @@ import Customers from "../customers/customers";
 import ProductList from "../products/product-list/ProductList";
 import Transactions from "../sales/transactions/transaction";
 import ImportSales from "../sales/import-sales/import-sales";
-
+import Variations from "../products/variations/Variations"
 import Discounts from "../sales/discounts/discounts";
 import Pos from "../sales/pos/pos";
 import "./layout.scss";
@@ -40,6 +40,7 @@ const DashboardLayout = () => {
             <Route path="/add-new-product" element={<AddNewProduct />} />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/pos" element={<Pos />} />
+            <Route path="/variations" element={<Variations/>} />"
           </Routes>
         </div>
       </div>
