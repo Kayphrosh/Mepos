@@ -12,7 +12,7 @@ import Customers from "../customers/customers";
 import ProductList from "../products/product-list/ProductList";
 import Transactions from "../sales/transactions/transaction";
 import ImportSales from "../sales/import-sales/import-sales";
-
+import Variations from "../products/variations/Variations"
 import Discounts from "../sales/discounts/discounts";
 import Pos from "../sales/pos/Pos";
 import "./layout.scss";
@@ -44,6 +44,7 @@ const DashboardLayout = () => {
             <Route path="/pos" element={<Pos />} />
             <Route path="/units" element={<Units />} />
             <Route path="/categories" element={<ProductCategory />} />
+            <Route path="/variations" element={<Variations/>} />"
           </Routes>
         </div>
       </div>
