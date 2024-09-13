@@ -1,0 +1,140 @@
+@import '../../../../_variables';
+
+.print-product-label-container {
+  padding: 2rem;
+
+  .product-selection {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .search-bar {
+      display: flex;
+      flex: 1;
+
+      input {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        border: 1px solid $stroke;
+        border-right: none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      button {
+        background-color: $primarycolor-100;
+        border: none;
+        padding: 0.5rem;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        cursor: pointer;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    select {
+      padding: 0.5rem 1rem;
+      border: 1px solid $stroke;
+      border-radius: 4px;
+      background-color: $white-100;
+      color: $text-300;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-200;
+    margin-bottom: 2rem;
+  }
+
+  .product-label-list {
+    margin-bottom: 2rem;
+
+    .list-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 0.5fr;
+      padding: 1rem 0;
+      font-weight: 600;
+      color: $text-200;
+    }
+
+    .list-item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 0.5fr;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid $stroke;
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+
+        button {
+          background-color: $primarycolor-100;
+          color: $white-100;
+          border: none;
+          width: 24px;
+          height: 24px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        input {
+          width: 40px;
+          text-align: center;
+          border: 1px solid $stroke;
+          margin: 0 0.5rem;
+        }
+      }
+
+      .remove {
+        background: none;
+        border: none;
+        color: $state-100;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .preview-section {
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: $text-200;
+      margin-bottom: 1rem;
+    }
+
+    .label-preview {
+      width: 300px;
+      padding: 1rem;
+      background-color: $black;
+      color: $white-100;
+      text-align: center;
+
+      .product-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .barcode {
+        margin-bottom: 0.5rem;
+
+        img {
+          max-width: 100%;
+        }
+      }
+
+      .price {
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+}

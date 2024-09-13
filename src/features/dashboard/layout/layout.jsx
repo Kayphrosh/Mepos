@@ -18,6 +18,11 @@ import Pos from "../sales/pos/pos";
 import "./layout.scss";
 import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 import AddNewProduct from "../products/add-new-product/add-new-product";
+import PrintProductLabel from "../products/print-products-label/PrintProductLabel"
+import Units from "../products/units/Units"
+import Categories from "../products/categories/Categories"
+import ImportProducts from "../products/import-products/ImportProducts"
+import ImportOpeningStock from "../products/import-opening-stock/ImportOpeningStock"
 
 const DashboardLayout = () => {
   return (
@@ -40,7 +45,12 @@ const DashboardLayout = () => {
             <Route path="/add-new-product" element={<AddNewProduct />} />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/pos" element={<Pos />} />
-            <Route path="/variations" element={<Variations/>} />"
+            <Route path="/variations" element={<Variations/>} />
+            <Route path="/print-products-label" element={<PrintProductLabel />} />
+            <Route path="/units" element={<Units />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/import-products" element={<ImportProducts />} />
+            <Route path="/import-opening-stock" element={<ImportOpeningStock />} />
           </Routes>
         </div>
       </div>
