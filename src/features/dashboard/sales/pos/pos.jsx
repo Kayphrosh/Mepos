@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { itemsData } from "./items-data";
+import PosTable from "./pos-table";
+import PosPayment from "./pos-payment";
+import './pos.scss'
 
 
 
@@ -7,7 +10,7 @@ const Pos = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     return (
-        <div className="role-container users-container">
+        <div className="role-container users-container pos-container">
     
           <div className="filter-container">
             <div className="search">
@@ -31,7 +34,8 @@ const Pos = () => {
     
           </div>
     
-          {/* <UsersTable searchQuery={searchQuery} /> */}
+          <PosTable searchQuery={searchQuery} />
+          <PosPayment/>
         </div>
     );
 

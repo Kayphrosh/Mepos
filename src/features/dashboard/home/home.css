@@ -49,7 +49,7 @@ p {
   display: flex;
   gap: 1rem;
   align-items: center;
-  color: #8B8B8B;
+  color: #8b8b8b;
   font-size: 12px;
 }
 .home-container .metrics-container .card .title {

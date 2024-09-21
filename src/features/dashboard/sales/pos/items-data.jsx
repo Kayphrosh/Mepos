@@ -2,6 +2,7 @@ export const itemsData = [
     {
         id: 1,
         itemName: 'Amstel Malta (Malt drink)',
+        unit: 'Pieces'
     },
     {
         id: 2,
