@@ -1,16 +1,29 @@
-body {
-  background-color: #ffffff;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
+.pos-container {
+  padding: 2rem 0 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-h3 {
-  font-size: 1.5rem;
-  line-height: 31.2px;
-  font-weight: bold;
+.pos-container .product-selector {
+  width: 20%;
 }
-
-p {
-  font-size: 16px;
-  font-weight: normal;
+.pos-container .cart-table {
+  width: 60%;
+}
+.pos-container .cart-table table {
+  border: none;
+}
+.pos-container .cart-table table tbody tr td {
+  border: none;
+}
+.pos-container .cart-table table tbody tr .quantity {
+  display: flex;
+  flex-direction: row;
+}
+.pos-container .cart-table table tbody tr .quantity .quantity-button {
+  width: 10px;
+}
+.pos-container .payment-section {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=pos.css.map */

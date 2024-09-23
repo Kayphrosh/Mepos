@@ -14,7 +14,7 @@ import Transactions from "../sales/transactions/transaction";
 import ImportSales from "../sales/import-sales/import-sales";
 import Variations from "../products/variations/Variations"
 import Discounts from "../sales/discounts/discounts";
-import Pos from "../sales/pos/pos";
+import Pos from "../sales/pos/Pos";
 import "./layout.scss";
 import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 import AddNewProduct from "../products/add-new-product/add-new-product";

@@ -33,7 +33,7 @@ p {
   }
 }
 .check-mail .container .home-image {
-  width: 100%;
+  max-width: 100%;
   text-align: right;
   overflow-x: hidden;
 }
