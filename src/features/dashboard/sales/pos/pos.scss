@@ -21,8 +21,8 @@
        
        .table-container{
         flex-grow: 1;
-        overflow-y: auto;
-        height: 90%;
+        height: 400px;
+        overflow-y: scroll;
 
         table{
             border: none;
