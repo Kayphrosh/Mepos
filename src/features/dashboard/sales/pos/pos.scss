@@ -1,24 +1,41 @@
+@import '../../../../_variables.scss';
 
-.pos-container{
-    padding: 2rem 3px 2rem 0;
+.pos-container {
+  display: flex;
+  height: calc(100vh - 64px); // Assuming a 64px header
+  background-color: $white-200;
+  padding: 20px;
+  gap: 20px;
+
+  .product-selector {
+    width: 25%;
+    background-color: $white-100;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .pos-section{
-        // width: 35%;
+    flex-direction: column;
+
+    .search-bar {
+      padding: 12px;
+      border-bottom: 1px solid $stroke;
+
+      input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid $stroke;
+        border-radius: 4px;
+        padding: 0 12px;
+        font-size: 14px;
+      }
     }
-    .product-selector{
-        width: 20%;
-        select{
-            height: 57px;
-        }
     }
+
     .cart-table{
         width: 60%;
         height: 90%;
         border-collapse: collapse;
 
-       
+
        .table-container{
         flex-grow: 1;
         height: 400px;
@@ -59,9 +76,9 @@
                     }
                 }
             }
-           
+
         }
-         
+
        }
        .cart-summary{
         display: flex;
@@ -128,29 +145,29 @@
                 // justify-content: space-between;
                 width: 100%;
                 margin: 10px 0;
-              
+
                 label{
                     margin: 0 0px 0 3px;
                     font-size: 13px;
                     text-align: start;
-                  
+
                }
                .payment-option{
                 display: flex;
                 flex-direction: row;
                 align-items: flex-end;
                 justify-content: flex-end;
-                width: 77%;                                                                          
+                width: 77%;
                 padding: 0;
                 margin: 0;
                 // margin-left: 30px;
                 span{
                     display: flex;
-                   
+
                 }
-                
+
            }
-               
+
             }
         }
         .change-amount{
@@ -178,4 +195,3 @@
         }
     }
 }
-
