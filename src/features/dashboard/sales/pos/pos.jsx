@@ -1,40 +1,61 @@
-import React, { useState } from "react";
-import { itemsData } from "./items-data";
+import React, { useState } from 'react';
+import ProductSelector from './ProductSelector';
+import CartTable from './CartTable';
+import PaymentSection from './PaymentSection';
+import { products } from './products';
+import './pos.scss';
 
-
+const TAX_PERCENTAGE = 7.5;
 
 const Pos = () => {
-    const [searchQuery, setSearchQuery] = useState('');
+  const [cart, setCart] = useState([]);
 
-    return (
-        <div className="role-container users-container">
-    
-          <div className="filter-container">
-            <div className="search">
-              <input
-                type="search"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button>
-              <select>
-                <option value="All" placeholder="All">All</option>
-                {itemsData.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.itemName}
-                  </option>
-                ))}
-              </select>
-              </button>
-            </div>
-    
-          </div>
-    
-          {/* <UsersTable searchQuery={searchQuery} /> */}
-        </div>
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find(item => item.id === product.id);
+      if (existingItem) {
+        return prevCart.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: product.quantity }
+            : item
+        );
+      }
+      return [...prevCart, product];
+    });
+  };
+
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    setCart((prevCart) =>
+      prevCart.map(item =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      )
     );
+  };
 
+  // Function to remove item from cart
+  const handleRemoveItem = (productId) => {
+    setCart((prevCart) => prevCart.filter(item => item.id !== productId));
+  };
+
+  const calculatePriceWithTax = (price) => {
+    return price + (price * TAX_PERCENTAGE / 100);
+  };
+
+  const totalAmount = cart.reduce((acc, item) => 
+    acc + calculatePriceWithTax(item.price) * item.quantity, 0
+  );
+
+  return (
+    <div className="pos-container">
+      <ProductSelector products={products} onAddToCart={handleAddToCart} />
+      <CartTable
+        cart={cart}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemoveItem={handleRemoveItem}  // Pass the remove function to CartTable
+      />
+      <PaymentSection totalAmount={totalAmount.toFixed(2)} />
+    </div>
+  );
 };
 
 export default Pos;
