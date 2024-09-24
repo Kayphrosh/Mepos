@@ -29,104 +29,154 @@ export const products = [
         price: 1000,
         unit: "Pieces",
     },
-//     {
-//         id: 6,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 7,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 8,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 9,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 10,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 11,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 12,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 13,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 14,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 15,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 16,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 17,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 18,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 19,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 20,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 21,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 22,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 23,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 24,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 25,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 26,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 27,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 28,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 29,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
-//     {
-//         id: 30,
-//         itemName: 'Amstel Malta (Malt drink)',
-//     },
+    {
+        id: 6,
+        name: 'Knorr (Seasoning Cubes)',
+        price: 400,
+        unit: "Pieces",
+    },
+    {
+        id: 7,
+        name: 'Morning Fresh(Dishwashing Liquid)',
+        price: 600,
+        unit: "Pieces",
+    },
+    {
+        id: 8,
+        name: 'Closeup (Toothpaste)',
+        price: 1200,
+        unit: "Pieces",
+    },
+    {
+        id: 9,
+        name: 'Milo (Chocolate drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 10,
+        name: 'Dangote (Flour)',
+        price: 1000,
+        unit: "Pieces",
+    },
+    {
+        id: 11,
+        name: 'Amstel Malta (Malt drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 12,
+        name: 'Ariel (Laundry detergent)',
+        price: 400,
+        unit: "Pieces",
+    },
+    {
+        id: 13,
+        name: 'Closeup (Toothpaste)',
+        price: 1200,
+        unit: "Pieces",
+    },
+    {
+        id: 14,
+        name: 'Milo (Chocolate drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 15,
+        name: 'Dangote (Flour)',
+        price: 1000,
+        unit: "Pieces",
+    },
+    {
+        id: 16,
+        name: 'Amstel Malta (Malt drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 17,
+        name: 'Ariel (Laundry detergent)',
+        price: 400,
+        unit: "Pieces",
+    },
+    {
+        id: 18,
+        name: 'Closeup (Toothpaste)',
+        price: 1200,
+        unit: "Pieces",
+    },
+    {
+        id: 19,
+        name: 'Milo (Chocolate drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 20,
+        name: 'Dangote (Flour)',
+        price: 1000,
+        unit: "Pieces",
+    },
+    {
+        id: 21,
+        name: 'Amstel Malta (Malt drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 22,
+        name: 'Ariel (Laundry detergent)',
+        price: 400,
+        unit: "Pieces",
+    },
+    {
+        id: 23,
+        name: 'Closeup (Toothpaste)',
+        price: 1200,
+        unit: "Pieces",
+    },
+    {
+        id: 24,
+        name: 'Milo (Chocolate drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 25,
+        name: 'Dangote (Flour)',
+        price: 1000,
+        unit: "Pieces",
+    },
+    {
+        id: 26,
+        name: 'Amstel Malta (Malt drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 27,
+        name: 'Ariel (Laundry detergent)',
+        price: 400,
+        unit: "Pieces",
+    },
+    {
+        id: 28,
+        name: 'Closeup (Toothpaste)',
+        price: 1200,
+        unit: "Pieces",
+    },
+    {
+        id: 29,
+        name: 'Milo (Chocolate drink)',
+        price: 200,
+        unit: "Pieces",
+    },
+    {
+        id: 30,
+        name: 'Dangote (Flour)',
+        price: 1000,
+        unit: "Pieces",
+    },
 ];

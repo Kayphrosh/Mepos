@@ -17,34 +17,62 @@ const CartTable = ({ cart, onUpdateQuantity, onRemoveItem }) => {
     }
   };
 
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const getTotalAmount = () => {
+    return cart.reduce((total, item) => total + calculatePriceWithTax(item.price) * item.quantity, 0).toFixed(2);
+  };
+  
+  const discount = 0;
+
   return (
     <div className="cart-table pos-section">
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-            <th>Price + Tax</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map(item => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td className='quantity'>
-                <button className='quantity-button' onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
-                  <p onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}>{item.quantity}</p>
-                <button className='quantity-button' onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
-              </td>
-              <td>{item.unit}</td>
-              <td>₦{calculatePriceWithTax(item.price).toFixed(2)}</td>
-              <td>₦{(calculatePriceWithTax(item.price) * item.quantity).toFixed(2)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className='table-container'>
+        <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Price + Tax</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map(item => (
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td className='quantity'>
+                    <button className='quantity-button' onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
+                      <p onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}>{item.quantity}</p>
+                    <button className='quantity-button' onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
+                  </td>
+                  <td>{item.unit}</td>
+                  <td>₦{calculatePriceWithTax(item.price).toFixed(2)}</td>
+                  <td>₦{(calculatePriceWithTax(item.price) * item.quantity).toFixed(2)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      </div>
+
+      <div className="cart-summary">
+        <div className="summary-item">
+          <span>Items</span>
+          <span>{getTotalItems()}</span>
+        </div>
+        <div className="summary-item">
+          <span>Discount</span>
+          <span>₦{discount.toFixed(2)}</span>
+        </div>
+        <div className="summary-item total-items">
+          <span>Total Items</span>
+          <span>₦{getTotalAmount()}</span>
+        </div>
+      </div>
+
     </div>
   );
 };
