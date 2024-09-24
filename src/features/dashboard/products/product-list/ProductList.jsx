@@ -72,7 +72,7 @@ const ProductList = () => {
           </div>
           <div className="filter-trans">
             <label>Filter by:</label>
-            <select onCHange={handleFilterChange} value={filter}>
+            <select onChange={handleFilterChange} value={filter}>
               <option>All Transactions</option>
               <option>View</option>
               <option>Edit</option>
