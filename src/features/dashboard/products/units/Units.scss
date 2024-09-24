@@ -1,0 +1,200 @@
+@import "../../../../variables";
+
+.units-container {
+  padding: 40px 24px 20px 31px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      background-color: $white-100;
+      width: fit-content;
+      color: $primarycolor-100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid $primarycolor-100;
+      border-radius: 5px;
+    }
+  }
+
+  .add-new-unit {
+    margin-top: 15px;
+    margin-bottom: 32px;
+    width: 100%;
+    border: 1px transparent;
+    border-radius: 5px;
+    background: $background;
+
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 23px;
+
+      p {
+        font-size: 18px;
+        font-weight: 600;
+        color: $text-100;
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
+
+    form {
+      margin: 16px 22px;
+
+      .unit-names {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .decimal-value {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+
+        label {
+          color: $text-200;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          height: 20px;
+          width: 20px;
+          border: 1px solid #cfd3d4;
+          border-radius: 8px;
+          cursor: pointer;
+
+          &:checked {
+            background-color: $primarycolor-100;
+            background-image: url("../../../../assets/images/tick.svg");
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            // outline: 1px outset $primarycolor-200;
+            border: none;
+          }
+        }
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 22px;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          text-decoration: underline;
+          background: $white-600;
+          color: $text-400;
+          font-weight: 500;
+        }
+
+        .save {
+          width: 123px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .products-units {
+    margin-top: 16px;
+
+    p {
+      font-size: 18px;
+      font-weight: 600;
+      color: $text-100;
+    }
+
+    .search {
+      margin-top: 16px;
+      position: relative;
+
+      input {
+        border: 0.5px solid $stroke;
+        border-radius: 8px;
+        width: 100%;
+        background-color: $white-600;
+        padding: 12px;
+
+        &::placeholder {
+          color: $text-300;
+          font-size: 14px;
+        }
+      }
+
+      button {
+        width: fit-content;
+        padding-left: 10px;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 48px;
+        border-radius: 0;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+
+        img {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    table {
+      margin-top: 32px;
+
+      tbody {
+        td:last-child {
+          text-align: right;
+          width: 1%;
+        }
+      }
+
+      th {
+        div {
+          color: $text-200;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+
+      td {
+        font-size: 14px;
+        color: $text-100;
+
+        .actions {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 24px;
+        }
+      }
+    }
+    .no-unit {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}

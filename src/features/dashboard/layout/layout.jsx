@@ -1,23 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Sidebar from '../../../components/sidebar/Sidebar';
-import Topbar from '../../../components/topbar/Topbar';
-import Home from '../home/home';
-import Users from '../user/users';
-import AddNewUser from '../add-new-user/add-new-user';
-import Roles from '../roles/roles';
-import AddNewRole from '../add-new-role/add-new-role';
-import Customers from '../customers/customers';
-import ProductList from '../products/product-list/ProductList';
-import Transaction from '../sales/transactions/transaction';
-import ImportSales from '../sales/import-sales/import-sales';
-
-import Discounts from '../sales/discounts/discounts';
-import Pos from '../sales/pos/pos';
-import './layout.scss';
-import SuspendedSales from '../sales/suspended-sales/suspended-sales';
-import AddNewProduct from '../products/add-new-product/add-new-product';
+import Sidebar from "../../../components/sidebar/Sidebar";
+import Topbar from "../../../components/topbar/Topbar";
+import Home from "../home/home";
+import Users from "../user/users";
+import AddNewUser from "../add-new-user/add-new-user";
+import Roles from "../roles/roles";
+import AddNewRole from "../add-new-role/add-new-role";
+import Customers from "../customers/customers";
+import ProductList from "../products/product-list/ProductList";
+import Transaction from "../sales/transactions/transaction";
+import ImportSales from "../sales/import-sales/import-sales";
+import Variations from "../products/variations/Variations"
+import Discounts from "../sales/discounts/discounts";
+import Pos from "../sales/pos/Pos";
+import "./layout.scss";
+import SuspendedSales from "../sales/suspended-sales/suspended-sales";
+import AddNewProduct from "../products/add-new-product/add-new-product";
+import Units from "../products/units/Units";
+import ProductCategory from "../products/category/category";
 
 const DashboardLayout = () => {
   return (
@@ -40,6 +42,9 @@ const DashboardLayout = () => {
             <Route path="/add-new-product" element={<AddNewProduct />} />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/pos" element={<Pos />} />
+            <Route path="/units" element={<Units />} />
+            <Route path="/categories" element={<ProductCategory />} />
+            <Route path="/variations" element={<Variations/>} />"
           </Routes>
         </div>
       </div>

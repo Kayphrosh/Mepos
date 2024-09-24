@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
-import './discounts.scss';
-import { ExportIcon, plusIcon, searchIcon } from '../../../../assets/images/icons';
-import DiscountsTable from './discounts-table';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./discounts.scss";
+import {
+  ExportIcon,
+  plusIcon,
+  searchIcon,
+} from "../../../../assets/images/icons";
+import DiscountsTable from "./discounts-table";
+import { Link } from "react-router-dom";
 
 const Discounts = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <div className="role-container discounts-container">

@@ -21,8 +21,7 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: start;
-  gap: 5rem;
+  align-items: center;
 }
 @media (max-width: 1024px) {
   .super-admin .container {
@@ -32,9 +31,14 @@ p {
   }
 }
 .super-admin .container .home-image {
-  width: 60%;
+  max-width: 100%;
   text-align: right;
   overflow-x: hidden;
+}
+.super-admin .container .home-image img {
+  height: 90vh;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 1024px) {
   .super-admin .container .home-image {
@@ -128,4 +132,33 @@ p {
 }
 .super-admin .container .register-store form button {
   margin-top: 1.5rem;
+}
+
+label {
+  color: #3c3b39;
+  font-size: 14px;
+  line-height: 28.8px;
+  font-weight: 600;
+}
+
+select {
+  height: 44px;
+  width: 100%;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 0 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+}
+select:hover {
+  border: 1px solid #767676;
+}
+select::-moz-placeholder {
+  color: #b1b1b0;
+}
+select::placeholder {
+  color: #b1b1b0;
 }/*# sourceMappingURL=register-store.css.map */
