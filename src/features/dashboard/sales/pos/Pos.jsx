@@ -41,7 +41,7 @@ const Pos = () => {
     return price + (price * TAX_PERCENTAGE / 100);
   };
 
-  const totalAmount = cart.reduce((acc, item) => 
+  const totalAmount = cart.reduce((acc, item) =>
     acc + calculatePriceWithTax(item.price) * item.quantity, 0
   );
 
