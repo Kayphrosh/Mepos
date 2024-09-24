@@ -52,7 +52,7 @@ const ProductTable = ({ products, loadingProducts }) => {
               <td>{product.name}</td>
               <td>{product.sellingPrice}</td>
               <td>
-                {product.store.name}, {product.store.location}
+                {product.companyName}
               </td>
               <td>{product.category.name}</td>
               <td>{product.unit.name}</td>
