@@ -11,6 +11,8 @@ const Input = ({
   required,
   register,
   error,
+  value,
+  onChange,
   showCreatePassword,
   setShowCreatePassword,
   showConfirmPassword,
@@ -30,10 +32,12 @@ const Input = ({
           type={type}
           placeholder={placeholder}
           name={name}
+          onChange={onChange}
           {...register}
-          className={`${error && "error"}`}
+          value={value}
+          className={`${error && 'error'}`}
         />
-        {name === "createPassword" && (
+        {name === 'createPassword' && (
           <img
             src={showCreatePassword ? EyeClosed : Eye}
             width={20}
@@ -42,7 +46,7 @@ const Input = ({
             onClick={() => setShowCreatePassword(!showCreatePassword)}
           />
         )}
-        {name === "confirmPassword" && (
+        {name === 'confirmPassword' && (
           <img
             src={showConfirmPassword ? EyeClosed : Eye}
             width={20}
@@ -51,7 +55,7 @@ const Input = ({
             onClick={() => !setShowConfirmPassword(!showConfirmPassword)}
           />
         )}
-        {name === "newPassword" && (
+        {name === 'newPassword' && (
           <img
             src={showNewPassword ? EyeClosed : Eye}
             width={20}
@@ -60,7 +64,7 @@ const Input = ({
             onClick={() => !setShowNewPassword(!showNewPassword)}
           />
         )}
-        {name === "confirmNewPassword" && (
+        {name === 'confirmNewPassword' && (
           <img
             src={showConfirmNewPassword ? EyeClosed : Eye}
             width={20}
@@ -71,7 +75,7 @@ const Input = ({
         )}
       </div>
       {error && <p>{error.message}</p>}
-      {name === "rackNumber" && (
+      {name === 'rackNumber' && (
         <span className="rack_number">
           Products of the same category have the same rack number
         </span>

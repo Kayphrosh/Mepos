@@ -1,40 +1,40 @@
-import { useNavigate } from "react-router-dom";
-import Input from "../../../components/ui/input/Input";
-import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
-import Button from "../../../components/ui/button/Button";
-import { useForm } from "react-hook-form";
-import POS from "../../../assets/images/POS.svg";
-import "./ForgotPassword.scss";
+import { useNavigate } from 'react-router-dom';
+import Input from '../../../components/ui/input/Input';
+import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
+import Button from '../../../components/ui/button/Button';
+import { useForm } from 'react-hook-form';
+import POS from '../../../assets/images/POS.svg';
+import axios from '../../../utils/axios'; // Ensure you have axios imported
+import './ForgotPassword.scss';
 
 const ForgotPassword = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onTouched" });
+  } = useForm({ mode: 'onTouched' });
 
   const navigate = useNavigate();
+const onSubmit = async (data) => {
+  try {
+    const response = await axios.post('/users/forgot-password', {
+      email: data.email,
+    });
+    console.log(response); // Log response for debugging
 
-  const onSubmit = (data) => {
-    // Validate the form data
-    console.log(data);
-    navigate("/check-mail");
-    // if (errors.username || errors.passwordCreated) {
-    //   return; // Handle validation errors
-    // }
+    if (response.data.status === 200) {
+      alert(response.data.message);
+      navigate('/check-mail');
+    }
+  } catch (error) {
+    console.error('Error sending password reset link:', error);
+    alert(
+      'An error occurred while sending the password reset link. Please try again.',
+    );
+  }
+};
 
-    // // Simulate backend validation and authentication
-    // if (
-    //   data.username === "validUser" &&
-    //   data.passwordCreated === "validPassword"
-    // ) {
-    //   // Handle successful login
-    //   navigate("/home"); // Navigate to the "Home" page
-    // } else {
-    //   // Handle failed login
-    //   alert("Invalid username or password");
-    // }
-  };
+
   return (
     <div className="forgot-password">
       <div className="container">
@@ -58,12 +58,12 @@ const ForgotPassword = () => {
                   name="email"
                   placeholder="Enter your e-mail address"
                   required={true}
-                  register={register("email", {
-                    required: "Enter your Email Address",
+                  register={register('email', {
+                    required: 'Enter your Email Address',
                     pattern: {
                       value:
                         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                      message: "Invalid email address",
+                      message: 'Invalid email address',
                     },
                   })}
                   error={errors.email}

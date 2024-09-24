@@ -2,43 +2,44 @@ import React from 'react';
 import './add-new-user.scss';
 import Input from '../../../components/ui/input/Input';
 
-const BasicInformation = ({ handleNext }) => {
+const BasicInformation = ({ formData, handleInputChange, handleNext }) => {
   return (
     <div className="form-container">
       <div className="form-input">
         <label htmlFor="Gender">Gender</label>
-        <select placeholder="Actions">
-          <option>male</option>
-          <option>female</option>
-          <option>other</option>
+        <select
+          value={formData.gender}
+          onChange={(e) => handleInputChange('gender', e.target.value)}
+        >
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
       </div>
 
-      <div className="form-input">
-        <label htmlFor="Prefix">Prefix</label>
-        <select placeholder="Actions">
-          <option>Mr</option>
-          <option>Mrs</option>
-          <option>Ms</option>
-        </select>
-      </div>
       <Input
         type="text"
         label="First Name"
         placeholder="First Name"
         required={true}
+        value={formData.firstName}
+        onChange={(e) => handleInputChange('firstName', e.target.value)}
       />
       <Input
         type="text"
         label="Last Name"
         placeholder="Last Name"
         required={true}
+        value={formData.lastName}
+        onChange={(e) => handleInputChange('lastName', e.target.value)}
       />
       <Input
-        type="text"
+        type="email"
         label="Email"
         placeholder="Enter user email"
         required={true}
+        value={formData.email}
+        onChange={(e) => handleInputChange('email', e.target.value)}
       />
 
       <div className="form-cta">

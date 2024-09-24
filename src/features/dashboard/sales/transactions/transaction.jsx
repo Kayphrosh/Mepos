@@ -1,10 +1,51 @@
-import React, { useState } from "react";
-import { Icon } from "@iconify/react";
-import "./transaction.scss";
-import TransactionsTable from "./TransactionsTable";
+import React, { useState, useEffect } from 'react';
+import { Icon } from '@iconify/react';
+import { useParams } from 'react-router-dom';
+import './transaction.scss';
+import TransactionsTable from './TransactionsTable';
+import axios from '../../../../utils/axios';
 
 const Transaction = () => {
-  const [searchTransactions, setSearchTransactions] = useState("");
+  const { storeId } = useParams(); // Get storeId from URL params
+  const [searchTransactions, setSearchTransactions] = useState('');
+  const [transactions, setTransactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      if (!storeId) {
+        setApiError('Store ID is missing in the URL');
+        return;
+      }
+
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`/${storeId}/transactions`);
+        const data = response.data.data;
+
+        if (!data || data.length === 0) {
+          setApiError('No transactions found');
+        } else {
+          setTransactions(data);
+        }
+      } catch (error) {
+        console.error('Error fetching transactions:', error);
+        setApiError(
+          error.response?.data?.message || 'Failed to fetch transactions',
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTransactions();
+  }, [storeId]);
+
+  if (!storeId) {
+    return <p>Store ID is missing. Please check the URL.</p>;
+  }
+
   return (
     <div className="transaction-container">
       <div className="title">
@@ -43,7 +84,15 @@ const Transaction = () => {
           <p>More filter</p>
         </button>
       </div>
-      <TransactionsTable />
+      {isLoading ? (
+        <p>Loading transactions...</p>
+      ) : apiError ? (
+        <p className="error-message">{apiError}</p>
+      ) : transactions.length === 0 ? (
+        <p>No transactions available.</p>
+      ) : (
+        <TransactionsTable transactions={transactions} />
+      )}
     </div>
   );
 };

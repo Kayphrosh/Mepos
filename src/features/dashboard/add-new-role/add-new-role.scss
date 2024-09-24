@@ -9,7 +9,7 @@
     .category-header {
       display: flex;
       justify-content: space-between;
-      flex-basis: 50%;
+      flex-basis: 70%;
       // gap: 4rem;
 
       span {
@@ -31,7 +31,14 @@
           margin: 0 !important;
         }
         label {
-          margin: none !important;
+          margin: 0 !important;
+          color: $text-300;
+          text-align: right;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
         }
       }
     }
@@ -46,6 +53,16 @@
       .permission-action {
         display: flex;
         gap: 1rem;
+
+        label {
+          color: $text-300;
+          text-align: right;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
       }
     }
   }

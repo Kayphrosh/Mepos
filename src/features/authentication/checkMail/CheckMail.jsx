@@ -17,7 +17,7 @@ const CheckMail = () => {
               <h4>We’ve sent you a link to reset your password</h4>
             </div>
           </div>
-          <Button type="submit" onClick={() => navigate("/reset-password")}>
+          <Button type="submit" onClick={() => navigate("/login")}>
             Back to Login
           </Button>
         </div>

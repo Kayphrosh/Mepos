@@ -30,6 +30,7 @@ const Login = () => {
     setApiError(null);
 
     try {
+      // Post the login request with the storeId included in the URL
       const response = await axios.post(`${storeId}/users/login`, {
         email: data.email,
         password: data.enterPassword,
@@ -39,11 +40,19 @@ const Login = () => {
 
       const { token, user } = response.data.data;
 
+      // Save token and user in localStorage
       localStorage.setItem('token', token);
-            // localStorage.setItem('storeId', user.store);
-
       localStorage.setItem('user', JSON.stringify(user));
-      navigate('/home');
+
+      // Store the storeId from useParams or user object if available
+      if (storeId) {
+        localStorage.setItem('storeId', storeId);
+      } else if (user.store) {
+        localStorage.setItem('storeId', user.store);
+      }
+
+      // Redirect to the home page or relevant dashboard
+      navigate(`/home`);
     } catch (error) {
       console.error('Error during login:', error);
       setApiError(

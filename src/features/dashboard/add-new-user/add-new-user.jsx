@@ -1,32 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from '../../../utils/axios';
 import './add-new-user.scss';
 import BasicInformation from './basic-information';
-import BankInformation from './bank-information';
 import MoreInformation from './more-information';
 import RolesAndPermission from './roles-and-permission';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddNewUser = () => {
   const [activeTab, setActiveTab] = useState(1);
-  const [notification, setNotification] = useState(null);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    username: '',
+    password: '',
+    phoneNumber: '',
+    dateOfBirth: '',
+    ninNumber: '',
+    gender: '',
+    role: '',
+    relationshipStatus: '',
+  });
+
+  const navigate = useNavigate();
 
   const tabs = [
     { id: 1, label: 'Basic Information' },
     { id: 2, label: 'Roles and Permissions' },
     { id: 3, label: 'More Information' },
-    { id: 4, label: 'Bank Information' },
   ];
+
+  useEffect(() => {
+    // Fetch roles from API and populate the role options
+  }, []);
+
+  const handleInputChange = (name, value) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const storeId = localStorage.getItem('storeId');
+      const response = await axios.post(`/${storeId}/users`, formData);
+
+      if (response.data.status) {
+        toast.success('User created successfully!');
+        navigate('/users'); // Redirect to the users page
+      } else {
+        toast.error('Failed to create user. Please try again.');
+      }
+    } catch (error) {
+      const errorMessage =
+        error.response?.data?.message || 'An error occurred. Please try again.';
+      toast.error(errorMessage); // Show the error message from the API
+    }
+  };
 
   const handleNext = () => {
     if (activeTab < tabs.length) {
       setActiveTab(activeTab + 1);
     } else {
-      // Simulate a successful submission
-      const isSuccessful = true; // Change this based on actual validation or API response
-      setNotification(
-        isSuccessful
-          ? 'User created successfully!'
-          : 'Failed to create user. Please try again.',
-      );
+      handleSubmit();
     }
   };
 
@@ -35,8 +70,6 @@ const AddNewUser = () => {
       <div className="title">
         <h3>Add New User</h3>
       </div>
-
-      {notification && <div className="notification">{notification}</div>}
 
       <div className="tab-container">
         <div className="tabs">
@@ -51,10 +84,27 @@ const AddNewUser = () => {
           ))}
         </div>
         <div className="tab-content">
-          {activeTab === 1 && <BasicInformation handleNext={handleNext} />}
-          {activeTab === 2 && <RolesAndPermission handleNext={handleNext} />}
-          {activeTab === 3 && <MoreInformation handleNext={handleNext} />}
-          {activeTab === 4 && <BankInformation handleNext={handleNext} />}
+          {activeTab === 1 && (
+            <BasicInformation
+              formData={formData}
+              handleInputChange={handleInputChange}
+              handleNext={handleNext}
+            />
+          )}
+          {activeTab === 2 && (
+            <RolesAndPermission
+              formData={formData}
+              handleInputChange={handleInputChange}
+              handleNext={handleNext}
+            />
+          )}
+          {activeTab === 3 && (
+            <MoreInformation
+              formData={formData}
+              handleInputChange={handleInputChange}
+              handleNext={handleNext}
+            />
+          )}
         </div>
       </div>
     </div>

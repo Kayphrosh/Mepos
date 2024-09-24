@@ -3,7 +3,7 @@ import './add-new-user.scss';
 import Input from '../../../components/ui/input/Input';
 import { useForm } from 'react-hook-form';
 
-const RolesAndPermission = ({ handleNext }) => {
+const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
   const [allowLogin, setAllowLogin] = useState(false);
   const [showCreatePassword, setShowCreatePassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -35,14 +35,8 @@ const RolesAndPermission = ({ handleNext }) => {
             label="User Name"
             placeholder="User Name"
             required={true}
-            register={register("username", {
-              required: "Username is required",
-              minLength: {
-                value: 3,
-                message: "Username should be at least 3 characters",
-              },
-            })}
-            error={errors.username}
+            value={formData.username}
+            onChange={(e) => handleInputChange('username', e.target.value)}
           />
 
           <Input
@@ -51,57 +45,26 @@ const RolesAndPermission = ({ handleNext }) => {
             name="createPassword"
             placeholder="************"
             required={true}
-            register={register('passwordCreated', {
-              required: 'Enter your password',
-              minLength: {
-                value: 8,
-                message: 'Password should be more than 8 characters',
-              },
-              pattern: {
-                value:
-                  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z\d#?!@$%^&*-]{8,}$/,
-                message:
-                  'Password should contain at least one uppercase letter, one lowercase letter, one number and one special character',
-              },
-            })}
-            error={errors.passwordCreated}
-          />
-
-          <Input
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            placeholder="************"
-            required={true}
-            register={register("confirmPassword", {
-              required: "Confirm your password",
-              validate: (value) =>
-                value === getValues("passwordCreated") || "Passwords don't match",
-            })}
-            error={errors.confirmPassword}
-            showConfirmPassword={showConfirmPassword}
-            setShowConfirmPassword={setShowConfirmPassword}
+            value={formData.password}
+            onChange={(e) => handleInputChange('password', e.target.value)}
           />
         </>
       )}
 
       <div className="form-input">
         <label htmlFor="role">Role</label>
-        <select placeholder="Actions" required={true}>
-          <option>Receptionist</option>
-          <option>Manager</option>
-          <option>Cashier</option>
+        <select
+          value={formData.role}
+          onChange={(e) => handleInputChange('role', e.target.value)}
+          required={true}
+        >
+          <option value="">Select Role</option>
+          <option value="66ded5bed44ac40ea384c3ee">Receptionist</option>
+          <option value="66ded5bed44ac40ea384c3ff">Manager</option>
+          <option value="66ded5bed44ac40ea384c3gg">Cashier</option>
         </select>
       </div>
 
-      <div className="form-input">
-        <label htmlFor="accessLocation">Access Store Locations</label>
-        <select placeholder="Actions">
-          <option>Abuja</option>
-          <option>Lagos</option>
-          <option>Ibadan</option>
-        </select>
-      </div>
       <div className="form-cta">
         <div>Cancel</div>
         <div id="save" onClick={handleNext}>

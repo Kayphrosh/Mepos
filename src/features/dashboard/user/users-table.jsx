@@ -1,13 +1,15 @@
 import React from 'react';
 import '../../../components/ui/table/table.scss';
-import { usersData } from './users-data';
 import { eyeIcon, editIcon, deleteIcon } from '../../../assets/images/icons';
 
-const UsersTable = ({ searchQuery }) => {
-  const filteredUsers = usersData.filter((userData) =>
-    [userData.userName, userData.name, userData.email, userData.role].some(
-      (field) => field.toLowerCase().includes(searchQuery.toLowerCase()),
-    ),
+const UsersTable = ({ users, searchQuery }) => {
+  const filteredUsers = users.filter((user) =>
+    [
+      user.username,
+      `${user.firstName} ${user.lastName}`,
+      user.email,
+      // user.role.name,
+    ].some((field) => field.toLowerCase().includes(searchQuery.toLowerCase())),
   );
 
   return (
@@ -23,12 +25,12 @@ const UsersTable = ({ searchQuery }) => {
       </thead>
 
       <tbody>
-        {filteredUsers.map((userData) => (
-          <tr key={userData.id}>
-            <td>{userData.userName}</td>
-            <td>{userData.name}</td>
-            <td>{userData.role}</td>
-            <td>{userData.email}</td>
+        {filteredUsers.map((user) => (
+          <tr key={user._id}>
+            <td>{user.username}</td>
+            <td>{`${user.firstName} ${user.lastName}`}</td>
+            {/* <td>{user.role.name}</td> */}
+            <td>{user.email}</td>
             <td>
               <div className="actions">
                 <div>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from '../../../utils/axios';
 import './users.scss';
 import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
 import UsersTable from './users-table';
@@ -6,6 +7,41 @@ import { Link } from 'react-router-dom';
 
 const Users = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const storeId = localStorage.getItem('storeId');
+        const response = await axios.get(
+          `/${storeId}/users`,
+        );
+
+        if (response.data.status) {
+          setUsers(response.data.data);
+        } else {
+          setError('Failed to fetch users. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error fetching users:', error);
+        setError('An error occurred while fetching users. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="role-container users-container">
@@ -50,7 +86,7 @@ const Users = () => {
         </div>
       </div>
 
-      <UsersTable searchQuery={searchQuery} />
+      <UsersTable users={users} searchQuery={searchQuery} />
     </div>
   );
 };

@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../user/users.scss';
 import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
 import RolesTable from './roles-table';
+import axios from '../../../utils/axios';
 
 const Roles = () => {
+  const [rolesData, setRolesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRoles = async () => {
+      try {
+        const response = await axios.get('/roles'); // Replace {{url}} with your actual API endpoint
+        if (response.data.status) {
+          setRolesData(response.data.data);
+        } else {
+          setError(response.data.message);
+        }
+      } catch (err) {
+        setError('Failed to fetch roles.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRoles();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+
   return (
     <div className="users-container">
       <div className="title">
@@ -37,14 +64,13 @@ const Roles = () => {
           <div className="label">Filter by:</div>
           <select placeholder="Actions">
             <option>All roles</option>
-            <option>View</option>
-            <option>Edit</option>
-            <option>Delete</option>
+            <option>user update</option>
+            <option>user create</option>
           </select>
         </div>
       </div>
 
-      <RolesTable />
+      <RolesTable rolesData={rolesData} setRolesData={setRolesData} />
     </div>
   );
 };
