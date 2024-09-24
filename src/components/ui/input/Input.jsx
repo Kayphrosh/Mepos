@@ -2,6 +2,7 @@ import React from "react";
 import "./input.scss";
 import Eye from "../../../assets/images/icons/eye.svg";
 import EyeClosed from "../../../assets/images/icons/eye-slash.svg";
+import Naira from "../../../assets/images/icons/naira.svg";
 
 const Input = ({
   name,
@@ -68,6 +69,13 @@ const Input = ({
             alt="See password"
             onClick={() => !setShowConfirmNewPassword(!showConfirmNewPassword)}
           />
+        )}
+        {(name === "unitPurchasePrice" ||
+          name === "sellingPrice" ||
+          name === "includeTax") && (
+          <div className="currency">
+            <img src={Naira} alt="" />
+          </div>
         )}
       </div>
       {error && <p>{error.message}</p>}

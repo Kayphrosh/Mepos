@@ -4,8 +4,12 @@ import BasicInformation from "./basic-information";
 import SupplierInformation from "./supplier-information";
 import PricesAndTaxes from "./prices-and-taxes";
 import { useForm } from "react-hook-form";
+import axios from "../../../../utils/axios";
 
 const AddNewProduct = () => {
+  const localUser = JSON.parse(localStorage.getItem("user"));
+  const storeId = localUser.store._id;
+  const [savingProduct, setSavingProduct] = useState(false);
   const [activeTab, setActiveTab] = useState(1);
   const tabs = [
     { id: 1, title: "Basic Information" },
@@ -16,15 +20,38 @@ const AddNewProduct = () => {
     register,
     formState: { errors },
     handleSubmit,
+    setValue,
+    watch,
+    reset,
   } = useForm({ mode: "onTouched" });
 
-  const onSubmit = (data) => {
-    if (activeTab === 1) {
-      setActiveTab(2);
-    } else if (activeTab === 2) {
-      setActiveTab(3);
-    } else {
-      console.log(data);
+  const onsubmit = async (formData) => {
+    const productsData = {
+      name: formData.productName,
+      sku: formData.sku,
+      unit: formData.unit,
+      category: formData.category,
+      warranty: formData.warranty,
+      companyName: formData.companyName,
+      supplierName: formData.supplierName,
+      contactInformation: formData.contactInformation,
+      unitPurchasePrice: formData.unitPurchasePrice,
+      sellingPrice: formData.sellingPrice,
+    };
+    console.log(productsData);
+    setSavingProduct(true);
+    try {
+      const response = await axios.post(`/${storeId}/products/`, productsData);
+      console.log(response);
+      if (response.status === 201) {
+        console.log(response.data.data);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setActiveTab(1);
+      reset();
+      setSavingProduct(false);
     }
   };
 
@@ -36,21 +63,41 @@ const AddNewProduct = () => {
           <div
             key={tab.id}
             className={`tab ${activeTab === tab.id && "active"}`}
-            onClick={() => setActiveTab(tab.id)}
+            // onClick={() => setActiveTab(tab.id)}
           >
             {tab.title}
           </div>
         ))}
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="content">
+      <form onSubmit={handleSubmit(onsubmit)} className="content">
         {activeTab === 1 && (
-          <BasicInformation register={register} errors={errors} />
+          <BasicInformation
+            register={register}
+            errors={errors}
+            setValue={setValue}
+            watch={watch}
+            localUser={localUser}
+            setActiveTab={setActiveTab}
+          />
         )}
         {activeTab === 2 && (
-          <SupplierInformation register={register} errors={errors} />
+          <SupplierInformation
+            register={register}
+            errors={errors}
+            setValue={setValue}
+            watch={watch}
+            setActiveTab={setActiveTab}
+          />
         )}
-        {activeTab === 3 && <PricesAndTaxes />}
+        {activeTab === 3 && (
+          <PricesAndTaxes
+            register={register}
+            errors={errors}
+            setActiveTab={setActiveTab}
+            savingProduct={savingProduct}
+          />
+        )}
       </form>
     </div>
   );

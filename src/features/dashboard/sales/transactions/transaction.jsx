@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import "./transaction.scss";
 import TransactionsTable from "./TransactionsTable";
+import axios from "../../../../utils/axios";
+// import instance from "../../../../utils/axios";
+// import instance from "../../../../utils/axios";
 
 const Transaction = () => {
   const [searchTransactions, setSearchTransactions] = useState("");
+
+  // const fetchTransactions = async () => {
+  //   try {
+  //     const response = await axios.get("/user");
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchTransactions();
+  // }, []);
   return (
     <div className="transaction-container">
       <div className="title">

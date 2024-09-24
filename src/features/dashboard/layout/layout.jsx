@@ -18,6 +18,8 @@ import Pos from "../sales/pos/pos";
 import "./layout.scss";
 import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 import AddNewProduct from "../products/add-new-product/add-new-product";
+import Units from "../products/units/Units";
+import ProductCategory from "../products/category/category";
 
 const DashboardLayout = () => {
   return (
@@ -40,6 +42,8 @@ const DashboardLayout = () => {
             <Route path="/add-new-product" element={<AddNewProduct />} />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/pos" element={<Pos />} />
+            <Route path="/units" element={<Units />} />
+            <Route path="/categories" element={<ProductCategory />} />
           </Routes>
         </div>
       </div>

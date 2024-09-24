@@ -30,14 +30,14 @@ p {
   }
 }
 .login-auth .container .home-image {
-  width: 60%;
+  max-width: 100%;
   text-align: right;
   overflow-x: hidden;
 }
-@media (max-width: 1024px) {
-  .login-auth .container .home-image {
-    display: none;
-  }
+.login-auth .container .home-image img {
+  height: 90vh;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .login-auth .container .login {
   width: 40%;
@@ -69,10 +69,16 @@ p {
   text-align: center;
   border: 1px solid re;
 }
+.login-auth .container .login form {
+  margin-top: 46px;
+}
 .login-auth .container .login form > div {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.login-auth .container .login form .forgot-password {
+  margin-top: 40px;
 }
 .login-auth .container .login form .forgot p {
   font-size: 14px;

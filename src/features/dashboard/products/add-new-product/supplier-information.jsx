@@ -1,10 +1,31 @@
 import React from "react";
 import Input from "../../../../components/ui/input/Input";
 import Button from "../../../../components/ui/button/Button";
+import SelectOption from "../../../../components/ui/select/select";
 
-const SupplierInformation = ({ errors, register }) => {
+const SupplierInformation = ({
+  errors,
+  register,
+  watch,
+  setValue,
+  setActiveTab,
+}) => {
   return (
     <div className="supplier-info">
+      {/* <div>
+        <SelectOption
+          label="Brand"
+          required={true}
+          placeholder="Select brand"
+          value={watch("brand")}
+          name="brand"
+          // options={brandOptions}
+          setValue={setValue}
+          error={errors.brand}
+          errorMessage="Select a brand"
+          register={register}
+        />
+      </div> */}
       <div>
         <Input
           label="Company Name"
@@ -54,8 +75,14 @@ const SupplierInformation = ({ errors, register }) => {
         />
       </div>
       <div className="cta">
-        <button className="cancel">Cancel</button>
-        <Button type="submit" className="submit-supplier-info">
+        <button className="cancel" onClick={() => setActiveTab(1)}>
+          Cancel
+        </button>
+        <Button
+          type="submit"
+          onClick={() => setActiveTab(3)}
+          className="submit-supplier-info"
+        >
           Save and Continue
         </Button>
       </div>

@@ -1,25 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./product-list.scss";
 import { ExportIcon } from "../../../../assets/images/icons";
 import ProductTable from "./product-table";
 import { Icon } from "@iconify/react";
+import axios from "../../../../utils/axios";
 
 const ProductList = () => {
+  const localUser = JSON.parse(localStorage.getItem("user"));
+  const storeId = localUser.store._id;
   const [filter, setFilter] = useState("All Transactions");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [entriesPerPage, setEntriesPerPage] = useState(300);
+  // const [entriesPerPage, setEntriesPerPage] = useState(300);
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(false);
+  const [searchProducts, setSearchProducts] = useState("");
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
   };
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchProducts(e.target.value);
   };
 
-  const handleEntriesChange = (e) => {
-    setEntriesPerPage(parseInt(e.target.value));
-  };
+  // const handleEntriesChange = (e) => {
+  //   setEntriesPerPage(parseInt(e.target.value));
+  // };
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        setLoadingProducts(true);
+        const response = await axios.get(`/${storeId}/products/`);
+        console.log(response.data.data);
+        setProducts(response.data.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingProducts(false);
+      }
+    };
+
+    getProducts();
+  }, [storeId]);
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchProducts.toLowerCase())
+  );
 
   return (
     <div className="product-list-container">
@@ -38,7 +64,6 @@ const ProductList = () => {
             <input
               type="search"
               placeholder="Search"
-              value={searchTerm}
               onChange={handleSearchChange}
             />
             <button>
@@ -61,8 +86,11 @@ const ProductList = () => {
           <p>More filter</p>
         </button>
       </div>
-      <ProductTable />
-      <div className="pagination">
+      <ProductTable
+        products={filteredProducts}
+        loadingProducts={loadingProducts}
+      />
+      {/* <div className="pagination">
         <div className="show-entries">
           <span>Show</span>
           <select value={entriesPerPage} onChange={handleEntriesChange}>
@@ -81,7 +109,7 @@ const ProductList = () => {
           <button>...</button>
           <button>30</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -39,6 +39,8 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
+      position: relative;
+      overflow: hidden;
 
       .rack_number {
         margin-top: 6px;
@@ -97,6 +99,41 @@
         }
 
         .submit-supplier-info {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .prices-and-taxes {
+      max-width: 634px;
+      width: 100%;
+      background: $background;
+      border: 1px transparent;
+      border-radius: 5px;
+      padding: 28.5px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .cta {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          color: $text-400;
+          font-weight: 500;
+          background-color: $white-600;
+          text-decoration: underline;
+        }
+
+        .submit-prices-and-taxes {
           font-weight: 500;
           font-size: 14px;
         }
