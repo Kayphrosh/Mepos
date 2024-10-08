@@ -3,6 +3,7 @@ import "./input.scss";
 import Eye from "../../../assets/images/icons/eye.svg";
 import EyeClosed from "../../../assets/images/icons/eye-slash.svg";
 import Naira from "../../../assets/images/icons/naira.svg";
+import { usePasswordToggle } from "../../../utils/usePasswordToggle";
 
 const Input = ({
   name,
@@ -14,15 +15,27 @@ const Input = ({
   error,
   value,
   onChange,
-  showCreatePassword,
-  setShowCreatePassword,
-  showConfirmPassword,
-  setShowConfirmPassword,
-  showNewPassword,
-  setShowNewPassword,
-  showConfirmNewPassword,
-  setShowConfirmNewPassword,
+  // showCreatePassword,
+  // setShowCreatePassword,
+  // showConfirmPassword,
+  // setShowConfirmPassword,
+  // showNewPassword,
+  // setShowNewPassword,
+  // showConfirmNewPassword,
+  // setShowConfirmNewPassword,
 }) => {
+  const [showPassword, togglePasswordVisibility] = usePasswordToggle();
+
+  const renderPasswordToggleIcon = () => (
+    <img
+      src={showPassword ? EyeClosed : Eye}
+      width={20}
+      height={20}
+      alt="See password"
+      onClick={togglePasswordVisibility}
+    />
+  );
+
   return (
     <div className="form_input">
       <label htmlFor={name}>
@@ -30,50 +43,15 @@ const Input = ({
       </label>
       <div>
         <input
-          type={type}
+          type={name.includes("Password") && showPassword ? "text" : type}
           placeholder={placeholder}
           name={name}
           onChange={onChange}
           {...register}
           value={value}
-          className={`${error && 'error'}`}
+          className={`${error && "error"}`}
         />
-        {name === 'createPassword' && (
-          <img
-            src={showCreatePassword ? EyeClosed : Eye}
-            width={20}
-            height={20}
-            alt="See password"
-            onClick={() => setShowCreatePassword(!showCreatePassword)}
-          />
-        )}
-        {name === 'confirmPassword' && (
-          <img
-            src={showConfirmPassword ? EyeClosed : Eye}
-            width={20}
-            height={20}
-            alt="See password"
-            onClick={() => !setShowConfirmPassword(!showConfirmPassword)}
-          />
-        )}
-        {name === 'newPassword' && (
-          <img
-            src={showNewPassword ? EyeClosed : Eye}
-            width={20}
-            height={20}
-            alt="See password"
-            onClick={() => !setShowNewPassword(!showNewPassword)}
-          />
-        )}
-        {name === 'confirmNewPassword' && (
-          <img
-            src={showConfirmNewPassword ? EyeClosed : Eye}
-            width={20}
-            height={20}
-            alt="See password"
-            onClick={() => !setShowConfirmNewPassword(!showConfirmNewPassword)}
-          />
-        )}
+        {name.includes("Password") && renderPasswordToggleIcon()}
         {(name === "unitPurchasePrice" ||
           name === "sellingPrice" ||
           name === "includeTax") && (
@@ -83,7 +61,7 @@ const Input = ({
         )}
       </div>
       {error && <p>{error.message}</p>}
-      {name === 'rackNumber' && (
+      {name === "rackNumber" && (
         <span className="rack_number">
           Products of the same category have the same rack number
         </span>

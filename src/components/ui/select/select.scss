@@ -63,14 +63,14 @@
     background-color: $white-100;
 
     .dropdown {
-      height: auto;
+      height: 100%;
       max-height: 200px;
       width: 100%;
       border-radius: 4px;
       overflow-y: auto;
       z-index: 10;
       margin-top: 4px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
 
       .dropdown-item {
         padding: 10px 16px;

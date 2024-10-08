@@ -51,17 +51,15 @@ const ProductTable = ({ products, loadingProducts }) => {
               <td>{product.sku}</td>
               <td>{product.name}</td>
               <td>{product.sellingPrice}</td>
-              <td>
-                {product.companyName}
-              </td>
-              <td>{product.category.name}</td>
-              <td>{product.unit.name}</td>
+              <td>{product.companyName}</td>
+              <td>{product.category?.name}</td>
+              <td>{product.unit?.name}</td>
             </tr>
           ))}
         </tbody>
       </table>
       {loadingProducts && <p className="loading">Loading...</p>}
-      {products.length === 0 && (
+      {products.length === 0 && !loadingProducts && (
         <p className="loading">Product is not available</p>
       )}
     </>

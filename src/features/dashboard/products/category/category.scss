@@ -92,6 +92,12 @@
         }
       }
     }
+
+    .error-message {
+      color: $state-100;
+      font-size: 14px;
+      text-align: right;
+    }
   }
 
   .products-categories {
@@ -166,8 +172,18 @@
           flex-direction: row;
           align-items: center;
           gap: 24px;
+
+          img {
+            cursor: pointer;
+          }
         }
       }
+    }
+
+    .cancel-edit {
+      width: 100%;
+      display: flex;
+      justify-content: end;
     }
     .no-unit {
       text-align: center;
