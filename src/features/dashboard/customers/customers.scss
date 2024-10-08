@@ -7,9 +7,13 @@
 
     .show-entries {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       gap: 0.5rem;
       color: $text-400;
+      .entry{
+        width: auto;
+      }
 
       select {
         padding: 0.5rem;

@@ -20,6 +20,7 @@ import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 import AddNewProduct from "../products/add-new-product/add-new-product";
 import Units from "../products/units/Units";
 import ProductCategory from "../products/category/category";
+import Suppliers from '../contacts/suppliers/suppliers';
 
 const DashboardLayout = () => {
   return (
@@ -44,7 +45,8 @@ const DashboardLayout = () => {
             <Route path="/pos" element={<Pos />} />
             <Route path="/units" element={<Units />} />
             <Route path="/categories" element={<ProductCategory />} />
-            <Route path="/variations" element={<Variations/>} />"
+            <Route path="/variations" element={<Variations/>} />
+            <Route path="/suppliers" element={<Suppliers/>} />
           </Routes>
         </div>
       </div>

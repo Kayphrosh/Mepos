@@ -51,6 +51,8 @@ p {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
+  overflow: hidden;
 }
 .add-product-container .content .basic-info .rack_number {
   margin-top: 6px;
@@ -103,6 +105,37 @@ p {
   text-decoration: underline;
 }
 .add-product-container .content .supplier-info .cta .submit-supplier-info {
+  font-weight: 500;
+  font-size: 14px;
+}
+.add-product-container .content .prices-and-taxes {
+  max-width: 634px;
+  width: 100%;
+  background: #fbfbfd;
+  border: 1px transparent;
+  border-radius: 5px;
+  padding: 28.5px 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.add-product-container .content .prices-and-taxes .cta {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-product-container .content .prices-and-taxes .cta button {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.add-product-container .content .prices-and-taxes .cta .cancel {
+  color: #8a8988;
+  font-weight: 500;
+  background-color: #fefefe;
+  text-decoration: underline;
+}
+.add-product-container .content .prices-and-taxes .cta .submit-prices-and-taxes {
   font-weight: 500;
   font-size: 14px;
 }/*# sourceMappingURL=add-new-product.css.map */

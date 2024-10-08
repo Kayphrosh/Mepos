@@ -23,9 +23,13 @@ p {
 }
 .pagination .show-entries {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   color: #8a8988;
+}
+.pagination .show-entries .entry {
+  width: auto;
 }
 .pagination .show-entries select {
   padding: 0.5rem;
