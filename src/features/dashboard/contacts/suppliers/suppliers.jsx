@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
-// import './transaction.scss';
+import './suppliers.scss';
 import SuppliersTable from './suppliers-table';
 import { suppliersData } from './suppliers-data';
 
@@ -39,7 +39,7 @@ const Suppliers = () => {
   };
 
   return (
-    <div className="transaction-container">
+    <div className="transaction-container suppliers-container">
       <div className="title">
         <h3>Suppliers</h3>
         <button id="export-csv">

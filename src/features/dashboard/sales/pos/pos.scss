@@ -2,7 +2,7 @@
 
 .pos-container {
   display: flex;
-  height: calc(100vh - 64px); // Assuming a 64px header
+  height: auto; // Assuming a 64px header
   background-color: $white-200;
   padding: 20px;
   gap: 20px;

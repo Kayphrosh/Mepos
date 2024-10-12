@@ -149,12 +149,15 @@
       align-items: center;
       gap: 0.5rem;
       color: $text-400;
-
+      span{
+        padding: 0 20px; 
+      }
       select {
         padding: 0.5rem;
         border: 1px solid $stroke;
         border-radius: 4px;
         color: $text-300;
+        width: 60px;
       }
     }
 
