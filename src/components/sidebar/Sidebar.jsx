@@ -115,53 +115,63 @@ const Sidebar = () => {
       <div className="nav-links">
         <div className="nav-section">
           <div className="title">Main</div>
-          <ul>
-            {renderNavLink('/home', home, homeActive, 'Home')}
-            {renderDropdownMenu(
-              'users',
-              users,
-              usersActive,
-              'Users Management',
-              [
-                { to: '/users', label: 'Users' },
-                { to: '/roles', label: 'Roles' },
-                { to: '/customers', label: 'Customers' },
-              ],
-            )}
-            {renderDropdownMenu('sales', sales, salesActive, 'Sales', [
-              { to: `/${resolvedStoreId}/transactions`, label: 'Transactions' }, // Use resolvedStoreId here
-              { to: '/suspended-sales', label: 'Suspended Sales' },
-              { to: '/discounts', label: 'Discounts' },
-              { to: '/pos', label: 'POS' },
-              { to: '/import-sales', label: 'Import Sales' },
-            ])}
-            {renderDropdownMenu(
-              'products',
-              product,
-              productActive,
-              'Products',
-              [
-                { to: '/product-list', label: 'Product List' },
-                { to: '/add-new-product', label: 'Add Product' },
-                { to: '/print-product-labels', label: 'Print Product Labels' },
-                { to: '/variations', label: 'Variations' },
-                { to: '/units', label: 'Units' },
-                { to: '/categories', label: 'Categories' },
-                { to: '/import-products', label: 'Import Products' },
-                { to: '/import-opening-stock', label: 'Import Opening Stock' },
-              ],
-            )}
-            {renderNavLink('/invoices', purchases, purchases, 'Purchases')}
-            {renderNavLink('/expenses', expenses, expenses, 'Expenses')}
-            {renderNavLink(
-              '/payment-account',
-              payment,
-              payment,
-              'Payment Accounts',
-            )}
-            {renderNavLink('/contact', contact, contact, 'Contacts')}
-            {renderNavLink('/report', report, report, 'Reports')}
-          </ul>
+            <ul>
+              {renderNavLink('/home', home, homeActive, 'Home')}
+              {renderDropdownMenu(
+                'users',
+                users,
+                usersActive,
+                'Users Management',
+                [
+                  { to: '/users', label: 'Users' },
+                  { to: '/roles', label: 'Roles' },
+                  { to: '/customers', label: 'Customers' },
+                ],
+              )}
+              {renderDropdownMenu('sales', sales, salesActive, 'Sales', [
+                { to: `/${resolvedStoreId}/transactions`, label: 'Transactions' }, // Use resolvedStoreId here
+                { to: '/suspended-sales', label: 'Suspended Sales' },
+                { to: '/discounts', label: 'Discounts' },
+                { to: '/pos', label: 'POS' },
+                { to: '/import-sales', label: 'Import Sales' },
+              ])}
+              {renderDropdownMenu(
+                'products',
+                product,
+                productActive,
+                'Products',
+                [
+                  { to: '/product-list', label: 'Product List' },
+                  { to: '/add-new-product', label: 'Add Product' },
+                  { to: '/print-product-labels', label: 'Print Product Labels' },
+                  { to: '/variations', label: 'Variations' },
+                  { to: '/units', label: 'Units' },
+                  { to: '/categories', label: 'Categories' },
+                  { to: '/import-products', label: 'Import Products' },
+                  { to: '/import-opening-stock', label: 'Import Opening Stock' },
+                ],
+              )}
+              {renderNavLink('/invoices', purchases, purchases, 'Purchases')}
+              {renderNavLink('/expenses', expenses, expenses, 'Expenses')}
+              {renderNavLink(
+                '/payment-account',
+                payment,
+                payment,
+                'Payment Accounts',
+              )}
+              {renderDropdownMenu(
+                '/contact', 
+                contact,
+                 contact, 
+                'Contacts',
+                [
+                  { to: '/suppliers', label: 'Suppliers' },
+                  { to: '/customers', label: 'Customers' },
+                  { to: '/customer-groups', label: 'Customer Groups' },
+                  { to: '/variations', label: 'Import Contacts' },
+                ])}
+              {renderNavLink('/report', report, report, 'Reports')}
+            </ul>
         </div>
 
         <div className="nav-section">
