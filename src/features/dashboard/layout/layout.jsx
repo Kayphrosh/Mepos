@@ -21,6 +21,7 @@ import AddNewProduct from "../products/add-new-product/add-new-product";
 import Units from "../products/units/Units";
 import ProductCategory from "../products/category/category";
 import Suppliers from '../contacts/suppliers/suppliers';
+import CustomerGroups from '../contacts/customer-groups/customer-groups';
 
 const DashboardLayout = () => {
   return (
@@ -47,6 +48,7 @@ const DashboardLayout = () => {
             <Route path="/categories" element={<ProductCategory />} />
             <Route path="/variations" element={<Variations/>} />
             <Route path="/suppliers" element={<Suppliers/>} />
+            <Route path="/customer-groups" element={<CustomerGroups/>} />
           </Routes>
         </div>
       </div>

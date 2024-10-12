@@ -166,8 +166,8 @@ const Sidebar = () => {
                 'Contacts',
                 [
                   { to: '/suppliers', label: 'Suppliers' },
-                  { to: '/add-new-product', label: 'Customers' },
-                  { to: '/print-product-labels', label: 'Customer Groups' },
+                  { to: '/customers', label: 'Customers' },
+                  { to: '/customer-groups', label: 'Customer Groups' },
                   { to: '/variations', label: 'Import Contacts' },
                 ])}
               {renderNavLink('/report', report, report, 'Reports')}
