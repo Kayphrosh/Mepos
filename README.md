@@ -31,8 +31,6 @@ MEPOS is a desktop-based online Point of Sale (POS) application designed to stre
 
 ## Technology Stack
 * Frontend: React.js, HTML, CSS, and SCSS for building the user interface.
-* Backend:  for handling business logic and data management.
-* Database:
 
 ## Architecture
 The MEPOS project follows a *component-based* architecture typical of React applications.
