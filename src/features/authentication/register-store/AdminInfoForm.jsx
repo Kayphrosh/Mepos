@@ -1,6 +1,6 @@
-import React from 'react';
-import Input from '../../../components/ui/input/Input';
-import Button from '../../../components/ui/button/Button';
+import React from "react";
+import Input from "../../../components/ui/input/Input";
+import Button from "../../../components/ui/button/Button";
 
 const AdminInfoForm = ({
   register,
@@ -21,8 +21,8 @@ const AdminInfoForm = ({
           name="firstName"
           placeholder="Enter first name"
           required={true}
-          register={register('firstName', {
-            required: 'First name is required',
+          register={register("firstName", {
+            required: "First name is required",
           })}
           error={errors.firstName}
         />
@@ -34,7 +34,7 @@ const AdminInfoForm = ({
           name="lastName"
           placeholder="Enter last name"
           required={true}
-          register={register('lastName', { required: 'Last name is required' })}
+          register={register("lastName", { required: "Last name is required" })}
           error={errors.lastName}
         />
       </div>
@@ -45,12 +45,12 @@ const AdminInfoForm = ({
           name="email"
           placeholder="Enter Admin email address"
           required={true}
-          register={register('email', {
-            required: 'Email Address is required',
+          register={register("email", {
+            required: "Email Address is required",
             pattern: {
               value:
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: 'Invalid email address',
+              message: "Invalid email address",
             },
           })}
           error={errors.email}
@@ -63,11 +63,11 @@ const AdminInfoForm = ({
           name="username"
           placeholder="Enter Username"
           required={true}
-          register={register('username', {
-            required: 'Username is required',
+          register={register("username", {
+            required: "Username is required",
             minLength: {
               value: 3,
-              message: 'Username should be at least 3 characters',
+              message: "Username should be at least 3 characters",
             },
           })}
           error={errors.username}
@@ -76,21 +76,21 @@ const AdminInfoForm = ({
       <div>
         <Input
           label="Create Password"
-          type={showCreatePassword ? 'text' : 'password'}
+          type={showCreatePassword ? "text" : "password"}
           name="createPassword"
           placeholder="************"
           required={true}
-          register={register('passwordCreated', {
-            required: 'Create a password',
+          register={register("passwordCreated", {
+            required: "Create a password",
             minLength: {
               value: 8,
-              message: 'Password should be more than 8 characters',
+              message: "Password should be more than 8 characters",
             },
             pattern: {
               value:
                 /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z\d#?!@$%^&*-]{8,}$/,
               message:
-                'Password should contain at least one uppercase letter, one lowercase letter, one number and one special character',
+                "Password should contain at least one uppercase letter, one lowercase letter, one number and one special character",
             },
           })}
           showCreatePassword={showCreatePassword}
@@ -101,14 +101,14 @@ const AdminInfoForm = ({
       <div>
         <Input
           label="Confirm Password"
-          type={showConfirmPassword ? 'text' : 'password'}
+          type={showConfirmPassword ? "text" : "password"}
           name="confirmPassword"
           placeholder="************"
           required={true}
-          register={register('confirmPassword', {
-            required: 'Confirm your password',
+          register={register("confirmPassword", {
+            required: "Confirm your password",
             validate: (value) =>
-              value === getValues('passwordCreated') || "Passwords don't match",
+              value === getValues("passwordCreated") || "Passwords don't match",
           })}
           error={errors.confirmPassword}
           showConfirmPassword={showConfirmPassword}
@@ -121,7 +121,7 @@ const AdminInfoForm = ({
           type="tel"
           name="mobileNumber"
           placeholder="Enter mobile number"
-          register={register('mobileNumber')}
+          register={register("mobileNumber")}
         />
       </div>
       <div>
@@ -130,8 +130,8 @@ const AdminInfoForm = ({
           type="date"
           name="dateOfBirth"
           required={true}
-          register={register('dateOfBirth', {
-            required: 'Date of Birth is required',
+          register={register("dateOfBirth", {
+            required: "Date of Birth is required",
           })}
           error={errors.dateOfBirth}
         />
@@ -139,13 +139,21 @@ const AdminInfoForm = ({
 
       <div>
         <Input
-          label="NIN Number"
-          type="text"
+          label="NIN"
+          type="number"
           name="ninNumber"
-          placeholder="Enter NIN number"
+          placeholder="Enter NIN"
           required={true}
-          register={register('ninNumber', {
-            required: 'NIN Number is required',
+          register={register("ninNumber", {
+            required: "NIN is required",
+            minLength: {
+              value: 11,
+              message: "NIN must be 11 characters",
+            },
+            maxLength: {
+              value: 11,
+              message: "NIN must be 11 characters",
+            },
           })}
           error={errors.ninNumber}
         />
@@ -155,7 +163,7 @@ const AdminInfoForm = ({
         <label>Gender</label>
         <select
           name="gender"
-          {...register('gender', { required: 'Gender is required' })}
+          {...register("gender", { required: "Gender is required" })}
         >
           <option value="male">male</option>
           <option value="female">female</option>
@@ -167,8 +175,8 @@ const AdminInfoForm = ({
         <label>Relationship Status</label>
         <select
           name="relationshipStatus"
-          {...register('relationshipStatus', {
-            required: 'Relationship Status is required',
+          {...register("relationshipStatus", {
+            required: "Relationship Status is required",
           })}
         >
           <option value="single">single</option>

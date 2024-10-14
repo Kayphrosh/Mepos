@@ -1,6 +1,6 @@
 @import "../../../../_variables";
 
-.product-list-container {
+.purchase-list-container {
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -66,14 +66,15 @@
           border-radius: 8px;
           padding: 12px 0px 12px 12px;
           color: $text-300;
-          height: 48px;
+          max-height: 48px;
+          height: 100%;
           width: 100%;
           font-size: 14px;
         }
 
         button {
-          width: fit-content;
           // padding: 8px;
+          width: fit-content;
           height: 100%;
           position: absolute;
           top: 0;

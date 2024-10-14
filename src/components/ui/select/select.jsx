@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./select.scss";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 const SelectOption = ({
   label,
@@ -17,6 +18,7 @@ const SelectOption = ({
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedName, setSelectedName] = useState("");
   const [selectedId, setSelectedId] = useState("");
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     register(name, { required });
@@ -32,6 +34,17 @@ const SelectOption = ({
     setShowDropdown(false);
     setValue(name, option._id, { shouldValidate: true });
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   return (
     <div className={`custom-select ${error ? "error" : ""}`}>
@@ -61,17 +74,21 @@ const SelectOption = ({
       <div className="dropdown-container">
         {showDropdown && (
           <div className="dropdown">
-            {options?.map((option) => (
-              <div
-                key={option._id}
-                className={`dropdown-item ${
-                  value === option.name ? "selected" : ""
-                }`}
-                onClick={() => handleOptionClick(option)}
-              >
-                {option.name}
-              </div>
-            ))}
+            {options?.length > 0 ? (
+              options.map((option) => (
+                <div
+                  key={option._id}
+                  className={`dropdown-item ${
+                    value === option.name ? "selected" : ""
+                  }`}
+                  onClick={() => handleOptionClick(option)}
+                >
+                  {option.name}
+                </div>
+              ))
+            ) : (
+              <div className="no-options">No options</div>
+            )}
           </div>
         )}
       </div>
@@ -79,7 +96,13 @@ const SelectOption = ({
       {error && (
         <p className="error-message">{error.message || errorMessage}</p>
       )}
-      {name === "brand" && <p className="add-brand">Add new brand</p>}
+      {name === "brand" && <Link className="add-brand">Add new brand</Link>}
+      {name === "supplier" && (
+        <Link className="add-brand">Add new supplier</Link>
+      )}
+      {name === "paymentAccount" && (
+        <Link className="add-brand">Add new account</Link>
+      )}
     </div>
   );
 };

@@ -15,6 +15,7 @@ const Input = ({
   error,
   value,
   onChange,
+  maxLength,
   // showCreatePassword,
   // setShowCreatePassword,
   // showConfirmPassword,
@@ -43,6 +44,7 @@ const Input = ({
       </label>
       <div>
         <input
+          maxLength={maxLength}
           type={name.includes("Password") && showPassword ? "text" : type}
           placeholder={placeholder}
           name={name}
@@ -54,7 +56,8 @@ const Input = ({
         {name.includes("Password") && renderPasswordToggleIcon()}
         {(name === "unitPurchasePrice" ||
           name === "sellingPrice" ||
-          name === "includeTax") && (
+          name === "includeTax" ||
+          name === "purchaseAmount") && (
           <div className="currency">
             <img src={Naira} alt="" />
           </div>

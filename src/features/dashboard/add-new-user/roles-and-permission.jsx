@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './add-new-user.scss';
-import Input from '../../../components/ui/input/Input';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import "./add-new-user.scss";
+import Input from "../../../components/ui/input/Input";
+import { useForm } from "react-hook-form";
 
 const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
   const [allowLogin, setAllowLogin] = useState(false);
@@ -14,7 +14,7 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
     watch,
     formState: { errors },
     getValues,
-  } = useForm({ mode: 'onTouched' });
+  } = useForm({ mode: "onTouched" });
 
   return (
     <div className="form-container">
@@ -33,10 +33,11 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
           <Input
             type="text"
             label="User Name"
+            name="userName"
             placeholder="User Name"
             required={true}
             value={formData.username}
-            onChange={(e) => handleInputChange('username', e.target.value)}
+            onChange={(e) => handleInputChange("username", e.target.value)}
           />
 
           <Input
@@ -46,7 +47,7 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
             placeholder="************"
             required={true}
             value={formData.password}
-            onChange={(e) => handleInputChange('password', e.target.value)}
+            onChange={(e) => handleInputChange("password", e.target.value)}
           />
         </>
       )}
@@ -55,7 +56,7 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
         <label htmlFor="role">Role</label>
         <select
           value={formData.role}
-          onChange={(e) => handleInputChange('role', e.target.value)}
+          onChange={(e) => handleInputChange("role", e.target.value)}
           required={true}
         >
           <option value="">Select Role</option>
