@@ -5,10 +5,10 @@ This is the project repository for the MEPOS app built primarily with React and 
 
 
 ## Project Description
-MEPOS is a desktop-based online Point of Sale (POS) application designed to streamline sales operations. It includes distinct access levels for different user roles: Superadmins, Admins, Cashiers, and Customers. Each role has its own set of functionalities, ensuring efficient management and control of sales processes. The app is built using React, providing a responsive and user-friendly interface, suitable for businesses looking for an online solution to handle point-of-sale transactions.
+MEPOS is a desktop-web based online Point of Sale (POS) application designed to streamline sales operations. It includes distinct access levels for different user roles: Superadmins, Admins, Cashiers, and Customers. Each role has its own set of functionalities, ensuring efficient management and control of sales processes. The app is built using React, providing a responsive and user-friendly interface, suitable for businesses looking for an online solution to handle point-of-sale transactions.
 
 ## Design
- - The figma design that will be implemented for this project can be found [here](https://www.figma.com/design/OPYkul3bQAoqAAYWdYYnsx/MEPOS?m=dev) 
+ - The figma design being implemented for this project can be found [here](https://www.figma.com/design/OPYkul3bQAoqAAYWdYYnsx/MEPOS?m=dev) 
 
 
  ## Contribution Guide
