@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# MEPOS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This is the project repository for the MEPOS app built primarily with React and Sass 
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Description
+MEPOS is a desktop-based online Point of Sale (POS) application designed to streamline sales operations. It includes distinct access levels for different user roles: Superadmins, Admins, Cashiers, and Customers. Each role has its own set of functionalities, ensuring efficient management and control of sales processes. The app is built using React, providing a responsive and user-friendly interface, suitable for businesses looking for an online solution to handle point-of-sale transactions.
 
-### `npm start`
+## Design
+ - The figma design that will be implemented for this project can be found [here](https://www.figma.com/design/OPYkul3bQAoqAAYWdYYnsx/MEPOS?m=dev) 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ## Contribution Guide
+  **_Steps to collaborate on the repository._**
+  ### Cloning Repo  
+  * Click on the "Code" button on the Repo page.
+  * Copy the URL for the Repo "https://github.com/Kayphrosh/Mepos.git"
+  * Open your Code Editor and  run `git clone` "git clone https://github.com/Kayphrosh/Mepos.git"
 
-### `npm test`
+ ### _Add Upstream Repository_
+  * Add a Remote to Upstream to your Repo:
+      Using the command : `git remote add upstream https://github.com/Kayphrosh/Mepos.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  * Pull from upstream to download all changes in the project using `git fetch upstream`
+  
+ ### _Merge the changes into your main branch_
+  * `git checkout main`
+  * `git merge upstream/main`.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technology Stack
+* Frontend: React.js, HTML, CSS, and SCSS for building the user interface.
+* Backend:  for handling business logic and data management.
+* Database:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Architecture
+The MEPOS project follows a *component-based* architecture typical of React applications.
+The organization suggests a clear separation of concerns, with folders designated for components, assets, styles, and possibly services or utilities. 
+This structure promotes modularity and reusability, making it easier to maintain and scale the application. The layout also indicates a focus on organizing components by functionality or role, aligning with the app's multi-user interface design.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Codebase
+* The MEPOS project codebase consists of a structured React application that includes folders for components, assets, styles, pages, features and utilities. 
+* The codebase promotes modularity, with reusable components designed to handle specific functionalities, aligning with the multi-user interface requirements of the app. This structure enhances maintainability and scalability
