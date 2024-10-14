@@ -1,23 +1,54 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ExportIcon, plusIcon, searchIcon } from '../../../../assets/images/icons';
-import CustomerGroupsTable from './customerGroupTable'; // Replace with your component name
+import React, { useState, useEffect } from 'react';
+import { ExportIcon, searchIcon } from '../../../../assets/images/icons';
+
+const CustomerGroupsTable = ({ customerGroupsData }) => {
+  return (
+    <table className="customer-groups-table">
+      <thead>
+        <tr>
+          <th>Customer Group Name</th>
+          <th>Calculation Percentage</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {customerGroupsData.length > 0 ? (
+          customerGroupsData.map((group) => (
+            <tr key={group.id}>
+              <td>{group.name}</td>
+              <td>{group.percentage}</td>
+              <td>{group.status}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="3">No customer groups found</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  );
+};
 
 const CustomerGroups = () => {
-  const [customerGroupsData, setCustomerGroupsData] = useState([]); // Data to be managed locally
-  const [filter, setFilter] = useState('All groups'); // State for filtering
+  const [customerGroupsData, setCustomerGroupsData] = useState([]);
+  const [filter, setFilter] = useState('All groups');
   const [searchQuery, setSearchQuery] = useState('');
-  const [users, setUsers] = useState([]);
 
-  // Placeholder for static or locally managed data, can be updated as needed.
   const mockCustomerGroupsData = [
-    { id: 1, name: 'Group 1', status: 'Active' },
-    { id: 2, name: 'Group 2', status: 'Inactive' },
-    // Add more mock data as necessary
+    { id: 1, name: 'Gold Member', status: 'Active', percentage: '10%' },
+    { id: 2, name: 'Silver Member', status: 'Inactive', percentage: '5%' },
+    { id: 3, name: 'Platinum Member', status: 'Active', percentage: '15%' },
+    { id: 4, name: 'Basic Member', status: 'Inactive', percentage: '2%' },
   ];
+
+  useEffect(() => {
+    setCustomerGroupsData(mockCustomerGroupsData);
+  }, []);
 
   const handleSearch = (event) => {
     const searchTerm = event.target.value.toLowerCase();
+    setSearchQuery(searchTerm);
     const filteredData = mockCustomerGroupsData.filter(group =>
       group.name.toLowerCase().includes(searchTerm)
     );
@@ -33,17 +64,19 @@ const CustomerGroups = () => {
     setCustomerGroupsData(filteredData);
   };
 
+  const handleExportCSV = () => {
+    // Export logic...
+  };
+
   return (
-    <div className="role-container users-container customers-container">
+    <div className="customer-groups-container">
       <div className="title">
         <h3>Customer Groups</h3>
-
         <div className="cta">
-          <button id="export-csv">
-            <img src={ExportIcon} alt="" />
+          <button id="export-csv" onClick={handleExportCSV}>
+            <img src={ExportIcon} alt="Export" />
             Export as .csv
           </button>
-
         </div>
       </div>
 
@@ -51,25 +84,26 @@ const CustomerGroups = () => {
         <div className="search">
           <input
             type="search"
-            placeholder="Search"
-            onChange={handleSearch} // Search handler
+            placeholder="Search groups"
+            value={searchQuery}
+            onChange={handleSearch}
           />
           <button>
-            <img src={searchIcon} alt="" />
+            <img src={searchIcon} alt="Search" />
           </button>
         </div>
 
         <div className="filter">
           <div className="label">Filter by:</div>
           <select value={filter} onChange={handleFilterChange}>
-            <option>All groups</option>
-            <option>Active</option>
-            <option>Inactive</option>
+            <option value="All groups">All groups</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
           </select>
         </div>
       </div>
 
-      <CustomerGroupsTable customerGroupsData={customerGroupsData} setCustomerGroupsData={setCustomerGroupsData} />
+      <CustomerGroupsTable customerGroupsData={customerGroupsData} />
     </div>
   );
 };
