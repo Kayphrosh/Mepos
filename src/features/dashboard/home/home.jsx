@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from "react";
 import {
   salesActive,
   wallet,
@@ -6,15 +6,19 @@ import {
   walletPurchases,
   dropdownIcon,
   ExportIcon,
-} from '../../../assets/images/icons';
-import './home.scss';
-import FinancialGraph from './financial-graph';
-import SaleTables from './sales-table';
-import { monthlyData, dailyData, transactions } from './home-data';
+} from "../../../assets/images/icons";
+import "./home.scss";
+import FinancialGraph from "./financial-graph";
+import SaleTables from "./sales-table";
+import { monthlyData, dailyData, transactions } from "./home-data";
+import axios from "../../../utils/axios";
 
 const Home = () => {
-  const [filter, setFilter] = useState('months');
-  const data = filter === 'months' ? monthlyData : dailyData;
+  const localUser = JSON.parse(localStorage.getItem("user"));
+  const storeId = localUser.store._id;
+  const [filter, setFilter] = useState("months");
+  const [purchases, setPurchases] = useState([]);
+  const data = filter === "months" ? monthlyData : dailyData;
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -25,43 +29,57 @@ const Home = () => {
     return transactions.slice(startIndex, startIndex + 300);
   }, [transactions]);
 
+  useEffect(() => {
+    const fetchPurchases = async () => {
+      try {
+        const response = await axios.get(`/${storeId}/purchase`);
+        console.log(response.data.data);
+        setPurchases(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchPurchases();
+  }, [storeId]);
+
   const metricsInfo = [
     {
       id: 1,
       icon: salesActive,
-      title: 'Number of sales',
+      title: "Number of sales",
       value: 123,
-      percentage: '+1.20%',
+      percentage: "+1.20%",
     },
     {
       id: 2,
       icon: wallet,
-      title: 'Total income',
+      title: "Total income",
       value: 123,
-      percentage: '-1.20%',
+      percentage: "-1.20%",
     },
     {
       id: 3,
       icon: walletExpenses,
-      title: 'Total purchases',
-      value: 123,
-      percentage: '+1.20%',
+      title: "Total purchases",
+      value: purchases?.length ? purchases.length : 0,
+      percentage: "+1.20%",
     },
     {
       id: 4,
       icon: walletPurchases,
-      title: 'Total expenses',
+      title: "Total expenses",
       value: 123,
-      percentage: '-1.20%',
+      percentage: "-1.20%",
     },
   ];
   return (
     <div className="home-container">
       <div className="metrics-container">
         {metricsInfo.map((metricInfo) => {
-          const rateId = metricInfo.percentage.startsWith('+')
-            ? 'positive'
-            : 'negative';
+          const rateId = metricInfo.percentage.startsWith("+")
+            ? "positive"
+            : "negative";
 
           return (
             <div className="card" key={metricInfo.id}>

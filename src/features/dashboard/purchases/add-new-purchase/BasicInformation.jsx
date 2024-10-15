@@ -23,6 +23,21 @@ const BasicInformation = ({
       _id: "2",
     },
   ];
+
+  const supplierOptions = [
+    {
+      name: "Ali Express",
+      _id: "1",
+    },
+    {
+      name: "Jumia",
+      _id: "2",
+    },
+    {
+      name: "Zendrop",
+      _id: "3",
+    },
+  ];
   return (
     <div className="basic-info">
       <div>
@@ -32,7 +47,7 @@ const BasicInformation = ({
           placeholder="Name"
           value={watch("supplier")}
           name="supplier"
-          // options={supplierOptions}
+          options={supplierOptions}
           setValue={setValue}
           error={errors.supplier}
           errorMessage="Select a supplier"

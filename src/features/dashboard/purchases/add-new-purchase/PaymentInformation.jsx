@@ -11,6 +11,17 @@ const PaymentInformation = ({
   watch,
   setValue,
 }) => {
+  const paymentAccountOptions = [
+    { name: "Moniepoint", _id: "1" },
+    { name: "GTB", _id: "2" },
+    { name: "Access bank", _id: "3" },
+  ];
+
+  const paymentMethodOptions = [
+    { name: "Cash", _id: "1" },
+    { name: "Cheque", _id: "2" },
+    { name: "Bank transfer", _id: "3" },
+  ];
   return (
     <div className="payment-info">
       <div>
@@ -33,7 +44,7 @@ const PaymentInformation = ({
           placeholder="Select Account"
           value={watch("paymentAccount")}
           name="paymentAccount"
-          //   options={paymentAccountOptions}
+          options={paymentAccountOptions}
           setValue={setValue}
           error={errors.paymentAccount}
           errorMessage="Select a Payment Account"
@@ -60,7 +71,7 @@ const PaymentInformation = ({
           placeholder="Select payment method"
           value={watch("paymentMethod")}
           name="paymentMethod"
-          //   options={paymentMethodOptions}
+          options={paymentMethodOptions}
           setValue={setValue}
           error={errors.paymentMethod}
           errorMessage="Select a Payment Method"

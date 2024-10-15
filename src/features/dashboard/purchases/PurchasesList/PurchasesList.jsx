@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PurchasesList.scss";
 import { Icon } from "@iconify/react";
 import { ExportIcon } from "../../../../assets/images/icons";
 import PurchasesListTable from "./PurchasesListTable";
+import axios from "../../../../utils/axios";
 
 const PurchasesList = () => {
+  const localUser = JSON.parse(localStorage.getItem("user"));
+  const storeId = localUser.store._id;
+  const [filter, setFilter] = useState("All Purchases");
+  const [purchases, setPurchases] = useState([]);
+  const [loadingPurchases, setLoadingPurchases] = useState(false);
+  // const [searchPurchases, setSearchPurchases] = useState("");
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  // const handleSearchChange = (e) => {
+  //   setSearchPurchases(e.target.value);
+  // };
+
+  // const filteredPurchases = purchases.filter((purchase) =>
+  //   purchase.name.toLowerCase().includes(searchPurchases.toLowerCase())
+  // );
+  useEffect(() => {
+    const fetchPurchases = async () => {
+      try {
+        setLoadingPurchases(true);
+        const response = await axios.get(`/${storeId}/purchase`);
+        console.log(response.data.data);
+        setPurchases(response.data.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingPurchases(false);
+      }
+    };
+
+    fetchPurchases();
+  }, [storeId]);
   return (
     <div className="purchase-list-container">
       <div className="title">
@@ -30,9 +65,7 @@ const PurchasesList = () => {
           </div>
           <div className="filter-trans">
             <label>Filter by:</label>
-            <select
-            //  onChange={handleFilterChange} value={filter}
-            >
+            <select onChange={handleFilterChange} value={filter}>
               <option>All Purchases</option>
               <option>View</option>
               <option>Edit</option>
@@ -47,8 +80,8 @@ const PurchasesList = () => {
         </button>
       </div>
       <PurchasesListTable
-      // products={filteredProducts}
-      // loadingProducts={loadingProducts}
+        purchases={purchases}
+        loadingPurchases={loadingPurchases}
       />
     </div>
   );

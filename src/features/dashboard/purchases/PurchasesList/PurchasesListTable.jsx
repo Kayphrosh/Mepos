@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 
-const PurchasesListTable = () => {
+const PurchasesListTable = ({ purchases, loadingPurchases }) => {
   return (
     <>
       <table>
@@ -37,31 +37,30 @@ const PurchasesListTable = () => {
                 <Icon icon="radix-icons:caret-sort" width={24} height={24} />
               </div>
             </th>
-            <th>
+            {/* <th>
               <div>
                 Action
-                {/* <Icon icon="radix-icons:caret-sort" width={24} height={24} /> */}
               </div>
-            </th>
+            </th> */}
           </tr>
         </thead>
         <tbody>
-          {/* {products.map((product) => (
-            <tr key={product._id}>
-              <td>{product.sku}</td>
-              <td>{product.name}</td>
-              <td>{product.sellingPrice}</td>
-              <td>{product.companyName}</td>
-              <td>{product.category?.name}</td>
-              <td>{product.unit?.name}</td>
+          {purchases.map((purchase) => (
+            <tr key={purchase._id}>
+              <td>{purchase.referenceNo}</td>
+              <td>{purchase.purchaseDate}</td>
+              <td>{purchase.supplier}</td>
+              <td>{purchase.purchaseStatus}</td>
+              <td>{purchase.purchaseAmount}</td>
+              {/* <td>{purchase.unit?.name}</td> */}
             </tr>
-          ))} */}
+          ))}
         </tbody>
       </table>
-      {/* {loadingProducts && <p className="loading">Loading...</p>}
-      {products.length === 0 && !loadingProducts && (
+      {loadingPurchases && <p className="loading">Loading...</p>}
+      {purchases.length === 0 && !loadingPurchases && (
         <p className="loading">Product is not available</p>
-      )} */}
+      )}
     </>
   );
 };
