@@ -5,6 +5,7 @@ import SupplierInformation from "./supplier-information";
 import PricesAndTaxes from "./prices-and-taxes";
 import { useForm } from "react-hook-form";
 import axios from "../../../../utils/axios";
+import { toast } from "react-toastify";
 
 const AddNewProduct = () => {
   const localUser = JSON.parse(localStorage.getItem("user"));
@@ -45,6 +46,7 @@ const AddNewProduct = () => {
       console.log(response);
       if (response.status === 201) {
         console.log(response.data.data);
+        toast.success("Product created successfully!");
       }
     } catch (error) {
       console.error(error);

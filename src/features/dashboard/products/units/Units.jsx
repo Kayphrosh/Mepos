@@ -60,6 +60,7 @@ const Units = () => {
       );
       if (response.status === 201) {
         setUnits((prevUnits) => [...prevUnits, response.data.data]);
+        toast.success("Unit created successfully");
         reset();
       } else {
         console.error("Unexpected response:", response);

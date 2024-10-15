@@ -164,6 +164,8 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
+      position: relative;
+      overflow: visible;
 
       .cta {
         margin-top: 20px;

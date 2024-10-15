@@ -61,7 +61,7 @@ const ProductCategory = () => {
           ...prevCategories,
           response.data.data,
         ]);
-        console.log("category created successfully");
+        toast.success("Category created successfully");
         reset();
       } else {
         console.log("Unexpected response:", response);

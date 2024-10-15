@@ -5,6 +5,7 @@ import Input from "../../../../components/ui/input/Input";
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/ui/button/Button";
 import axios from "../../../../utils/axios";
+import { toast } from "react-toastify";
 
 const EditCategoryModal = ({
   setEditCategoryModal,
@@ -66,6 +67,7 @@ const EditCategoryModal = ({
         editedData
       );
       setCategoryData(response.data.data);
+      toast.success("Category edited successfully");
       console.log(response.data.data);
     } catch (error) {
       console.error(error.message);

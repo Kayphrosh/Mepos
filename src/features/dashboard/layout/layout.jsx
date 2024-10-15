@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Topbar from "../../../components/topbar/Topbar";
@@ -24,6 +24,8 @@ import Suppliers from "../contacts/suppliers/suppliers";
 import CustomerGroups from "../contacts/customer-groups/customer-groups";
 import PurchasesList from "../purchases/PurchasesList/PurchasesList";
 import AddNewPurchase from "../purchases/add-new-purchase/AddNewPurchase";
+import ImportProducts from "../products/import-products/ImportProducts";
+import ImportOpeningStock from "../products/import-opening-stock/ImportOpeningStock";
 
 const DashboardLayout = () => {
   return (
@@ -44,6 +46,11 @@ const DashboardLayout = () => {
             <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
             <Route path="/add-new-product" element={<AddNewProduct />} />
+            <Route path="/import-products" element={<ImportProducts />} />
+            <Route
+              path="/import-opening-stock"
+              element={<ImportOpeningStock />}
+            />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/pos" element={<Pos />} />
             <Route path="/units" element={<Units />} />

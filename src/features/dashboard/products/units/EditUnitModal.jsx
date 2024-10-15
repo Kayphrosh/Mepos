@@ -5,6 +5,7 @@ import Input from "../../../../components/ui/input/Input";
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/ui/button/Button";
 import axios from "../../../../utils/axios";
+import { toast } from "react-toastify";
 
 const EditUnitModal = ({ setEditUnitModal, localUser, editUnitId }) => {
   const [unitData, setUnitData] = useState(null);
@@ -63,6 +64,7 @@ const EditUnitModal = ({ setEditUnitModal, localUser, editUnitId }) => {
       );
       setUnitData(response.data.data);
       console.log(response.data.data);
+      toast.success("Unit edited successfully");
     } catch (error) {
       console.error(error.message);
     } finally {
