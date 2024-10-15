@@ -1,0 +1,189 @@
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.units-container {
+  padding: 40px 24px 20px 31px;
+}
+.units-container .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.units-container .title button {
+  background-color: #ffffff;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #010066;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #010066;
+  border-radius: 5px;
+}
+.units-container .add-new-unit {
+  margin-top: 15px;
+  margin-bottom: 32px;
+  width: 100%;
+  border: 1px transparent;
+  border-radius: 5px;
+  background: #fbfbfd;
+}
+.units-container .add-new-unit .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 23px;
+}
+.units-container .add-new-unit .heading p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #151411;
+}
+.units-container .add-new-unit .heading svg {
+  cursor: pointer;
+}
+.units-container .add-new-unit form {
+  margin: 16px 22px;
+}
+.units-container .add-new-unit form .unit-names {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+.units-container .add-new-unit form .decimal-value {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.units-container .add-new-unit form .decimal-value label {
+  color: #3c3b39;
+  font-size: 14px;
+  font-weight: 500;
+}
+.units-container .add-new-unit form .decimal-value input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #cfd3d4;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.units-container .add-new-unit form .decimal-value input[type=checkbox]:checked {
+  background-color: #010066;
+  background-image: url("../../../../assets/images/tick.svg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+}
+.units-container .add-new-unit form .cta {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 22px;
+}
+.units-container .add-new-unit form .cta button {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.units-container .add-new-unit form .cta .cancel {
+  text-decoration: underline;
+  background: #fefefe;
+  color: #8a8988;
+  font-weight: 500;
+}
+.units-container .add-new-unit form .cta .save {
+  width: 123px;
+  font-weight: 500;
+}
+.units-container .products-units {
+  margin-top: 16px;
+}
+.units-container .products-units p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #151411;
+}
+.units-container .products-units .search {
+  margin-top: 16px;
+  position: relative;
+}
+.units-container .products-units .search input {
+  border: 0.5px solid #dadada;
+  border-radius: 8px;
+  width: 100%;
+  background-color: #fefefe;
+  padding: 12px;
+}
+.units-container .products-units .search input::-moz-placeholder {
+  color: #636260;
+  font-size: 14px;
+}
+.units-container .products-units .search input::placeholder {
+  color: #636260;
+  font-size: 14px;
+}
+.units-container .products-units .search button {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 10px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 48px;
+  border-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.units-container .products-units .search button img {
+  margin-top: 8px;
+}
+.units-container .products-units table {
+  margin-top: 32px;
+}
+.units-container .products-units table tbody td:last-child {
+  text-align: right;
+  width: 1%;
+}
+.units-container .products-units table th div {
+  color: #3c3b39;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.units-container .products-units table td {
+  font-size: 14px;
+  color: #151411;
+}
+.units-container .products-units table td .actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+.units-container .products-units .no-unit {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+}/*# sourceMappingURL=Units.css.map */

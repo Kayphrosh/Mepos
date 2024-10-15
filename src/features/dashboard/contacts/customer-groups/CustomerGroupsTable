@@ -1,0 +1,45 @@
+import React from 'react';
+
+const CustomerGroupsTable = ({ customerGroupsData }) => {
+  return (
+    <table className="customer-groups-table">
+      <thead>
+        <tr>
+          <th>Customer Group Name</th>
+          <th>Calculation Percentage</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {customerGroupsData.length > 0 ? (
+          customerGroupsData.map((group) => (
+            <tr key={group.id}>
+              <td>{group.name}</td>
+              <td>{group.percentage}</td>
+              <td>
+                <div className="actions">
+                  {group.name !== 'Admin' && (
+                    <>
+                      <div onClick={() => handleEditClick(roleData)}>
+                        <img src={editIcon} alt="Edit" />
+                      </div>
+                      <div onClick={() => handleDelete(roleData._id)}>
+                        <img src={deleteIcon} alt="Delete" />
+                      </div>
+                    </>
+                  )}
+                </div>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="3">No customer groups found</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  );
+};
+
+export default CustomerGroupsTable;

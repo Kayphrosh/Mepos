@@ -9,6 +9,8 @@ import instance from "../../../../utils/axios";
 import Search from "../../../../assets/images/icons/search.svg";
 import { editIcon } from "../../../../assets/images/icons";
 import { deleteIcon } from "../../../../assets/images/icons";
+import { toast } from "react-toastify";
+import EditUnitModal from "./EditUnitModal";
 
 const Units = () => {
   const localUser = JSON.parse(localStorage.getItem("user"));
@@ -18,6 +20,9 @@ const Units = () => {
   const [searchUnit, setSearchunit] = useState("");
   const [loading, setLoading] = useState(false);
   const [savingUnit, setSavingUnit] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [editUnitModal, setEditUnitModal] = useState(false);
+  const [editUnitId, setEditUnitId] = useState(null);
 
   const {
     register,
@@ -32,21 +37,33 @@ const Units = () => {
       shortName: formData.unitShortName,
       allowDecimal: formData.allowDecimalValue,
     };
-    console.log(unitData);
+
+    const duplicateUnit = units.find(
+      (unit) =>
+        unit.name.toLowerCase() === formData.unitName.toLowerCase() ||
+        unit.shortName.toLowerCase() === formData.unitShortName.toLowerCase()
+    );
+
+    if (duplicateUnit) {
+      setErrorMessage(
+        `Unit name ${formData.unitName} or ${formData.unitShortName} already exists!`
+      );
+      return;
+    }
 
     setSavingUnit(true);
+    setErrorMessage("");
     try {
       const response = await instance.post(
         `/${localUser._id}/products/units`,
         unitData
       );
       if (response.status === 201) {
-        console.log("response data", response.data.data);
         setUnits((prevUnits) => [...prevUnits, response.data.data]);
-        console.log("units created successfully");
+        toast.success("Unit created successfully");
         reset();
       } else {
-        console.log("Unexpected response:", response);
+        console.error("Unexpected response:", response);
       }
     } catch (error) {
       console.error("Error creating unit:", error);
@@ -70,13 +87,32 @@ const Units = () => {
     };
 
     getUnits();
-  }, [localUser._id]);
+  }, [localUser._id, editUnitModal]);
 
   const filteredUnits = units.filter(
     (unit) =>
       unit.name.toLowerCase().includes(searchUnit.toLowerCase()) ||
       unit.shortName.toLowerCase().includes(searchUnit.toLowerCase())
   );
+
+  const onEditUnit = (id) => {
+    setEditUnitModal(true);
+    setEditUnitId(id);
+  };
+
+  const deleteUnit = async (id) => {
+    try {
+      const response = await axios.delete(
+        `/${localUser._id}/products/units/${id}`
+      );
+      if (response.data.status) {
+        setUnits((prevUnits) => prevUnits.filter((unit) => unit._id !== id));
+        toast.success("Unit deleted successfully");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="units-container">
@@ -157,6 +193,7 @@ const Units = () => {
                 </Button>
               </div>
             </form>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </>
         )}
       </div>
@@ -207,17 +244,32 @@ const Units = () => {
                 <td>{unit.allowDecimal === true ? "Yes" : "No"}</td>
                 <td>
                   <div className="actions">
-                    <img src={editIcon} alt="Edit" />
-                    <img src={deleteIcon} alt="Delete" />
+                    <img
+                      src={editIcon}
+                      alt="Edit"
+                      onClick={() => onEditUnit(unit._id)}
+                    />
+                    <img
+                      src={deleteIcon}
+                      alt="Delete"
+                      onClick={() => deleteUnit(unit._id)}
+                    />
                   </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {editUnitModal && (
+          <EditUnitModal
+            setEditUnitModal={setEditUnitModal}
+            localUser={localUser}
+            editUnitId={editUnitId}
+          />
+        )}
         {loading && <p className="no-unit">Loading...</p>}
         {filteredUnits.length === 0 && !loading && (
-          <p className="no-unit">No unit named {`${searchUnit}`}</p>
+          <p className="no-unit">No unit </p>
         )}
       </div>
     </div>

@@ -33,6 +33,7 @@
       max-width: 32px;
       height: 32px;
       overflow: hidden;
+      z-index: 1111;
     }
     .modal-title {
       display: flex;
@@ -80,3 +81,22 @@
     }
   }
 }
+
+    .close-button {
+      position: absolute;
+      top: 2.5rem;
+      right: 1rem;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      background: $state-100;
+      max-width: 32px;
+      height: 32px;
+      overflow: hidden;
+      z-index: 1111;
+      background: red;
+      color: red($color: #000000);
+    }

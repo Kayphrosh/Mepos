@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './add-new-user.scss';
-import Input from '../../../components/ui/input/Input';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import "./add-new-user.scss";
+import Input from "../../../components/ui/input/Input";
+import { useForm } from "react-hook-form";
 
 const RolesAndPermission = ({
   formData,
@@ -19,7 +19,7 @@ const [showPassword, setShowPassword] = useState(false);
     watch,
     formState: { errors },
     getValues,
-  } = useForm({ mode: 'onTouched' });
+  } = useForm({ mode: "onTouched" });
 
   console.log('RolesAndPermission props:', { rolesData, loadingRoles, error }); // Add this line for debugging
 
@@ -41,10 +41,11 @@ const [showPassword, setShowPassword] = useState(false);
           <Input
             type="text"
             label="User Name"
+            name="userName"
             placeholder="User Name"
             required={true}
             value={formData.username}
-            onChange={(e) => handleInputChange('username', e.target.value)}
+            onChange={(e) => handleInputChange("username", e.target.value)}
           />
 
           <Input
@@ -54,9 +55,7 @@ const [showPassword, setShowPassword] = useState(false);
             required={true}
             name="createPassword"
             value={formData.password}
-            onChange={(e) => handleInputChange('password', e.target.value)}
-            showCreatePassword={showPassword}
-            setShowCreatePassword={setShowPassword}
+            onChange={(e) => handleInputChange("password", e.target.value)}
           />
         </>
       )}

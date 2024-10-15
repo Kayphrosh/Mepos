@@ -29,7 +29,7 @@ const UsersTable = ({ users, searchQuery }) => {
           <tr key={user._id}>
             <td>{user.username}</td>
             <td>{`${user.firstName} ${user.lastName}`}</td>
-            <td>{user.role?.name}</td> {/* Display the role name */}
+            <td>{user.role?.name || `N/A`}</td> {/* Display the role name */}
             <td>{user.email}</td>
             <td>
               <div className="actions">

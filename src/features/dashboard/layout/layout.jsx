@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Topbar from "../../../components/topbar/Topbar";
@@ -12,7 +12,7 @@ import Customers from "../customers/customers";
 import ProductList from "../products/product-list/ProductList";
 import Transaction from "../sales/transactions/transaction";
 import ImportSales from "../sales/import-sales/import-sales";
-import Variations from "../products/variations/Variations"
+import Variations from "../products/variations/Variations";
 import Discounts from "../sales/discounts/discounts";
 import Pos from "../sales/pos/Pos";
 import "./layout.scss";
@@ -20,6 +20,12 @@ import SuspendedSales from "../sales/suspended-sales/suspended-sales";
 import AddNewProduct from "../products/add-new-product/add-new-product";
 import Units from "../products/units/Units";
 import ProductCategory from "../products/category/category";
+import Suppliers from "../contacts/suppliers/suppliers";
+import CustomerGroups from "../contacts/customer-groups/customer-groups";
+import PurchasesList from "../purchases/PurchasesList/PurchasesList";
+import AddNewPurchase from "../purchases/add-new-purchase/AddNewPurchase";
+import ImportProducts from "../products/import-products/ImportProducts";
+import ImportOpeningStock from "../products/import-opening-stock/ImportOpeningStock";
 
 const DashboardLayout = () => {
   return (
@@ -40,11 +46,20 @@ const DashboardLayout = () => {
             <Route path="/import-sales" element={<ImportSales />} />
             <Route path="/product-list" element={<ProductList />} />
             <Route path="/add-new-product" element={<AddNewProduct />} />
+            <Route path="/import-products" element={<ImportProducts />} />
+            <Route
+              path="/import-opening-stock"
+              element={<ImportOpeningStock />}
+            />
             <Route path="/discounts" element={<Discounts />} />
             <Route path="/pos" element={<Pos />} />
             <Route path="/units" element={<Units />} />
             <Route path="/categories" element={<ProductCategory />} />
-            <Route path="/variations" element={<Variations/>} />"
+            <Route path="/variations" element={<Variations />} />
+            <Route path="/suppliers" element={<Suppliers />} />
+            <Route path="/customer-groups" element={<CustomerGroups />} />
+            <Route path="/purchases-list" element={<PurchasesList />} />
+            <Route path="/add-new-purchase" element={<AddNewPurchase />} />
           </Routes>
         </div>
       </div>

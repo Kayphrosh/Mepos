@@ -8,6 +8,8 @@ import axios from "../../../../utils/axios";
 import Search from "../../../../assets/images/icons/search.svg";
 import { editIcon } from "../../../../assets/images/icons";
 import { deleteIcon } from "../../../../assets/images/icons";
+import { toast } from "react-toastify";
+import EditCategoryModal from "./EditCategoryModal";
 
 const ProductCategory = () => {
   const localUser = JSON.parse(localStorage.getItem("user"));
@@ -17,6 +19,9 @@ const ProductCategory = () => {
   const [searchCategories, setSearchCategories] = useState("");
   const [loading, setLoading] = useState(false);
   const [savingCategory, setSavingCategory] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [editCategoryModal, setEditCategoryModal] = useState(false);
+  const [editCategoryId, setEditCategoryId] = useState(null);
 
   const {
     register,
@@ -32,8 +37,19 @@ const ProductCategory = () => {
       rackNumber: formData.categoryRackNumber,
     };
 
+    const duplicateCategory = categories.find(
+      (category) =>
+        category.name.toLowerCase() === formData.categoryName.toLowerCase()
+    );
+
+    if (duplicateCategory) {
+      setErrorMessage(`Category name ${formData.categoryName} already exists!`);
+      return;
+    }
+
     console.log(categoriesData);
     setSavingCategory(true);
+    setErrorMessage("");
     try {
       const response = await axios.post(
         `/${localUser._id}/products/categories`,
@@ -45,7 +61,7 @@ const ProductCategory = () => {
           ...prevCategories,
           response.data.data,
         ]);
-        console.log("category created successfully");
+        toast.success("Category created successfully");
         reset();
       } else {
         console.log("Unexpected response:", response);
@@ -75,11 +91,32 @@ const ProductCategory = () => {
     };
 
     getCategories();
-  }, [localUser._id]);
+  }, [localUser._id, editCategoryModal]);
 
   const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchCategories.toLowerCase())
   );
+
+  const onEditCategory = (id) => {
+    setEditCategoryModal(true);
+    setEditCategoryId(id);
+  };
+
+  const deleteCategory = async (id) => {
+    try {
+      const response = await axios.delete(
+        `/${localUser._id}/products/categories/${id}`
+      );
+      if (response.data.status) {
+        setCategories((prevCategories) =>
+          prevCategories.filter((category) => category._id !== id)
+        );
+        toast.success("Category deleted successfully");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="category-container">
@@ -162,6 +199,7 @@ const ProductCategory = () => {
                 </div>
               </div>
             </form>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </>
         )}
       </div>
@@ -199,20 +237,35 @@ const ProductCategory = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredCategories.map((unit) => (
-              <tr key={unit._id}>
-                <td>{unit.name}</td>
-                <td>{unit.description}</td>
+            {filteredCategories.map((category) => (
+              <tr key={category._id}>
+                <td>{category.name}</td>
+                <td>{category.description}</td>
                 <td>
                   <div className="actions">
-                    <img src={editIcon} alt="Edit" />
-                    <img src={deleteIcon} alt="Delete" />
+                    <img
+                      src={editIcon}
+                      alt="Edit"
+                      onClick={() => onEditCategory(category._id)}
+                    />
+                    <img
+                      src={deleteIcon}
+                      alt="Delete"
+                      onClick={() => deleteCategory(category._id)}
+                    />
                   </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {editCategoryModal && (
+          <EditCategoryModal
+            setEditCategoryModal={setEditCategoryModal}
+            localUser={localUser}
+            editCategoryId={editCategoryId}
+          />
+        )}
         {loading && <p className="no-unit">Loading...</p>}
         {filteredCategories.length === 0 && !loading && (
           <p className="no-unit">No category named {`${searchCategories}`}</p>

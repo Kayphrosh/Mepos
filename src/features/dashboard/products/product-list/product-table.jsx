@@ -101,16 +101,9 @@ const ProductTable = ({
           ))}
         </tbody>
       </table>
-      {loadingProducts && <p>Loading products...</p>}
-      {!loadingProducts && products.length === 0 && <p>No products found.</p>}
-      {isModalOpen && currentProduct && (
-        <Modal isOpen={isModalOpen} closeModal={handleModalClose}>
-          <EditProductModal
-            productData={currentProduct}
-            onClose={handleModalClose}
-            onUpdate={handleUpdateProduct}
-          />
-        </Modal>
+      {loadingProducts && <p className="loading">Loading...</p>}
+      {products.length === 0 && !loadingProducts && (
+        <p className="loading">Product is not available</p>
       )}
     </>
   );

@@ -173,8 +173,8 @@ const BasicInformation = ({
           Cancel
         </button>
         <Button
-          type="button"
-          onClick={() => setActiveTab(2)}
+          type="submit"
+          // onClick={() => setActiveTab(2)}
           className="submit-basic-info"
         >
           Save and Continue

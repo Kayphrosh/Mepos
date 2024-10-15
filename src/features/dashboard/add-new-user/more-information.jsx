@@ -1,15 +1,16 @@
-import React from 'react';
-import './add-new-user.scss';
-import Input from '../../../components/ui/input/Input';
+import React from "react";
+import "./add-new-user.scss";
+import Input from "../../../components/ui/input/Input";
 const MoreInformation = ({ formData, handleInputChange, handleNext }) => {
   return (
     <div className="form-container">
       <Input
         type="date"
         label="Date of Birth"
+        name="dateOfBirth"
         placeholder="Date of Birth"
         value={formData.dateOfBirth}
-        onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
+        onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
       />
 
       <div className="form-input">
@@ -17,7 +18,7 @@ const MoreInformation = ({ formData, handleInputChange, handleNext }) => {
         <select
           value={formData.relationshipStatus}
           onChange={(e) =>
-            handleInputChange('relationshipStatus', e.target.value)
+            handleInputChange("relationshipStatus", e.target.value)
           }
         >
           <option value="">Select Relationship Status</option>
@@ -29,18 +30,19 @@ const MoreInformation = ({ formData, handleInputChange, handleNext }) => {
       <Input
         type="tel"
         label="Mobile Number"
+        name="mobileNumber"
         placeholder="+234"
         value={formData.phoneNumber}
-        onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-        required={true}
+        onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
       />
       <Input
         type="text"
         label="NIN Slip Number"
+        name="NIN"
         placeholder="Enter NIN Slip Number"
         required={true}
         value={formData.ninNumber}
-        onChange={(e) => handleInputChange('ninNumber', e.target.value)}
+        onChange={(e) => handleInputChange("ninNumber", e.target.value)}
       />
 
       <div className="form-cta">

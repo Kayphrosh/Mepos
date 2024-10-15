@@ -1,0 +1,194 @@
+@import "../../../../variables";
+
+.add-purchase-container {
+  padding: 40px 24px 20px 31px;
+
+  .tab_heading {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid $paragraph-500;
+
+    .tab {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 24px;
+      color: $text-400;
+      cursor: pointer;
+
+      &.active {
+        border-bottom: 2px solid $primarycolor-100;
+        color: $primarycolor-100;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .basic-info {
+      max-width: 634px;
+      width: 100%;
+      background: $background;
+      border: 1px transparent;
+      border-radius: 5px;
+      padding: 28.5px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      overflow: visible;
+
+      .rack_number {
+        margin-top: 6px;
+        color: $text-400;
+        font-size: 14px;
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          color: $text-400;
+          font-weight: 500;
+          background-color: $white-600;
+          text-decoration: underline;
+        }
+
+        .submit-basic-info {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .product-info {
+      max-width: 634px;
+      width: 100%;
+      background: $background;
+      border: 1px transparent;
+      border-radius: 5px;
+      padding: 28.5px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .file-container {
+        .file {
+          border: 1px dotted $text-400;
+          border-radius: 10px;
+          height: 286px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          gap: 8px;
+
+          label {
+            svg {
+              color: $primarycolor-100;
+            }
+            p {
+              font-size: 14px;
+              font-weight: normal;
+              color: $text-300;
+
+              label {
+                color: $primarycolor-100;
+                text-decoration: underline;
+                cursor: pointer;
+                font-weight: 500;
+              }
+            }
+          }
+
+          input[type="file"] {
+            display: none;
+          }
+
+          .download {
+            margin-top: 48px;
+            width: fit-content;
+            border: 1px solid $primarycolor-100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: $primarycolor-100;
+            font-weight: 500;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          color: $text-400;
+          font-weight: 500;
+          background-color: $white-600;
+          text-decoration: underline;
+        }
+
+        .submit-product-info {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .payment-info {
+      max-width: 634px;
+      width: 100%;
+      background: $background;
+      border: 1px transparent;
+      border-radius: 5px;
+      padding: 28.5px 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      overflow: visible;
+
+      .cta {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          width: fit-content;
+        }
+
+        .cancel {
+          color: $text-400;
+          font-weight: 500;
+          background-color: $white-600;
+          text-decoration: underline;
+        }
+
+        .submit-payment-info {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

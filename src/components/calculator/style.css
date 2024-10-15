@@ -1,0 +1,89 @@
+body {
+  background-color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.calculator-overlay {
+  position: absolute;
+  right: 10%;
+  top: 60px;
+  transform: translate(-10%);
+  z-index: 11;
+  width: 100%;
+  max-width: 400px;
+}
+.calculator-overlay .calculator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  background-color: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+}
+.calculator-overlay .calculator-container .calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calculator-overlay .calculator-container .calculator-header h2 {
+  font-size: 18px;
+}
+.calculator-overlay .calculator-container .calculator-header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #dd1104;
+  overflow: hidden;
+}
+.calculator-overlay .calculator-container .calculator-input {
+  height: 49px;
+  border-radius: 8px;
+  border: 0.5px solid var(--Stroke-color, #dadada);
+  margin: 1rem 0;
+  padding: 0 1rem;
+  font-size: 32px;
+}
+.calculator-overlay .calculator-container .calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.calculator-overlay .calculator-container .calculator-buttons button {
+  padding: 15px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background: #fbfbfd;
+  border: none;
+  color: #636260;
+}
+.calculator-overlay .calculator-container .calculator-buttons button:hover {
+  background: #023e8a;
+  color: #ffffff;
+}
+.calculator-overlay .calculator-container .calculator-buttons #clear {
+  background: rgba(227, 0, 14, 0.05);
+}
+.calculator-overlay .calculator-container .calculator-buttons #clear:hover {
+  background: #dd1104;
+  color: #ffffff;
+}/*# sourceMappingURL=style.css.map */
