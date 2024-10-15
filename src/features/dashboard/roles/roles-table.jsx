@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../../../components/ui/table/table.scss';
-import { eyeIcon, editIcon, deleteIcon } from '../../../assets/images/icons';
-import axios from 'axios';
+import { editIcon, deleteIcon } from '../../../assets/images/icons';
+import axios from '../../../utils/axios';
 import { useNavigate } from 'react-router-dom';
-import Modal from './edit-role-modal';
-import EditRole from './edit-role'; 
+import Modal from '../../../components/ui/modal/modal';
+import EditRole from './edit-role';
 
 const RolesTable = ({ rolesData, setRolesData }) => {
   const navigate = useNavigate();
@@ -16,23 +16,28 @@ const RolesTable = ({ rolesData, setRolesData }) => {
     navigate(`/roles/edit/${roleId}`); // Redirect to edit page
   };
 
-  const handleDelete = async (roleId) => {
-    const confirmDelete = window.confirm(
-      'Are you sure you want to delete this role?',
-    );
-    if (confirmDelete) {
-      try {
-        const response = await axios.delete(`/roles/${roleId}`); // Replace {{url}} with your actual API endpoint
-        if (response.data.status) {
-          setRolesData((prev) => prev.filter((role) => role._id !== roleId)); // Update the state to remove the deleted role
-        } else {
-          alert(response.data.message);
-        }
-      } catch (error) {
-        alert('Failed to delete the role.');
+const handleDelete = async (roleId) => {
+  console.log('Attempting to delete role with ID:', roleId); // Log the roleId to the console
+  const confirmDelete = window.confirm(
+    'Are you sure you want to delete this role?',
+  );
+  if (confirmDelete) {
+    try {
+      const response = await axios.delete(`/roles/${roleId}`);
+      if (response.status === 200) {
+        console.log('Role deleted successfully:', roleId); // Log success
+        setRolesData((prev) => prev.filter((role) => role._id !== roleId)); // Update the state
+      } else {
+        console.log('Delete failed, response:', response.data); // Log the response in case of failure
+        alert(response.data.message || 'Failed to delete the role.');
       }
+    } catch (error) {
+      console.error('Error deleting role:', error); // Log any error encountered
+      alert('Failed to delete the role.');
     }
-  };
+  }
+};
+
 
   const handleEditClick = (roleData) => {
     setSelectedRole(roleData); // Set selected role for edit
@@ -67,12 +72,18 @@ const RolesTable = ({ rolesData, setRolesData }) => {
               <td>{roleData.name}</td>
               <td>
                 <div className="actions">
-                  {roleData.name !== 'Admin' && (
+                  {roleData.name !== 'owner' && (
                     <>
-                      <div onClick={() => handleEditClick(roleData)}>
+                      <div
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleEditClick(roleData)}
+                      >
                         <img src={editIcon} alt="Edit" />
                       </div>
-                      <div onClick={() => handleDelete(roleData._id)}>
+                      <div
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleDelete(roleData._id)}
+                      >
                         <img src={deleteIcon} alt="Delete" />
                       </div>
                     </>

@@ -3,6 +3,14 @@ import Input from "../../../../components/ui/input/Input";
 import Button from "../../../../components/ui/button/Button";
 
 const PricesAndTaxes = ({ register, errors, setActiveTab, savingProduct }) => {
+  const formatNumberWithCommas = (value) => {
+    if (!value) return '';
+    // Remove any existing commas and non-digit characters
+    const cleanValue = value.replace(/[^\d.]/g, '');
+    // Format the number with commas
+    return cleanValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   return (
     <div className="prices-and-taxes">
       <div>
@@ -10,10 +18,14 @@ const PricesAndTaxes = ({ register, errors, setActiveTab, savingProduct }) => {
           label="Unit Purchase Price"
           name="unitPurchasePrice"
           required={true}
-          type="number"
+          type="text"
           placeholder="0.00"
           register={register("unitPurchasePrice", {
             required: "Unit purchase price is required",
+            setValueAs: (v) => v.replace(/,/g, ''),
+            onChange: (e) => {
+              e.target.value = formatNumberWithCommas(e.target.value);
+            },
           })}
           error={errors.unitPurchasePrice}
         />
@@ -23,10 +35,14 @@ const PricesAndTaxes = ({ register, errors, setActiveTab, savingProduct }) => {
           label="Selling Price"
           name="sellingPrice"
           required={true}
-          type="number"
+          type="text"
           placeholder="0.00"
           register={register("sellingPrice", {
             required: "Selling Price is required",
+            setValueAs: (v) => v.replace(/,/g, ''),
+            onChange: (e) => {
+              e.target.value = formatNumberWithCommas(e.target.value);
+            },
           })}
           error={errors.sellingPrice}
         />
@@ -35,9 +51,14 @@ const PricesAndTaxes = ({ register, errors, setActiveTab, savingProduct }) => {
         <Input
           label="Include Tax"
           name="includeTax"
-          type="number"
+          type="text"
           placeholder="0.00"
-          register={register("includeTax")}
+          register={register("includeTax", {
+            setValueAs: (v) => v.replace(/,/g, ''),
+            onChange: (e) => {
+              e.target.value = formatNumberWithCommas(e.target.value);
+            },
+          })}
         />
       </div>
       <div className="cta">

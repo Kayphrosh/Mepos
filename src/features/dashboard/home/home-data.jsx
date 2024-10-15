@@ -29,32 +29,3 @@ export const dailyData = [
   { name: 'Day 11', sales: 300, profit: 240 },
   { name: 'Day 12', sales: 400, profit: 240 },
 ];
-export const transactions = [
-    {
-      invoiceId: '001124678',
-      date: '26-04-2024 05:04pm',
-      customerName: 'Store1 customer',
-      paymentMethod: 'Bank Transfer, Cash',
-      totalItems: 4,
-      totalPaid: 17000,
-      addedBy: 'Cashier1',
-    },
-    {
-      invoiceId: '001124679',
-      date: '27-04-2024 02:15pm',
-      customerName: 'Store2 customer',
-      paymentMethod: 'Credit Card',
-      totalItems: 7,
-      totalPaid: 25000,
-      addedBy: 'Cashier2',
-    },
-    {
-      invoiceId: '001124680',
-      date: '27-04-2024 04:30pm',
-      customerName: 'Store1 customer',
-      paymentMethod: 'Cash',
-      totalItems: 2,
-      totalPaid: 5000,
-      addedBy: 'Cashier1',
-    },
-  ];

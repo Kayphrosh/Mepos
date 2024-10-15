@@ -4,7 +4,9 @@ import '../user/users.scss';
 import { ExportIcon, plusIcon, searchIcon } from '../../../assets/images/icons';
 import RolesTable from './roles-table';
 import axios from '../../../utils/axios';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import RolesAndPermission from '../add-new-user/roles-and-permission';
 const Roles = () => {
   const [rolesData, setRolesData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,8 +14,9 @@ const Roles = () => {
 
   useEffect(() => {
     const fetchRoles = async () => {
+
       try {
-        const response = await axios.get('/roles'); // Replace {{url}} with your actual API endpoint
+        const response = await axios.get('/roles'); 
         if (response.data.status) {
           setRolesData(response.data.data);
         } else {
@@ -34,6 +37,7 @@ const Roles = () => {
 
   return (
     <div className="users-container">
+      <ToastContainer position="top-right" autoClose={5000} />
       <div className="title">
         <h3>Roles</h3>
 

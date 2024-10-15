@@ -5,7 +5,8 @@ import SupplierInformation from "./supplier-information";
 import PricesAndTaxes from "./prices-and-taxes";
 import { useForm } from "react-hook-form";
 import axios from "../../../../utils/axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddNewProduct = () => {
   const localUser = JSON.parse(localStorage.getItem("user"));
@@ -46,19 +47,21 @@ const AddNewProduct = () => {
       console.log(response);
       if (response.status === 201) {
         console.log(response.data.data);
-        toast.success("Product created successfully!");
+        toast.success('Product added successfully!');
+        setActiveTab(1);
+        reset();
       }
     } catch (error) {
       console.error(error);
+      toast.error('Error adding product. Please try again.');
     } finally {
-      setActiveTab(1);
-      reset();
       setSavingProduct(false);
     }
   };
 
   return (
     <div className="add-product-container">
+      <ToastContainer />
       <h3>Add New Product</h3>
       <div className="tab_heading">
         {tabs.map((tab) => (

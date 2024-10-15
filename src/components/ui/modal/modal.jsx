@@ -1,10 +1,21 @@
-import React from "react";
+import React from 'react';
+import './modal.scss'
 
-import "./modal.scss";
-const Modal = ({ children }) => {
+const Modal = ({ isOpen, closeModal, children }) => {
+  if (!isOpen) return null;
+
   return (
     <div className="modal-overlay">
-      <div className="modal-content">{children}</div>
+      <div className="modal-content">
+        <button 
+          className="close-button" 
+          style={{position: "absolute", background: 'red', color: "white"}} 
+          onClick={closeModal}
+        >
+          X
+        </button>
+        {children}
+      </div>
     </div>
   );
 };

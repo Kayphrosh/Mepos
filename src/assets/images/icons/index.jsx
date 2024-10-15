@@ -25,12 +25,14 @@ export { default as profilePic } from "./profile-pic.svg";
 
 export { default as wallet } from "./wallet.svg";
 
-export { default as walletPurchases } from "./wallet-purchases.svg";
-export { default as walletExpenses } from "./wallet-expenses.svg";
-export { default as ExportIcon } from "./export.svg";
-export { default as plusIcon } from "./plus.svg";
-export { default as searchIcon } from "./search.svg";
-export { default as editIcon } from "./edit.svg";
-export { default as deleteIcon } from "./delete.svg";
-export { default as eyeIcon } from "./eye.svg";
-export { default as actionIcon } from "./action.svg";
+export { default as walletPurchases } from './wallet-purchases.svg';
+export { default as walletExpenses } from './wallet-expenses.svg';
+export { default as ExportIcon } from './export.svg';
+export { default as plusIcon } from './plus.svg';
+export { default as searchIcon } from './search.svg';
+export { default as editIcon } from './edit.svg';
+export { default as deleteIcon } from './delete.svg';
+export { default as eyeIcon } from './eye.svg';
+export { default as actionIcon } from './action.svg';
+export { default as plusIcon2 } from './plus-cart.svg';
+export { default as minusIcon } from './minus.svg';

@@ -39,6 +39,17 @@
           color: $text-600;
           font-size: 12px;
         }
+        select {
+          display: flex;
+          align-items: center;
+          gap: 0.0rem;
+          padding: 0;
+          height: 36px;
+          border-radius: 5px;
+          border: 0.5px solid $stroke;
+          background: $background;
+          max-width: max-content;
+        }
       }
 
       .title {

@@ -1,84 +1,81 @@
-import React, { useState, useEffect, useRef } from 'react';
-// import './_ProductSelector.scss';
+import React, { useEffect, useState } from 'react';
+import axios from '../../../../utils/axios'; // Adjust the path as necessary
 
-const ProductSelector = ({ products, onAddToCart }) => {
-  const [selectedProductId, setSelectedProductId] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  const [searchTerm, setSearchTerm] = useState(''); // State to store the search input
-  const dropdownRef = useRef(null);
-
-  const handleProductSelect = (productId) => {
-    setSelectedProductId(productId);
-    const selectedProduct = products.find((product) => product.id === productId);
-
-    if (selectedProduct) {
-      onAddToCart({
-        ...selectedProduct,
-        quantity,
-      });
-    }
-  };
-
-  const handleQuantityChange = (e) => {
-    const newQuantity = parseInt(e.target.value);
-    setQuantity(newQuantity);
-
-    // Update the cart immediately when quantity changes
-    if (selectedProductId) {
-      const selectedProduct = products.find((product) => product.id === selectedProductId);
-      if (selectedProduct) {
-        onAddToCart({
-          ...selectedProduct,
-          quantity: newQuantity,
-        });
-      }
-    }
-  };
+const ProductSelector = ({ onSelectProduct, cart = [] }) => {
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  const storeId = localUser?.store?._id;
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(false);
+  const [searchProducts, setSearchProducts] = useState('');
 
   useEffect(() => {
-    // Automatically open the dropdown when the page loads
-    setIsDropdownOpen(true);
-  }, []);
+    const getProducts = async () => {
+      try {
+        setLoadingProducts(true);
+        const response = await axios.get(`/${storeId}/products/`);
+        setProducts(response.data.data); // Adjust this according to your API response
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingProducts(false);
+      }
+    };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    if (storeId) {
+      getProducts();
+    }
+  }, [storeId]);
+
+  const handleSelectProduct = (product) => {
+    if (!cart.some((item) => item._id === product._id)) {
+      const newProduct = { ...product, quantity: 1 };
+      onSelectProduct(newProduct);
+    }
   };
 
-  // Filter the products based on the search term
   const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name.toLowerCase().includes(searchProducts.toLowerCase()),
   );
 
-  return (
-    <div className="product-selector pos-section" ref={dropdownRef}>
-      <div className={`dropdown ${isDropdownOpen ? 'open' : ''}`}>
-        <div className='dropdown-flex'>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm as user types
-          />
-          <button className="dropdown-toggle" onClick={toggleDropdown}>
-            All {/* Always display 'All' as button text */}
-          </button>
-        </div>
+  const renderUnit = (unit) => {
+    if (typeof unit === 'object' && unit !== null) {
+      return unit.name || unit.shortName || JSON.stringify(unit);
+    }
+    return unit;
+  };
 
-        {isDropdownOpen && (
-          <ul className="dropdown-menu">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <li key={product.id} onClick={() => handleProductSelect(product.id)}>
-                  {product.name}
-                </li>
-              ))
-            ) : (
-              <li>No products found</li> // Show this when no matching products are found
-            )}
-          </ul>
-        )}
+  return (
+    <div className="product-selector">
+      <div className="search-bar">
+        <input
+          type="search"
+          placeholder="Search products"
+          value={searchProducts}
+          onChange={(e) => setSearchProducts(e.target.value)}
+        />
       </div>
+      {loadingProducts ? (
+        <p>Loading products...</p>
+      ) : (
+        <ul className="products">
+          {filteredProducts.map((product) => {
+            const isInCart = cart.some((item) => item._id === product._id);
+            return (
+              <li
+                key={product._id}
+                onClick={() => !isInCart && handleSelectProduct(product)}
+                className={`product ${isInCart ? 'selected' : ''}`}
+                style={{
+                  cursor: isInCart ? 'not-allowed' : 'pointer',
+                  opacity: isInCart ? 0.5 : 1,
+                }}
+              >
+                {product.name}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };

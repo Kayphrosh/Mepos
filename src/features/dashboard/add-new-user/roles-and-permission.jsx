@@ -3,11 +3,16 @@ import "./add-new-user.scss";
 import Input from "../../../components/ui/input/Input";
 import { useForm } from "react-hook-form";
 
-const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
+const RolesAndPermission = ({
+  formData,
+  handleInputChange,
+  handleNext,
+  rolesData,
+  loadingRoles,
+  error,
+}) => {
   const [allowLogin, setAllowLogin] = useState(false);
-  const [showCreatePassword, setShowCreatePassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -15,6 +20,9 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
     formState: { errors },
     getValues,
   } = useForm({ mode: "onTouched" });
+
+  console.log('RolesAndPermission props:', { rolesData, loadingRoles, error }); // Add this line for debugging
+
 
   return (
     <div className="form-container">
@@ -41,11 +49,11 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
           />
 
           <Input
+            type={showPassword ? 'text' : 'password'}
             label="Create Password"
-            type="password"
-            name="createPassword"
             placeholder="************"
             required={true}
+            name="createPassword"
             value={formData.password}
             onChange={(e) => handleInputChange("password", e.target.value)}
           />
@@ -54,16 +62,26 @@ const RolesAndPermission = ({ formData, handleInputChange, handleNext }) => {
 
       <div className="form-input">
         <label htmlFor="role">Role</label>
-        <select
-          value={formData.role}
-          onChange={(e) => handleInputChange("role", e.target.value)}
-          required={true}
-        >
-          <option value="">Select Role</option>
-          <option value="66ded5bed44ac40ea384c3ee">Receptionist</option>
-          <option value="66ded5bed44ac40ea384c3ff">Manager</option>
-          <option value="66ded5bed44ac40ea384c3gg">Cashier</option>
-        </select>
+        {loadingRoles ? (
+          <p>Loading roles...</p>
+        ) : error ? (
+          <p>Error loading roles: {error}</p>
+        ) : Array.isArray(rolesData) && rolesData.length > 0 ? (
+          <select
+            value={formData.role}
+            onChange={(e) => handleInputChange('role', e.target.value)}
+            required={true}
+          >
+            <option value="">Select Role</option>
+            {rolesData.map((role) => (
+              <option key={role._id} value={role._id}>
+                {role.name}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <p>No roles available. Please contact an administrator.</p>
+        )}
       </div>
 
       <div className="form-cta">
