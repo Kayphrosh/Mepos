@@ -3,6 +3,7 @@ import Input from '../../../components/ui/input/Input';
 import axios from '../../../utils/axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const EditRole = ({ roleData, onClose, onUpdate }) => {
   const [updatedRole, setUpdatedRole] = useState(roleData);
   const [loading, setLoading] = useState(false); // Optional: Loading state
@@ -11,38 +12,36 @@ const EditRole = ({ roleData, onClose, onUpdate }) => {
     setUpdatedRole({ ...updatedRole, [e.target.name]: e.target.value });
   };
 
-const handleUpdateRole = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  try {
-    const response = await axios.patch(`/roles/${roleData._id}`, updatedRole);
-    onUpdate(response.data); // Notify parent component of the update
-    toast.success('Role updated successfully!'); // Show success notification
+  const handleUpdateRole = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-    // Reload the page after a short delay to allow the toast to display
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000); // 1 second delay to show the success message before reloading
+    try {
+      const response = await axios.patch(`/roles/${roleData._id}`, updatedRole);
+      onUpdate(response.data); // Notify parent component of the update
+      toast.success('Role updated successfully!'); // Show success notification
 
-    onClose(); // Close modal after successful update
-  } catch (error) {
-    toast.error('Error updating role.'); // Show error notification
-    console.error('Error updating role:', error);
-  } finally {
-    setLoading(false);
-  }
-};
+      // Reload the page after a short delay to allow the toast to display
+      setTimeout(() => {
+        window.location.reload();
+      }, 500); // 1 second delay to show the success message before reloading
 
-
-
+      onClose(); // Close modal after successful update
+    } catch (error) {
+      toast.error('Error updating role.'); // Show error notification
+      console.error('Error updating role:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="form-container">
       <div className="modal-title">
         <h3>Edit Role</h3>
-        <button type="button" className="close-modal-btn" onClick={onClose}>
+        {/* <button type="button" className="close-modal-btn" onClick={onClose}>
           X
-        </button>
+        </button> */}
       </div>
 
       <form onSubmit={handleUpdateRole}>

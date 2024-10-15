@@ -1,13 +1,15 @@
 @import '../../../variables';
 
 .super-admin {
+  width: 100%;
+  min-height: 100vh;
   .container {
-    padding-top: 6.125rem;
-    margin-left: 7%;
+    // padding-top: 6.125rem;
+    // margin-left: 7%;
+    position: relative;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
 
     @media (max-width: 1024px) {
       margin-right: 5%;
@@ -16,13 +18,23 @@
     }
 
     .home-image {
+      position: fixed;
+      right: 0;
+      top: 0;
+      transform: translate(0,0);
+      display: flex;
+      flex-direction: column;
+      flex-basis: 50%;
       max-width: 100%;
-      text-align: right;
-      overflow-x: hidden;
+      height: 100vh;
+      overflow: hidden;
+      margin-left: auto;
 
       img {
-        height: 90vh;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
+        margin-left: auto;
       }
 
       @media (max-width: 1024px) {
@@ -31,8 +43,13 @@
     }
 
     .register-store {
-      width: 40%;
-
+      width: 100%;
+      max-width: 600px;
+      flex-basis: 50%;
+      display: flex;
+      flex-direction: column;
+      margin-left: 7%;
+      margin-top: 78px;
       @media (max-width: 1024px) {
         width: 60%;
       }

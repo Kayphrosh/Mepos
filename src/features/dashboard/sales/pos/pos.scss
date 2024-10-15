@@ -21,177 +21,258 @@
 
       input {
         width: 100%;
-        height: 40px;
+        height: 47px;
         border: 1px solid $stroke;
         border-radius: 4px;
         padding: 0 12px;
         font-size: 14px;
+        background-color: $white-100;
       }
     }
+
+    .products {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .product {
+        padding: 0.5rem 1rem;
+        min-height: 42px;
+      }
     }
+  }
 
-    .cart-table{
-        width: 60%;
-        height: 90%;
-        border-collapse: collapse;
+  .cart-table {
+    width: 60%;
+    height: 90%;
+    border-collapse: collapse;
 
+    .table-container {
+      flex-grow: 1;
+      height: 450px;
+      overflow-y: scroll;
 
-       .table-container{
-        flex-grow: 1;
-        height: 400px;
-        overflow-y: scroll;
-
-        table{
+      table {
+        border: none;
+        width: 100%;
+        thead {
+          border: none;
+          tr {
             border: none;
-            width: 100%;
-            thead{
-                border: none;
-                tr{
-                    border: none;
-                }
-            }
-            tbody{
-               tr{
-                    td{
-                        border: none;
-                        width: fit-content;
-                    }
-                    .quantity{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                        align-items: center;
-                        button{
-                            font-size: 1rem;
-                            line-height: 0px;
-                            font-weight: bold;
-                            padding: 10px;
-                            width: 10%;
-                            border-radius: 5px;
-                            text-align: center;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-                    }
-                }
-            }
-
+          }
         }
 
-       }
-       .cart-summary{
+        .no-product {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          margin: 4rem auto;
+          p {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              border: none;
+              width: fit-content;
+            }
+            .quantity {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              gap: 12px;
+              button {
+                background: #e4e4e4;
+                color: $primarycolor-100;
+                width: 28px;
+                height: 28px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+
+                img {
+                  width: 14px;
+                  height: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .cart-summary {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px dotted $stroke;
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-direction: column;
+      flex-shrink: 0;
+      .summary-item {
+        width: 100%;
         display: flex;
         justify-content: space-between;
-        // position: fixed;
-        // bottom: 0;
-        border-top: 1px solid #ddd;
-        padding: 20px;
+        margin-bottom: 20px;
+        span {
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        &.discount {
+          span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            input {
+              border: none;
+              background-color: transparent;
+              outline: none;
+              max-width: min-content;
+              font-size: 14px;
+              font-weight: 600;
+              color: $black;
+              -moz-appearance: textfield !important;
+              appearance: textfield !important;
+              padding: 0;
+              max-width: 5ch;
+              width: auto;
+              &::-webkit-inner-spin-button,
+              &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+              &::placeholder {
+                color: $black;
+              }
+            }
+          }
+        }
+
+        &.total-items {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #f8feff;
+          min-height: 54px;
+          padding: 8px 12px;
+
+          #total-amount {
+            color: $primarycolor-100;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  .payment-section {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    .payment-text {
+      h4 {
+        line-height: 64px;
+        border-bottom: 1px solid rgb(218, 211, 211);
+        margin: 0;
+        padding: 0;
+      }
+      .total {
+        display: flex;
+        flex-direction: row;
+        padding: 20px 0;
+        justify-content: space-between;
+        h5 {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        p {
+          font-weight: bold;
+          margin-left: 5px;
+          color: $primarycolor-100;
+        }
+      }
+    }
+    .customer {
+      border: 1px solid;
+    }
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 30px;
+
+      h5 {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .payment-method {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
-        flex-direction: column;
-        flex-shrink: 0;
-        .summary-item{
-            width: 100%;
+        // margin: 10px 0;
+
+        input {
+          max-width: 5ch; // Adjust this value based on the maximum number of digits
+          width: auto;
+        }
+        label {
+          margin: 0 0px 0 3px;
+          font-size: 13px;
+          text-align: start;
+        }
+        .payment-option {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0;
+          margin: 0;
+          // margin-left: 30px;
+          span {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            span{
-                font-size: 14px;
-                font-weight: bold;
-            }
+          }
         }
+      }
     }
+    .change-amount {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
-    .payment-section{
-        display: flex;
-        flex-direction: column;
-        .payment-text{
-            h4{
-                line-height: 64px;
-                border-bottom: 1px solid rgb(218, 211, 211);
-                margin: 0;
-                padding: 0;
-            }
-            .total{
-                display: flex;
-                flex-direction: row;
-                padding: 20px 0;
-                justify-content: space-between;
-                h5{
-                    font-size: 14px;
-                    font-weight: 400;
-                }
-                p{
-                    font-weight: bold;
-                    margin-left: 5px;
-                }
-            }
-        }
-        .customer {
-            border: 1px solid;
-        }
-        .payment-methods{
-            margin-top: 30px;
-            h5{
-                font-size: 14px;
-                font-weight: 500;
-                margin-bottom: 20px;
-            }
-            .payment-method{
-                display: flex;
-                // align-items: center;
-                // justify-content: space-between;
-                width: 100%;
-                margin: 10px 0;
-
-                label{
-                    margin: 0 0px 0 3px;
-                    font-size: 13px;
-                    text-align: start;
-
-               }
-               .payment-option{
-                display: flex;
-                flex-direction: row;
-                align-items: flex-end;
-                justify-content: flex-end;
-                width: 77%;
-                padding: 0;
-                margin: 0;
-                // margin-left: 30px;
-                span{
-                    display: flex;
-
-                }
-
-           }
-
-            }
-        }
-        .change-amount{
-            display: flex;
-           align-items: center;
-           justify-content: flex-end;
-        }
-        .payment-actions{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-top: 15px;
-            button{
-                padding: 0px 5px;
-                font-size: 14px;
-                font-weight: 400;
-            }
-            button:nth-child(1){
-                padding-left: 0;
-                margin-right: 7px;
-                background-color: #fff;
-                color: rgb(46, 113, 214);
-                font-weight: 600;
-            }
-        }
+    .payment-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 15px;
+      width: 100%;
+      button {
+        padding: 0px 5px;
+        font-size: 14px;
+        font-weight: 400;
+        min-height: 49px;
+      }
+      button:nth-child(1) {
+        padding-left: 0;
+        margin-right: 7px;
+        background-color: #fff;
+        color: #023e8a;
+        font-weight: 600;
+      }
     }
+  }
 }

@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import MEPOSLogo from "../../../assets/images/icons/MEPOS logo.svg";
-import Check from "../../../assets/images/icons/checkmark.svg";
-import RegisterScreenImage from "../../../assets/images/register-store.svg";
-import "./register-store.scss";
-import { useForm } from "react-hook-form";
-import AdminInfoForm from "./AdminInfoForm";
-import StoreInfoForm from "./StoreInfoForm";
-import axios from "../../../utils/axios";
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import MEPOSLogo from '../../../assets/images/icons/MEPOS logo.svg';
+import Check from '../../../assets/images/icons/checkmark.svg';
+import RegisterScreenImage from '../../../assets/images/register-store.svg';
+import './register-store.scss';
+import { useForm } from 'react-hook-form';
+import AdminInfoForm from './AdminInfoForm';
+import StoreInfoForm from './StoreInfoForm';
+import axios from '../../../utils/axios';
 
 const RegisterStore = () => {
   const [step, setStep] = useState(1);
@@ -22,7 +22,7 @@ const RegisterStore = () => {
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm({ mode: "onTouched" });
+  } = useForm({ mode: 'onTouched' });
 
   const navigate = useNavigate();
 
@@ -47,20 +47,20 @@ const RegisterStore = () => {
     console.log(requestData);
     setLoading(true);
     try {
-      const response = await axios.post("/stores", requestData);
+      const response = await axios.post('/stores', requestData);
       if (response.status === 201) {
-        console.log("response data", response.data.data);
+        console.log('response data', response.data.data);
         const storeId = response.data.data.store._id;
-        console.log("Store created successfully");
-        setSuccess("Store created successfully");
+        console.log('Store created successfully');
+        setSuccess('Store created successfully');
         navigate(`/${storeId}/auth`);
       } else {
-        console.log("Unexpected response:", response);
-        setError("An unexpected error occurred");
+        console.log('Unexpected response:', response);
+        setError('An unexpected error occurred');
       }
     } catch (error) {
-      console.error("Error creating store:", error);
-      setError("An error occurred while creating the store");
+      console.error('Error creating store:', error);
+      setError('An error occurred while creating the store');
     } finally {
       setLoading(false);
     }
@@ -76,22 +76,22 @@ const RegisterStore = () => {
             <div className="progress_container">
               <div className="step">
                 <div
-                  className={step === 1 ? "circle active" : "circle complete"}
+                  className={step === 1 ? 'circle active' : 'circle complete'}
                 >
                   {step === 1 ? 1 : <img src={Check} alt="Check" />}
                 </div>
               </div>
               <div
-                className={step === 1 ? "progress" : "progress active"}
+                className={step === 1 ? 'progress' : 'progress active'}
               ></div>
               <div className="step">
-                <div className={step === 1 ? "circle" : "circle active"}>2</div>
+                <div className={step === 1 ? 'circle' : 'circle active'}>2</div>
               </div>
             </div>
             <div className="progress_desc">
               <span className="active">Admin Info</span>
               <div></div>
-              <span className={step === 2 ? "active" : ""}>Store Info</span>
+              <span className={step === 2 ? 'active' : ''}>Store Info</span>
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>

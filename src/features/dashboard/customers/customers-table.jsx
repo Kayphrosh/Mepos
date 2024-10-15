@@ -1,9 +1,8 @@
 import React from 'react';
 import '../../../components/ui/table/table.scss';
-import { customersData } from './customers-data';
-import { actionIcon } from '../../../assets/images/icons';
+import { editIcon, deleteIcon } from '../../../assets/images/icons';
 
-const CustomersTable = ({customers}) => {
+const CustomersTable = ({ customers, onEditCustomer, onDeleteCustomer }) => {
   return (
     <table>
       <thead>
@@ -29,7 +28,18 @@ const CustomersTable = ({customers}) => {
             <td>{customer.membership}</td>
             <td>
               <div className="actions">
-                <img src={actionIcon} alt="" />
+                <img
+                  src={editIcon}
+                  alt="Edit"
+                  onClick={() => onEditCustomer(customer)}
+                  style={{ cursor: 'pointer' }}
+                />
+                <img
+                  src={deleteIcon}
+                  alt="Delete"
+                  onClick={() => onDeleteCustomer(customer)}
+                  style={{ cursor: 'pointer' }}
+                />
               </div>
             </td>
           </tr>

@@ -6,7 +6,7 @@ import TransactionsTable from './TransactionsTable';
 import axios from '../../../../utils/axios';
 
 const Transaction = () => {
-  const { storeId } = useParams(); // Get storeId from URL params
+  const { storeId } = useParams();
   const [searchTransactions, setSearchTransactions] = useState('');
   const [transactions, setTransactions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

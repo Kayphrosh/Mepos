@@ -32,6 +32,7 @@ const MoreInformation = ({ formData, handleInputChange, handleNext }) => {
         placeholder="+234"
         value={formData.phoneNumber}
         onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+        required={true}
       />
       <Input
         type="text"

@@ -5,18 +5,6 @@ import Input from '../../../components/ui/input/Input';
 const BasicInformation = ({ formData, handleInputChange, handleNext }) => {
   return (
     <div className="form-container">
-      <div className="form-input">
-        <label htmlFor="Gender">Gender</label>
-        <select
-          value={formData.gender}
-          onChange={(e) => handleInputChange('gender', e.target.value)}
-        >
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
-
       <Input
         type="text"
         label="First Name"
@@ -41,6 +29,18 @@ const BasicInformation = ({ formData, handleInputChange, handleNext }) => {
         value={formData.email}
         onChange={(e) => handleInputChange('email', e.target.value)}
       />
+
+      <div className="form-input">
+        <label htmlFor="Gender">Gender</label>
+        <select
+          value={formData.gender}
+          onChange={(e) => handleInputChange('gender', e.target.value)}
+        >
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
 
       <div className="form-cta">
         <div>Cancel</div>

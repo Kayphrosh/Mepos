@@ -8,7 +8,7 @@ const UsersTable = ({ users, searchQuery }) => {
       user.username,
       `${user.firstName} ${user.lastName}`,
       user.email,
-      // user.role.name,
+      user.name, // You can remove this since the 'name' is now accessed from user.role.name
     ].some((field) => field.toLowerCase().includes(searchQuery.toLowerCase())),
   );
 
@@ -29,7 +29,7 @@ const UsersTable = ({ users, searchQuery }) => {
           <tr key={user._id}>
             <td>{user.username}</td>
             <td>{`${user.firstName} ${user.lastName}`}</td>
-            {/* <td>{user.role.name}</td> */}
+            <td>{user.role?.name}</td> {/* Display the role name */}
             <td>{user.email}</td>
             <td>
               <div className="actions">

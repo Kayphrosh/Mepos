@@ -1,6 +1,6 @@
 import React from 'react';
+import './modal.scss'
 
-import './roles.scss'
 const Modal = ({ isOpen, closeModal, children }) => {
   if (!isOpen) return null;
 

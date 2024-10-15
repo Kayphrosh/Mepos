@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import './sidebar.scss';
 import logo from '../../assets/images/logo.svg';
 import {
@@ -26,6 +26,7 @@ const Sidebar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { pathname } = useLocation();
   const { storeId } = useParams(); // Fetch storeId from URL
+  const navigate = useNavigate();
 
   // Check and fallback to localStorage if storeId is not in the URL
   const resolvedStoreId = storeId || localStorage.getItem('storeId');
@@ -106,6 +107,16 @@ const Sidebar = () => {
     </li>
   );
 
+  const handleLogout = () => {
+    // Clear user session (you may need to adjust this based on your auth implementation)
+    localStorage.removeItem('token');
+    localStorage.removeItem('storeId');
+    // Add any other items that need to be cleared
+
+    // Redirect to login page
+    navigate('/register-store');
+  };
+
   return (
     <div className="sidebar-container">
       <div className="logo">
@@ -174,7 +185,12 @@ const Sidebar = () => {
               notification,
               'Notification',
             )}
-            {renderNavLink('/logout', logout, logout, 'Logout')}
+            <li key="logout" id="no-dropdown">
+              <button onClick={handleLogout} className="logout-button">
+                <img src={logout} alt="" />
+                <span>Logout</span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>

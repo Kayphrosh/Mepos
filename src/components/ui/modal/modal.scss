@@ -1,3 +1,4 @@
+@import '../../../_variables';
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -15,17 +16,23 @@
     padding: 20px;
     border-radius: 8px;
     width: 500px;
-    max-width: 90%;
+    max-width: 100%;
     position: relative;
 
     .close-button {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 2.5rem;
+      right: 1rem;
       cursor: pointer;
-      background: none;
       border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 1.5rem;
+      background: $state-100;
+      max-width: 32px;
+      height: 32px;
+      overflow: hidden;
     }
     .modal-title {
       display: flex;
